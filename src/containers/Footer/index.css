@@ -1,0 +1,10 @@
+.footer-items{
+    display: flex;
+    line-height: 40px;
+}
+
+.footer-position {
+    position: fixed;
+    bottom: 0px;
+}
+

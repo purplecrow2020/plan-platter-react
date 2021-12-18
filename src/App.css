@@ -1,0 +1,906 @@
+.App {
+  text-align: center;
+}
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+body{
+  font-family: 'ProximaNova',Arial,'Helvetica Neue',sans-serif;
+
+}
+
+/* navabr css */
+
+/* .navbar{
+  max-width: 500px;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  height: 80px;
+  background: #fff;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 0px 20px;
+} */
+/* .address{
+  display: flex;
+  align-items: center;
+  margin-left: 0px;
+  max-width: 300px;
+  height: 30px;
+  cursor: pointer;
+  margin-bottom: -1px;
+  padding-right: 10px;
+} */
+/* .headingMainAdd{
+  display: flex;
+  font-weight: 700;
+  color: #3d4152;
+  float: left;
+} */
+/* .mainAdd{
+  display: block;
+  margin-left: 10px;
+  min-width: 30px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+} */
+/* .fullAdd{
+  max-width: 200px;
+  display: block;
+  padding-left: 5px;
+  margin-left: 5px;
+  color: #686b78;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+} */
+/* .offers{
+  display: flex;
+  float: right;
+  margin-left: 15px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  top: 0px;
+  right: -20px;
+} */
+/* .offersLink{
+  display: flex;
+  align-items: center;
+  padding-left: 28px;
+  text-decoration: none;
+} */
+/* .offersText{
+  position: relative;
+  color: #3d4152;
+  top: 50%;
+  right: 0;
+  line-height: 0;
+} */
+
+
+
+/* MainBody css */
+/* .main-body-container{
+  max-width: 500px;
+  height: auto;
+  padding: 0px 20px;
+  border: 2px solid red;
+} */
+
+
+/* RestaurantCard css */
+/* .Resto-container{
+  position: relative;
+  background-color:  #e46d47;
+  border-radius: 5px;
+  color: #fff;
+  max-width: 500px;
+} */
+/* .row-0{
+  display: flex;
+} */
+/* .col-deatils{
+  width: 60%;
+  margin: 25px 20px;
+} */
+/* .col-deatils h2{
+  font-size: 35px;
+  font-weight: 600;
+  position: relative;
+  top: 0px;
+  left: -31px;
+} */
+/* .col-deatils p{
+  font-size: 20px;
+  font-weight: 300;
+  margin-top: 5px;
+} */
+/* .col-img{
+  max-width: 40%;
+
+} */
+/* .col-img img{
+  margin-top: 5px;
+  width: 150px;
+  height: 150px;
+} */
+
+/* .row-1{
+  display: flex;
+  position: absolute;
+  top: 108px;
+  left: 0px;
+
+} */
+/* .row-1 button{
+  width: 455px;
+  height: 50px;
+  background-color: #a75134;
+  opacity: .4;
+  border: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  cursor: pointer;
+
+} */
+/* .row-1 button span{
+  color: #fff;
+  font-size: 15px;
+  font-weight: 200;
+  position: relative;
+  left: -166px;
+  opacity: 1 !important;
+  z-index: 1;
+} */
+/* .row-1 button span i{
+  margin-left: 10px;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CarouselCont css */
+/* .pickUpCarouselContainer{
+  position: relative;
+  margin: 0 auto;
+  max-width: 500px;
+
+} */
+/* .pickUpCarouselContainer h2{
+  margin: 20px 0px;
+  font-size: 28px;
+  font-weight: 700px;
+  color: rgb(74, 78, 78);
+  margin-left: -175px; 
+  display: flex;
+} */
+
+/* PickUpCarousel Food-card */
+/* .small-container{
+  position: relative;
+  margin: 0 auto;
+  background-color: #fff;
+  max-width: 100px;
+} */
+/* .row-img{
+  position: relative;
+  width: 100%;
+} */
+/* .row-img img{
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+} */
+/* .ad-container{
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 25px;
+  height: 20px;
+  background-color: #000;
+} */
+/* .ad-container span{
+  position: relative;
+  top: 2px;
+  left: -2px;
+  margin-left: 5px;
+  font-size: 12px;
+  font-weight: 200;
+  color: #fff;
+
+} */
+/* .offer-box{
+  position: absolute;
+  top: 85px;
+  left: 5px;
+  width: 90px;
+  height: 26px;
+  background-color: #e46d47;
+  border-radius: 5px;
+} */
+/* .offer-box span{
+  margin-left: 8px;
+  padding-top: 5px;
+  font-size: 15px;
+  font-weight: 300;
+  color: #fff;
+} */
+/* .row-details{
+  width: 100%;
+  margin: 12px 0px;
+} */
+/* .row-details span{
+  font-size: 18px;
+  font-weight: 200;
+  color: #3d4152;
+} */
+/* .row-details p{
+  margin-left: -50px;
+  font-size: 12px;
+  font-weight: 200;
+  color: #837c7a;
+} */
+
+
+
+
+
+
+
+/* SCarousel css */
+/* .SCarouselContainer{
+  position: relative;
+  margin: 25px auto;
+  max-width: 5000px;
+} */
+
+/* SCarousel's Small card css is same as the PickUpCarousel's Food-card */
+
+
+/* CCarousel css */
+.CCarouselContainer{
+  position: relative;
+  margin: 25px auto;
+  max-width: 500px;
+}
+
+
+/* CCarousel's ComboCard css */
+.big-card-container{
+  position: relative;
+  margin: 0 auto;
+  background-color: rgb(223, 115, 133);
+  max-width: 400px;
+  border-radius: 8px;
+}
+.row{
+  display: flex;
+}
+.col{
+  width: 50%;
+}
+.small-img{
+  margin-left: -40px;
+  width: 100%;
+}
+.small-img img{
+  width: 80px;
+  height: 50px;
+}
+.text{
+  margin-left: 20px;
+  color: #fff;
+  position: relative;
+  left: 0px;
+  top: 0px;
+}
+.text h2{
+  font-size: 12px;
+  font-weight: 300;
+  position: relative;
+  top: 0px;
+  left: -73px;
+}
+.text h1{
+  font-size: 25px;
+  font-weight: 700;
+  position: relative;
+  top: 0px;
+  left: -45px;
+}
+.text h3{
+  font-size: 15px;
+  font-weight: 500;
+}
+.row .col-text {
+  width: 100%;
+}
+.row .col-text h4{
+  width: 100%;
+  font-size: 10px;
+  margin-top: 4px;
+  color: rgb(230, 225, 225);
+  position: relative;
+  top: 0px;
+  left: -37px;
+}
+.row .col-link{
+  position: absolute;
+  top: 55px;
+  left: 52px;
+  width: 100%;
+}
+.row .col-link a img{
+  width: 80px;
+  height: auto;
+}
+
+.text button{
+  background-color: rgb(117, 58, 117);
+  color: wheat;
+  margin: 10px 0px;
+  padding: 3px 7px;
+  border: none;
+  border-radius: 1px;
+  position: relative;
+  top: 0px;
+  left: -39px;
+
+}
+.big-img {
+  margin: 20px auto;
+  width: 100%;
+}
+.big-img img{
+  width: 200px;
+  height: auto;
+  padding-right: 10px;
+}
+
+
+
+/* todayFeaturedCarousel css */
+
+.todayFeaturedCarouselContainer{
+  position: relative;
+  margin: 25px auto;
+  max-width: 500px;
+
+}
+.todayFeaturedCarouselContainer h2{
+  display: flex;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 700px;
+  color: rgb(74, 78, 78);
+  /* margin-left: -175px; */
+}
+
+/* todayFeaturedCarousel's Card is came from the Combo Card css */
+
+
+
+/* CouponsCarousel css */
+/* .couponsCarouselContainer{
+  position: relative;
+  margin: 25px auto;
+  max-width: 500px;
+} */
+/* .couponsCarouselContainer h2{
+  display: flex;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 700px;
+  color: rgb(74, 78, 78);
+  margin-left: -175px; 
+} */
+
+
+
+/* CouponsCarousel's CounponCard css */
+.coupons-container{
+  position: relative;
+  margin: 0px auto;
+  background-color: rgb(245, 238, 238);
+  max-width: 150px;
+  height: 200px;
+  /* border: 1px solid gray; */
+  border-radius: 5px;
+}
+
+
+.wave {
+display: flex;
+justify-content: center;
+align-items: center;
+background: linear-gradient(to bottom, rgb(233, 223, 223), whrgb(233, 223, 223)eat
+/* sandybrown,
+chocolate */
+);
+height: 50px;
+position: relative;
+margin-bottom: 20px;
+width: 150px;
+margin: 0 auto;
+margin-top: -50px;
+}
+.wave:before,
+.wave:after {
+content: "";
+position: absolute;
+left: 0;
+bottom: 0;
+right: 0;
+background-repeat: repeat-x;
+}
+
+.wave:before {
+  height: 10px;
+  background-size: 20px 20px;
+  background-image: radial-gradient(circle at 10px -5px, transparent 12px, white 13px);
+}
+
+.wave:after {
+  height: 15px;
+  background-size: 40px 20px;
+  background-image: radial-gradient(circle at 10px 15px, white 12px, transparent 13px);
+}
+
+.icon-box{
+  position: relative;
+  left: 0;
+  top: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgb(215, 201, 224);
+}
+.icon-box i{
+  font-size: 28px;
+  position: relative;
+  top: 10px;
+  left: 0px;
+  color: white;
+}
+/* .coupons-container h4{
+  padding: 16px 28px;
+  margin: 0 auto;
+  font-size: 15px;
+  font-weight: 600;
+} */
+/* .coupons-container h2{
+  padding: 0px 36px;
+  margin: 0 auto;
+  font-size: 22px;
+  font-weight: 700;
+} */
+
+.dotes{
+  background: rgb(224, 220, 220);
+  z-index: 1;
+}
+.dot-1{
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+  left: 120px;
+}
+.dot-2{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.dot-3{
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50px;
+  left: 35px;
+}
+.dot-4{
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  position: absolute;
+  top: 100px;
+  left: 0px;
+}
+.dot-5{
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  position: absolute;
+  top: 80px;
+  left: 140px;
+}
+.dot-6{
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  position: absolute;
+  top: 159px;
+  left: 100px;
+}
+
+
+
+
+
+/* TrySNCarousel css */
+/* .trySNCarouselContainer{
+  position: relative;
+  margin: 25px auto;
+  max-width: 500px;
+} */
+/* .trySNCarouselContainer h2{
+  display: flex;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 700px;
+  color: rgb(74, 78, 78);
+  margin-left: -175px;
+} */
+/* .trySNCarouselContainer p{
+  font-size: 20px;
+  font-weight: 400px;
+  color: #686b78;
+  justify-content: flex-start;
+  display: flex;
+  margin-bottom: 40px;
+} */
+
+
+/* TrySNCarousel's TrySNFullDetailsCard css is avilable on the same folder of the js File*/
+
+
+
+
+
+/* NearRestoCont css*/
+/* .nearRestoContContainer{
+  position: relative;
+  margin: 0 auto;
+  max-width: 500px;
+
+} */
+/* .nearRestoContContainer h2{
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-size: 28px;
+  font-weight: 700px;
+  color: rgb(74, 78, 78);
+  justify-content: flex-start;
+  display: flex;
+  margin-left: -175px;
+} */
+/* .nearRestoContContainer p{
+  font-size: 24px;
+  font-weight: 400px;
+  color: #686b78;
+  justify-content: start;
+  display: flex;
+} */
+/* NearRestoCont's NearRestoCardWit / WithoutAD css on the same file of js*/
+
+
+
+
+
+
+
+
+
+/* CheckBoxCont css*/
+/* .checkBoxContContainer{
+  display: flex;
+  max-width: 500px;
+  height: auto;
+  margin-bottom: 20px;
+  margin-top: 60px;
+  border: 2px solid black;
+} */
+
+/* CheckBoxCont's CheckBox css */
+/* .check-box-cont{
+  display: flex;
+  width: 150px;
+  height: auto;
+  margin: 0 auto;
+  color: rgb(66, 65, 65);
+} */
+/* .check-box i{
+  font-size: 43px;
+  font-weight: 800;
+} */
+/* .check-box-cont span{
+  margin-left: 5px;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(66, 65, 65);
+  display: flex;
+} */
+
+
+
+
+
+/* .tag-container{
+  width: 500px;
+  height: auto;
+  margin: 0 auto; 
+  color: rgb(199, 194, 194);
+  background-color: rgb(243, 241, 237);
+  justify-content: start;
+  padding-left: 20px;
+  position: relative;
+  top: 0px;
+  left: -22px;
+
+} */
+/* .tag-container h1{
+  display: flex;
+  font-size: 80px;
+  font-weight: 800;
+  padding-top: 80px;
+  line-height: 0px;
+  margin-bottom: -20px;
+} */
+/* .tag-container img{
+  position: relative;
+  top: -122px;
+  left: -19px;
+  width: 152px;
+  height: auto;
+
+} */
+/* .heading-5{
+  margin-top: 80px;
+} */
+/* .heading-5 h5{
+  position: relative;
+  top: -95px;
+  left: 0px;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+} */
+/* .tag-container .hr-line{
+  margin: -50px 0;
+  padding-bottom: 95px;
+  width: 72px;
+  height: 2px;
+  color: rgb(61, 60, 60);
+
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer css */
+/* .footer{
+  max-width: 500px;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  height: 80px;
+  background: #fff;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 0px 20px;
+} */
+/* .icon-list{
+  display: flex;
+  list-style: none;
+  margin: 0 20px;
+  cursor: pointer;
+} */
+
+/* .icon-link{
+  text-decoration: none;
+  position: relative;
+  text-align: center;
+} */
+/* .icon-link img{
+  max-width: 80px;
+  height: auto;
+  margin-left: -60px;
+} */
+/* .icon-link i, span{
+  display: block;
+  color: #3d4152;
+} */
+/* .icon-link span{
+  margin-top: 5px;
+} */
+
+
+
+/* control css for */
+.tsn-heading-1{
+  font-size: 28px;
+  font-weight: 700px;
+  color:  #3d4152;
+}
+.tsn-heading-2{
+  font-size: 18px;
+  color:  #3e4152;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.tsn-heading-3{
+  font-size: 10px;
+  color: #fff;
+}
+.tsn-text-1{
+  font-size: 20px;
+  font-weight: 400px;
+  color: #686b78;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.tsn-text-2{
+  font-size: 16px;
+  color: #93959f;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; 
+}
+.tsn-text-3{
+  font-size: 14px;
+  font-weight: 500;
+  color: #696b79;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; 
+}
+.tsn-text-4{
+  font-size: 11px;
+  font-weight: 800;
+  color: #696b79;
+  z-index: -1;
+  letter-spacing: -1px;
+}
+.tsn-text-5{
+  font-size: 7px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: aliceblue;
+ 
+}
+
+
+/* add button */
+.add-btn{
+  position: absolute;
+  display: flex;
+  width: 90px;
+  height: 35px;
+  background-color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2);
+  padding: 2px 2px !important;
+}
+.add-btn a{
+text-decoration: none;
+color: #60b246;
+font-size: 10px;
+}
+
+
+/* AddBtn2 */
+
+.add-btn-2 a{
+text-decoration: none;
+color: #60b246;
+font-size: 10px;
+}
+
+/* small add btn */
+.add-btn-3{
+position: absolute;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 25px;
+height: 25px;
+margin: auto;
+background-color: #000;
+border-radius: 5px;
+cursor: pointer;
+box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2);
+padding: 2px 2px !important;
+}
+.add-btn-3 span{
+text-decoration: none;
+color: #fff;
+font-size: 10px;
+}
+
+/* offers button */
+.off-btn{
+  position: absolute;
+  display: flex;
+  width: 90px;
+  height: 35px;
+  background-color: #fff;
+  color: #ed5e0e;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2);
+  padding: 2px 2px;
+}
+
+
+/* RestoButton css */
+.bg-btn{
+display: flex;
+height: auto;
+margin: 0 auto;
+color: #fff;
+background-color: rgb(238, 79, 79);
+border-radius: 5px;
+justify-content: center;
+font-size: 20px;
+font-weight: 700;
+border: none;
+cursor: pointer;
+}
+
+
+
+/* TagLine css */
+
+
+.tag-heading-1{
+  display: flex;
+  font-size: 70px;
+  font-weight: 800;
+  padding-top: 80px;
+  line-height: 0px;
+  margin-bottom: -20px;
+}
+.tag-heading-2{
+  font-size: 18px;
+  font-weight: 600;
+}
