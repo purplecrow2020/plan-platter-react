@@ -2,17 +2,26 @@ import React, { Component } from 'react'
 import * as actionCreators from '../../store/actions/actions';
 import { connect } from 'react-redux';
 import MenuItemCard from '../Cards/Menu/ItemCard';
+import BestSellerCaraousel from '../BestSellers/BestSellerCaraousel';
 
 class Home extends Component {
 
 
     componentDidMount(){
         this.props.getMenuApi();
+        this.props.getBestSellerApi();
+
     }
 
     render() {
         return (
             <div>
+                {/* render BestSellers */}
+                {
+                    this.props.bestsellers 
+                        ? <BestSellerCaraousel items={this.props.bestsellers}/> 
+                        : ''
+                }
                 {/* render MENUS */}
                 {
                     
@@ -41,13 +50,15 @@ class Home extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        menu : state.menu
+        menu : state.menu,
+        bestsellers: state.bestsellers
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return { 
         getMenuApi : () => dispatch(actionCreators.getMenuApi()),
+        getBestSellerApi: () => dispatch(actionCreators.getBestSellerApi())
     }
 }
 

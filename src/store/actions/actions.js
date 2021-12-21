@@ -14,3 +14,10 @@ export const getMenuApi = (filters)=>{
         dispatch({type : 'SET_MENU', payload : {response  :api_resp}});
     }
 }
+
+export const getBestSellerApi = (filters)=>{
+    return async (dispatch) => {
+        let api_resp = await API_CALLS.getBestSellers(filters);
+        dispatch({type : 'SET_BESTSELLERS', payload : {response  :api_resp}});
+    }
+}

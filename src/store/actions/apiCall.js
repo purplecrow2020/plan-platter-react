@@ -11,3 +11,7 @@ export const healthCheck = async () =>{
 export const getMenu = async (f) =>{
     return axios.get(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getMenu}`);
 }
+
+export const getBestSellers = async () => {
+    return axios.get(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getBestSellers}`);
+}
