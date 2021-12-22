@@ -7,7 +7,7 @@ import './index.css'
 class Footer extends Component {
     render() {
         return (
-            <nav className="container py-3 footer-position" style={{maxWidth: '500px', margin: '0px auto', boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)'}} >
+            <nav className="container py-3 footer-position bg-light" style={{maxWidth: '500px', margin: '0px auto', boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)'}} >
                 <div className="footer-items " style={{ margin: 'auto', cursor: 'pointer'}} >
                     <div className="col-3">
                         <NavLink exact to='/' className="text-decoration-none text-center">

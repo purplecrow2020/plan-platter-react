@@ -3,6 +3,8 @@ import * as actionCreators from '../../store/actions/actions';
 import { connect } from 'react-redux';
 import MenuItemCard from '../Cards/Menu/ItemCard';
 import BestSellerCaraousel from '../BestSellers/BestSellerCaraousel';
+import Accordion from '../CategoryAccordion/Accordion';
+import Accordion2 from '../CategoryAccordion/Accordion2';
 
 
 class Home extends Component {
@@ -16,7 +18,7 @@ class Home extends Component {
 
     render() {
         return (
-            <div>
+            <div className='container' style={{maxWidth: '500px', marginBottom:'65px'}}>
                 {/* render BestSellers */}
                 {
                     this.props.bestsellers 
@@ -46,6 +48,13 @@ class Home extends Component {
                         )
                     })
                 }
+
+                 {/* render Menu in accordion */}
+
+                 <Accordion/>
+                 <Accordion2/>
+
+                
             </div>
         )
     }
