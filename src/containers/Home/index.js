@@ -3,7 +3,7 @@ import * as actionCreators from '../../store/actions/actions';
 import { connect } from 'react-redux';
 import MenuItemCard from '../Cards/Menu/ItemCard';
 import BestSellerCaraousel from '../BestSellers/BestSellerCaraousel';
-import BestSellerCarousal from '../BestSellers2/BestSellerCarousal';
+
 
 class Home extends Component {
 

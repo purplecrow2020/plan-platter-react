@@ -1,5 +1,5 @@
 import React from 'react';
-import FassosImg from '../../images/fasso.png'
+// import FassosImg from '../../images/fasso.png'
 
 
 export default function BestSellerCard(props) {

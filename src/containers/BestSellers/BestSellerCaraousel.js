@@ -2,15 +2,13 @@ import React, {Component} from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import CurationMarkedCard from './Text';
-import CurationCard from './Image';
-import BestSellerCard from '../BestSellers2/BestSellerCard';
+import BestSellerCard from './BestSellerCard';
 
 
 class BestSellerCaraousel extends Component {
 
     settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         autoplaySpeed: 3000,
         autoplay: true,
@@ -28,9 +26,9 @@ class BestSellerCaraousel extends Component {
                         console.log(item, index);
                         return (
                             <div style={{border: '1px solid red'}}>
-                                {/* <CurationMarkedCard /> */}
+                                
                                 <BestSellerCard item_name={item.name} item_rating={item.rating} item_img={item.img_url} item_price={item.price}/>
-                                {/* <CurationCard /> */}
+                                
                             </div>
                         )
                     })
