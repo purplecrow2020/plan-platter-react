@@ -3,6 +3,7 @@ import * as actionCreators from '../../store/actions/actions';
 import { connect } from 'react-redux';
 import MenuItemCard from '../Cards/Menu/ItemCard';
 import BestSellerCaraousel from '../BestSellers/BestSellerCaraousel';
+import BestSellerCarousal from '../BestSellers2/BestSellerCarousal';
 
 class Home extends Component {
 
@@ -19,7 +20,10 @@ class Home extends Component {
                 {/* render BestSellers */}
                 {
                     this.props.bestsellers 
-                        ? <BestSellerCaraousel items={this.props.bestsellers}/> 
+                        ? <> 
+                        {/* <BestSellerCarousal items={this.props.bestsellers}/> */}
+                        <BestSellerCaraousel items={this.props.bestsellers}/> 
+                        </>
                         : ''
                 }
                 {/* render MENUS */}

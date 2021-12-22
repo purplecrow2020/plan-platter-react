@@ -4,16 +4,17 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import CurationMarkedCard from './Text';
 import CurationCard from './Image';
+import BestSellerCard from '../BestSellers2/BestSellerCard';
 
 
 class BestSellerCaraousel extends Component {
 
     settings = {
-        dots: false,
+        dots: true,
         infinite: true,
         autoplaySpeed: 3000,
         autoplay: true,
-        slidesToShow: 5,
+        slidesToShow: 1,
         slidesToScroll: 1,
     };
 
@@ -24,10 +25,11 @@ class BestSellerCaraousel extends Component {
             <Slider {...this.settings}>
             {
                     this.props.items && this.props.items.map((item, index) => {
-                        console.log(index);
+                        console.log(item, index);
                         return (
                             <div style={{border: '1px solid red'}}>
-                                <CurationMarkedCard />
+                                {/* <CurationMarkedCard /> */}
+                                <BestSellerCard item_name={item.name} item_rating={item.rating} item_img={item.img_url} item_price={item.price}/>
                                 {/* <CurationCard /> */}
                             </div>
                         )
