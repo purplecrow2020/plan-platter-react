@@ -13,7 +13,7 @@ export default function CurationMarkedCard() {
                     </div>
                 </div>
                 <div className="tsn-text-2 text-center">
-                    <span> Healthy <br/> Food </span>
+                    <span> Healthy <br/> Diet </span>
                 </div>
             </div>
         </>
