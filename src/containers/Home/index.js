@@ -5,6 +5,8 @@ import MenuItemCard from '../Cards/Menu/ItemCard';
 import BestSellerCaraousel from '../BestSellers/BestSellerCaraousel';
 import Accordion from '../CategoryAccordion/Accordion';
 import Accordion2 from '../CategoryAccordion/Accordion2';
+import Accordion3 from '../CategoryAccordion/Accordion3';
+import '../CategoryAccordion/accordion.css';
 
 
 class Home extends Component {
@@ -18,7 +20,7 @@ class Home extends Component {
 
     render() {
         return (
-            <div className='container' style={{maxWidth: '500px', marginBottom:'65px'}}>
+            <div className='container' style={{maxWidth: '500px', marginBottom:'150px'}}>
                 {/* render BestSellers */}
                 {
                     this.props.bestsellers 
@@ -52,7 +54,8 @@ class Home extends Component {
                  {/* render Menu in accordion */}
 
                  <Accordion/>
-                 <Accordion2/>
+                 {/* <Accordion2/> */}
+                 {/* <Accordion3/> */}
 
                 
             </div>
