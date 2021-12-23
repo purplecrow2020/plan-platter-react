@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import MenuItemCard from '../Cards/Menu/ItemCard';
 import BestSellerCaraousel from '../BestSellers/BestSellerCaraousel';
 import Accordion from '../CategoryAccordion/Accordion';
-import Accordion3 from '../CategoryAccordion/Accordion3';
 import '../CategoryAccordion/accordion.css';
 
 
@@ -51,12 +50,7 @@ class Home extends Component {
                 }
 
                  {/* render Menu in accordion */}
-
-                 <Accordion/>
-                 {/* <Accordion2/> */}
-                 {/* <Accordion3/> */}
-
-                
+                 <Accordion menu={this.props.menu}/>                
             </div>
         )
     }
