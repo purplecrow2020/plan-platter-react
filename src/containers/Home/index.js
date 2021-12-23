@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import MenuItemCard from '../Cards/Menu/ItemCard';
 import BestSellerCaraousel from '../BestSellers/BestSellerCaraousel';
 import Accordion from '../CategoryAccordion/Accordion';
-import Accordion2 from '../CategoryAccordion/Accordion2';
 import Accordion3 from '../CategoryAccordion/Accordion3';
 import '../CategoryAccordion/accordion.css';
 
