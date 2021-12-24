@@ -13,7 +13,7 @@ export default function BestSellerCard(props) {
                 </div>
                 <div className="d-flex justify-content-center">
                 <a href="#off" className="off-btn text-decoration-none">
-                    <span className="d-flex align-items-center"><span className='pt-n-1 pr-1'>&#10032; </span> {props.item_rating} </span> 
+                    <span className="d-flex align-items-center"><span className='pt-n-1 pr-1'>&#10032;   &nbsp; </span> {props.item_rating} </span> 
                 </a>
                 </div>
                 <div className=" mt-4 pt-3 text-center" style={{position: 'relative'}}>

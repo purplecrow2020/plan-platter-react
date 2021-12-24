@@ -34,8 +34,9 @@ class Home extends Component {
                     this.props.menu && Object.keys(this.props.menu).map(item_category => {
                         return (
                             
-                            <div>
-                                <p>{item_category}</p>
+                            <div className='row'>
+                                <div className='col'>
+                                <p className='ct-heading'>{item_category}</p>
                                 {
                                     this.props.menu[item_category].map((item, index) => {
                                         return (
@@ -43,6 +44,7 @@ class Home extends Component {
                                         )
                                     })
                                 }
+                                </div>
                             </div>
                             
                         )
