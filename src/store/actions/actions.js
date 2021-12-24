@@ -21,3 +21,14 @@ export const getBestSellerApi = (filters)=>{
         dispatch({type : 'SET_BESTSELLERS', payload : {response  :api_resp}});
     }
 }
+
+export const getMenuSearchesApi = (item_search_string)=>{
+    return async (dispatch) => {
+        let api_resp = await API_CALLS.getMenuSearches({item_search_string});
+        console.log(api_resp);
+        dispatch({type : 'SET_MENU_SEARCH_RESULTS', payload : {response  :api_resp}});
+    }
+}
+
+
+

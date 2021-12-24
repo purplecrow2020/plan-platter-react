@@ -5,20 +5,23 @@ import MenuItemCard from '../Cards/Menu/ItemCard';
 import BestSellerCaraousel from '../BestSellers/BestSellerCaraousel';
 import Accordion from '../CategoryAccordion/Accordion';
 import '../CategoryAccordion/accordion.css';
-
-
+import Search from '../Search/SearchBar';
+import NavBar from '../NavBar';
 class Home extends Component {
 
 
     componentDidMount(){
         this.props.getMenuApi();
         this.props.getBestSellerApi();
-
     }
 
     render() {
         return (
             <div className='container' style={{maxWidth: '500px', marginBottom:'150px'}}>
+                {/* Nav BAR */}
+                <NavBar />
+                {/* SEARCH BAR */}
+                <Search />
                 {/* render BestSellers */}
                 {
                     this.props.bestsellers 
@@ -62,14 +65,16 @@ class Home extends Component {
 const mapStateToProps = (state) => {
     return {
         menu : state.menu,
-        bestsellers: state.bestsellers
+        bestsellers: state.bestsellers,
+        menu_search_results: state.menu_search_results
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return { 
         getMenuApi : () => dispatch(actionCreators.getMenuApi()),
-        getBestSellerApi: () => dispatch(actionCreators.getBestSellerApi())
+        getBestSellerApi: () => dispatch(actionCreators.getBestSellerApi()),
+        getMenuSearchesApi: (item_search_string) => dispatch(actionCreators.getMenuSearchesApi(item_search_string))
     }
 }
 
