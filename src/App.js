@@ -4,6 +4,7 @@ import Footer  from './containers/Footer';
 import MenuItemCard from './containers/Cards/Menu/ItemCard';
 import Home from './containers/Home';
 import BestSellerCaraousel from './containers/BestSellers/BestSellerCaraousel';
+import Cart from './containers/Cart';
 
 function App() {
   return (
@@ -11,6 +12,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route exact path="/cart" element={<Cart />} />
+
           {/* <Route exact path="/" element={<BestSellerCaraousel />} /> */}
         </Routes>
       <Footer />

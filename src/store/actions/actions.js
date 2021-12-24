@@ -21,3 +21,17 @@ export const getBestSellerApi = (filters)=>{
         dispatch({type : 'SET_BESTSELLERS', payload : {response  :api_resp}});
     }
 }
+
+
+export const getCartDetails = ()=>{
+    return async (dispatch) => {
+        let api_resp = await API_CALLS.getCartDetails();
+        dispatch({type : 'SET_CART_DETAILS', payload : {response  :api_resp}});
+    }
+}
+
+
+
+
+
+

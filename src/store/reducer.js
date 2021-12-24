@@ -2,6 +2,7 @@ const initialState  = {
     appName : 'PLAN_AND_PLATTER',
     menu: [],
     bestsellers: [],
+    cartDetails: []
 }
 
 export const rootReducer = (state=initialState, action) =>{
@@ -16,6 +17,11 @@ export const rootReducer = (state=initialState, action) =>{
             return {
                 ...state,
                 bestsellers: action.payload.response.data.data
+            }
+        case 'SET_CART_DETAILS':
+            return {
+                ...state,
+                cartDetails: action.payload.response.data.data     
             }
         default:
             return state;

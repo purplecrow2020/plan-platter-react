@@ -15,3 +15,15 @@ export const getMenu = async (f) =>{
 export const getBestSellers = async () => {
     return axios.get(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getBestSellers}`);
 }
+
+export const getCartDetails = async () => {
+    return axios.get(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getCartDetails}`);
+}
+
+export const addItemToCart = async (req_data) => {
+    return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.addItemToCart}`, req_data);
+}
+
+export const deleteItemFromCart = async (req_data) => {
+    return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.deleteItemFromCart}`, req_data);
+}
