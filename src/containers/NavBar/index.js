@@ -15,7 +15,7 @@ class NavBar extends Component {
                         </div>
                         <div className="row " style={{marginLeft: '0px !important'}}>
                         {/* textOverflow: 'ellipsis', overflow: 'hidden' */}
-                            <span className="fullAdd " style={{maxWidth: '400px', whiteSpace: 'nowrap', color: ' #686b78'}}>Welcome to Kulcha</span>
+                            <span className="fullAdd " style={{maxWidth: '400px', whiteSpace: 'nowrap', color: ' #686b78'}}>Welcome to KOOLCHAS</span>
                             <span className="icon-downArrow kVKTT"></span>
                         </div>
 

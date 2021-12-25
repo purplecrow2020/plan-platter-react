@@ -32,9 +32,14 @@ class SearchBar extends Component {
                 <div className="row">
                     <div className="col">
                         <div className="py-3 ">
-                            <input className="py-2 pl-5 text-start border border-2 rounded" placeholder="Search for Restaurant and food" style={{ width: '100%', fontSize: '18px', fontWeight: '500' }}  onChange={this.onChangeHandler} value={this.state.search_string}/>
+                            <input className="py-2 pl-5 text-start border border-2 rounded" 
+                            placeholder="Search food"
+                             style={{ width: '100%', fontSize: '18px', fontWeight: '500', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }} 
+                             onChange={this.onChangeHandler} value={this.state.search_string}/>
+
                             <div style={{ position: 'absolute', top: '28px', left: '35px' }}><i class="fas fa-search" style={{ color: '#696b79' }}></i></div>
-                            {/* <i class="fas fa-times" style={{position: 'absolute', top: '25px', left: '390px'}}></i> */}
+                            <div style={{position: 'absolute', top: '28px', right: '34px'}}> <i class="fas fa-times" style={{ color: '#696b79' }}></i> </div>
+                           
                             {/* <i class="fas fa-chevron-left" style={{position: 'absolute', top: '25px', left: '20px'}}></i> */}
                         </div>
                     </div>
