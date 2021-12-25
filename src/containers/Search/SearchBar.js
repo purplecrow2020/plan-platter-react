@@ -13,6 +13,12 @@ class SearchBar extends Component {
         }
     }
 
+    onCancelHandler = () => {
+        this.props.emptySearchResults([]);
+        this.setState({
+            search_string: ''
+        })
+    }
 
     onChangeHandler = (e) => {
         this.setState({
@@ -38,7 +44,7 @@ class SearchBar extends Component {
                              onChange={this.onChangeHandler} value={this.state.search_string}/>
 
                             <div style={{ position: 'absolute', top: '28px', left: '35px' }}><i class="fas fa-search" style={{ color: '#696b79' }}></i></div>
-                            <div style={{position: 'absolute', top: '28px', right: '34px'}}> <i class="fas fa-times" style={{ color: '#696b79' }}></i> </div>
+                            <div style={{position: 'absolute', top: '28px', right: '34px'}}> <i class="fas fa-times" style={{ color: '#696b79' }} onClick={this.onCancelHandler}></i> </div>
                            
                             {/* <i class="fas fa-chevron-left" style={{position: 'absolute', top: '25px', left: '20px'}}></i> */}
                         </div>

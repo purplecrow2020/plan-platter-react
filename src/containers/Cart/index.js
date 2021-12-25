@@ -3,6 +3,7 @@ import * as actionCreators from '../../store/actions/actions';
 import { connect } from 'react-redux';
 import UpdateItem from '../Buttons/UpdateItem';
 import './index.css';
+import defaultCartImg from '../../images/defaultCart.png';
 
 class Cart extends Component {
 
@@ -13,11 +14,12 @@ class Cart extends Component {
 
     render() {
         return (
-            <div className="container" style={{ maxWidth: '500px' }}>
+            <div className="container" style={{ maxWidth: '500px', border:'0px solid red', minHeight: '100vh' }}>
                 {/* TOTAL ITEMS */}
 
                 {
-                    this.props.cartDetails && this.props.cartDetails.map(item => {
+                    this.props.cartDetails && this.props.cartDetails.details.length > 0 ?
+                    this.props.cartDetails.details.map(item => {
                         return (
                                 <><div className="row">
                                     <div className="col-2">
@@ -55,53 +57,59 @@ class Cart extends Component {
                                 </div></>
 
                         )
-                    })
+                    }) : 
+                        <div style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)'}}><img src={defaultCartImg} alt="default-cart-img" className="d-flex justify-content-center img-fluid" style={{ maxWidth: '250px', height: 'auto' }} /><div className="row mt-4">
+                            <div className="col text-center">
+                                <h4 className="">Good food is always cooking</h4>
+                                <p>Your card is empty. Add something form the menu</p>
+                            </div>
+                        </div></div>
                 }
 
                
 
                 {/* TOTAL BILL */}
-                <hr />
-                <br>
-                </br>
-                <div className="row">
-                    <div className="col">
-                        <div className="cd-heading-4">Bill Details</div>
-                        <div className="row cd-text-2">
-                            <div className="col-10 ">Item Total</div>
-                            <div className="col-2 d-flex justify-content-end">₹410.72</div>
-                        </div>
-                        <div className="row cd-text-2">
-                            <div className="col-10 ">Delivery Partner fee for 0.00 kms  &nbsp; <i class="fas fa-info-circle cd-icon-5" style={{background: '#fff'}}></i> </div>
-                            <div className="col-2 d-flex justify-content-end">₹22</div>
-                        </div>
-                        <div className="cd-text-3">This fee goes towards paying your Delivery Partner fairly</div>
-                        
-                        <hr/>
+                {   this.props.cartDetails &&this.props.cartDetails.details.length > 0 ?
+                        <><hr /><br>
+                        </br><div className="row">
+                                <div className="col">
+                                    <div className="cd-heading-4">Bill Details</div>
+                                    <div className="row cd-text-2">
+                                        <div className="col-10 ">Item Total</div>
+                                        <div className="col-2 d-flex justify-content-end">₹410.72</div>
+                                    </div>
+                                    <div className="row cd-text-2">
+                                        <div className="col-10 ">Delivery Partner fee for 0.00 kms  &nbsp; <i class="fas fa-info-circle cd-icon-5" style={{ background: '#fff' }}></i> </div>
+                                        <div className="col-2 d-flex justify-content-end">₹22</div>
+                                    </div>
+                                    <div className="cd-text-3">This fee goes towards paying your Delivery Partner fairly</div>
 
-                        <div className="row cd-text-2">
-                            <div className="col-10">Delivery Tip</div>
-                            <div className="col-2">
-                                <a href="#add-tip" className="text-decoration-none d-block" style={{color: ' #ad684e'}}>
-                                    Add tip
-                                </a>
-                            </div>
-                        </div>
-                        <div className="row cd-text-2">
-                            <div className="col-10">Texes and Charges &nbsp; <i class="fas fa-info-circle cd-icon-5" style={{background: '#fff'}}></i></div>
-                            <div className="col-2 d-flex justify-content-end">
-                               ₹38.24
-                            </div>
-                        </div>
+                                    <hr />
 
-                        <hr/>
+                                    <div className="row cd-text-2">
+                                        <div className="col-10">Delivery Tip</div>
+                                        <div className="col-2">
+                                            <a href="#add-tip" className="text-decoration-none d-block" style={{ color: ' #ad684e' }}>
+                                                Add tip
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div className="row cd-text-2">
+                                        <div className="col-10">Texes and Charges &nbsp; <i class="fas fa-info-circle cd-icon-5" style={{ background: '#fff' }}></i></div>
+                                        <div className="col-2 d-flex justify-content-end">
+                                            ₹38.24
+                                        </div>
+                                    </div>
 
-                        <div className="row cd-heading-4">
-                            <div className="col-10">To Pay</div>
-                            <div className="col-2 d-flex justify-content-end">₹471</div>
-                        </div>
-                    </div>
-                </div>
+                                    <hr />
+
+                                    <div className="row cd-heading-4">
+                                        <div className="col-10">To Pay</div>
+                                        <div className="col-2 d-flex justify-content-end">₹471</div>
+                                    </div>
+                                </div>
+                            </div></> : ''
+                }
             </div>
         )
     }

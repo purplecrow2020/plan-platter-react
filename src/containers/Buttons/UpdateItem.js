@@ -11,6 +11,7 @@ class UpdateItem extends Component {
             menu_item_id: id
         }).then(()=>{
             this.props.callCartDetailsApi();
+            this.props.getMenuApi();
         }).catch(err=>console.log(err));
     }
 
@@ -19,6 +20,7 @@ class UpdateItem extends Component {
             menu_id: id
         }).then(()=>{
             this.props.callCartDetailsApi();
+            this.props.getMenuApi();
         }).catch(err=>console.log(err));;
     }
 
@@ -52,6 +54,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return { 
         callCartDetailsApi : () => dispatch(actionCreators.getCartDetails()),
+        getMenuApi : () => dispatch(actionCreators.getMenuApi()),
     }
 }
 
