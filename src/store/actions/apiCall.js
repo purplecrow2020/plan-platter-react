@@ -15,3 +15,7 @@ export const getMenu = async (f) =>{
 export const getBestSellers = async () => {
     return axios.get(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getBestSellers}`);
 }
+
+export const getMenuSearches = async (req_body) => {
+    return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getMenuSearches}`,  {...req_body});
+}

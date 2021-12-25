@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import CurationMarkedCard from './Text';
-import CurationCard from './Image';
+import BestSellerCard from './BestSellerCard';
 
 
 class BestSellerCaraousel extends Component {
@@ -13,22 +12,23 @@ class BestSellerCaraousel extends Component {
         infinite: true,
         autoplaySpeed: 3000,
         autoplay: true,
-        slidesToShow: 5,
+        slidesToShow: 1,
         slidesToScroll: 1,
     };
 
     render() {
         return (
-            <div className="container my-5" style={{maxWidth: '500px', paddingLeft: '0px', border:'1px solid red'}}>
+            <div className="container my-5" style={{maxWidth: '500px', paddingLeft: '0px'}}>
             <h2 className="tsn-heading-1">Popular Curations</h2>
             <Slider {...this.settings}>
             {
                     this.props.items && this.props.items.map((item, index) => {
-                        console.log(index);
+                        console.log(item, index);
                         return (
                             <div style={{border: '1px solid red'}}>
-                                <CurationMarkedCard />
-                                {/* <CurationCard /> */}
+                                
+                                <BestSellerCard item_name={item.name} item_rating={item.rating} item_img={item.img_url} item_price={item.price}/>
+                                
                             </div>
                         )
                     })
