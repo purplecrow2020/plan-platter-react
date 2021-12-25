@@ -22,38 +22,6 @@ export default function Footer() {
                         </NavLink>
                     </div>
                     <div className="col-3">
-                        <NavLink exact to='/search' className="text-decoration-none text-center" 
-                        style={{color: '#3d4152'}}
-                        >
-                            <i className="fa fa-search d-block" aria-hidden="true" style={{left:'0px'}}></i>
-                            <span className="d-block  mt-1">SEARCH</span>
-                        </NavLink>
-    
-                    </div>
-                    <div className="col-3">
-                        <NavLink exact to="/cart" className="text-decoration-none text-center" 
-                        style={{color: '#3d4152'}}
-                        >
-                            <i className="fa fa-shopping-bag d-block" aria-hidden="true"></i>
-                            <span className="d-block  mt-1">CART</span>
-                        </NavLink>
-    
-                    </div>
-                    <div className="col-3">
-                        <NavLink exact to='/profile'  className=" text-decoration-none text-center" 
-                        style={{color: '#3d4152'}}
-                        >
-                            <i className="fa fa-user d-block " aria-hidden="true" ></i>
-                            <span className="d-block mt-1">ACCOUNT</span>
-                        </NavLink>
-                    </div>
-                </div>
-<<<<<<< HEAD
-            </nav>
-        )
-    }
-=======
-                <div className="col-3">
                     <NavLink exact to='/search' className="text-decoration-none text-center" 
                     style={{color: '#3d4152'}}
                     >
@@ -84,6 +52,6 @@ export default function Footer() {
                 </div>
             </div>
         </nav>
-    )
->>>>>>> master
+        )
+    }               
 }
