@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../../images/logo.jpeg';
 import {NavLink} from 'react-router-dom';
+import './index.css';
 
 
 
@@ -25,10 +26,11 @@ export default function Footer() {
                 </div>
                 <div className="col-3">
                     <NavLink exact to="/cart" className="text-decoration-none text-center" 
-                    style={{color: '#3d4152'}}
+                    style={{color: '#3d4152', position:'relative'}}
                     >
                         <i className="fa fa-shopping-bag d-block" aria-hidden="true"></i>
                         <span className="d-block  mt-1">CART</span>
+                        <span className='cart-count-icon' >2</span>
                     </NavLink>
 
                 </div>
