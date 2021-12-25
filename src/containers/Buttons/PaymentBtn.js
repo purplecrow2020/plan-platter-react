@@ -12,12 +12,12 @@ export default class PaymentBtn extends Component {
                                 <div className="row my-2">
                                     <div className="col">
                                         <Link to="/login">
-                                            <button className=" sec-btn" style={{ color: '#fc8019', borderColor: '#fc8019' }}>REGISTER</button>
+                                            <button className=" sec-btn border-0 py-3" style={{ color: '#000000', background: '#FEF5ED' }}>ABCD</button>
                                         </Link>
                                     </div>
                                     <div className="col">
                                         <Link to="/signup">
-                                            <button className=" sec-btn" style={{ color: '#282c3f', borderColor: '#282c3f' }}>GUEST</button>
+                                            <button className=" sec-btn border-0 py-3" style={{ color: '#ffffff', background: '#95CD41' }}>MAKE PAYMENT</button>
                                         </Link>
                                     </div>
                                 </div>
