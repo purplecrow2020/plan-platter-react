@@ -3,6 +3,7 @@ import * as actionCreators from '../../store/actions/actions';
 import { connect } from 'react-redux';
 import UpdateItem from '../Buttons/UpdateItem';
 import './index.css';
+import PaymentBtn from '../Buttons/PaymentBtn';
 
 class Cart extends Component {
 
@@ -102,6 +103,8 @@ class Cart extends Component {
                         </div>
                     </div>
                 </div>
+
+                <PaymentBtn/>
             </div>
         )
     }

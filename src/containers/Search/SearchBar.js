@@ -50,7 +50,7 @@ class SearchBar extends Component {
                 {
                     this.props.menu_item_search_results && this.props.menu_item_search_results.map((item)=>{
                         return (
-                            <li class="list-group-item"><a  className='text-decoration-none' style={{ color: '#686b78' }}>{item.name}</a></li>
+                            <li class="list-group-item"><a href='#'  className='text-decoration-none' style={{ color: '#686b78' }}>{item.name}</a></li>
                         )
                     })
                 }
