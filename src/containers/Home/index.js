@@ -29,7 +29,7 @@ class Home extends Component {
                         {/* <BestSellerCarousal items={this.props.bestsellers}/> */}
                         <BestSellerCaraousel items={this.props.bestsellers}/> 
                         </>
-                        : ''
+                        : ' Loading...'
                 }
                 {/* render MENUS */}
                 {/* {

@@ -35,7 +35,7 @@ export default function Footer() {
                     style={{color: '#3d4152', position:'relative'}}
                     >
                         <i className="fa fa-shopping-bag d-block" aria-hidden="true" style={{position:'relative'}}>
-                            <span className='cart-count-icon' style={{position: 'absolute', top: '-10px'}}>2</span>
+                            <span className='cart-count-icon' style={{position: 'absolute', top: '-8px'}}>2</span>
                         </i>
                         <span className="d-block  mt-1">CART</span>
                         
