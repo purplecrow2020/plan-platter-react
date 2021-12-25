@@ -3,23 +3,32 @@ import * as actionCreators from '../../store/actions/actions';
 import { connect } from 'react-redux';
 import MenuItemCard from '../Cards/Menu/ItemCard';
 import BestSellerCaraousel from '../BestSellers/BestSellerCaraousel';
-
+import Accordion from '../CategoryAccordion/Accordion';
+import '../CategoryAccordion/accordion.css';
+import Search from '../Search/SearchBar';
+import NavBar from '../NavBar';
 class Home extends Component {
 
 
     componentDidMount(){
         this.props.getMenuApi();
         this.props.getBestSellerApi();
-
     }
 
     render() {
         return (
-            <div>
+            <div className='container' style={{maxWidth: '500px', marginBottom:'150px'}}>
+                {/* Nav BAR */}
+                <NavBar />
+                {/* SEARCH BAR */}
+                <Search />
                 {/* render BestSellers */}
                 {
                     this.props.bestsellers 
-                        ? <BestSellerCaraousel items={this.props.bestsellers}/> 
+                        ? <> 
+                        {/* <BestSellerCarousal items={this.props.bestsellers}/> */}
+                        <BestSellerCaraousel items={this.props.bestsellers}/> 
+                        </>
                         : ''
                 }
                 {/* render MENUS */}
@@ -28,8 +37,9 @@ class Home extends Component {
                     this.props.menu && Object.keys(this.props.menu).map(item_category => {
                         return (
                             
-                            <div>
-                                <p>{item_category}</p>
+                            <div className='row'>
+                                <div className='col'>
+                                <p className='ct-heading'>{item_category}</p>
                                 {
                                     this.props.menu[item_category].map((item, index) => {
                                         return (
@@ -37,11 +47,15 @@ class Home extends Component {
                                         )
                                     })
                                 }
+                                </div>
                             </div>
                             
                         )
                     })
                 }
+
+                 {/* render Menu in accordion */}
+                 <Accordion menu={this.props.menu}/>                
             </div>
         )
     }
@@ -51,14 +65,16 @@ class Home extends Component {
 const mapStateToProps = (state) => {
     return {
         menu : state.menu,
-        bestsellers: state.bestsellers
+        bestsellers: state.bestsellers,
+        menu_search_results: state.menu_search_results
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return { 
         getMenuApi : () => dispatch(actionCreators.getMenuApi()),
-        getBestSellerApi: () => dispatch(actionCreators.getBestSellerApi())
+        getBestSellerApi: () => dispatch(actionCreators.getBestSellerApi()),
+        getMenuSearchesApi: (item_search_string) => dispatch(actionCreators.getMenuSearchesApi(item_search_string))
     }
 }
 

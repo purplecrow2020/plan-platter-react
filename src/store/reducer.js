@@ -2,7 +2,8 @@ const initialState  = {
     appName : 'PLAN_AND_PLATTER',
     menu: [],
     bestsellers: [],
-    cartDetails: []
+    cartDetails: [],
+    menu_item_search_results: [],
 }
 
 export const rootReducer = (state=initialState, action) =>{
@@ -23,6 +24,13 @@ export const rootReducer = (state=initialState, action) =>{
                 ...state,
                 cartDetails: action.payload.response.data.data     
             }
+
+        case 'SET_MENU_SEARCH_RESULTS':
+            return {
+                ...state,
+                menu_item_search_results: action.payload.response.data.data
+            }
+
         default:
             return state;
     }
