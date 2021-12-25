@@ -14,12 +14,12 @@ class Cart extends Component {
 
     render() {
         return (
-            <div className="container" style={{ maxWidth: '500px', border:'1px solid red', minHeight: '100vh' }}>
+            <div className="container" style={{ maxWidth: '500px', border:'0px solid red', minHeight: '100vh' }}>
                 {/* TOTAL ITEMS */}
 
                 {
-                    this.props.cartDetails.length && this.props.cartDetails.length > 0 ?
-                    this.props.cartDetails.map(item => {
+                    this.props.cartDetails && this.props.cartDetails.details.length > 0 ?
+                    this.props.cartDetails.details.map(item => {
                         return (
                                 <><div className="row">
                                     <div className="col-2">
@@ -69,7 +69,7 @@ class Cart extends Component {
                
 
                 {/* TOTAL BILL */}
-                {   this.props.cartDetails &&this.props.cartDetails.length > 0 ?
+                {   this.props.cartDetails &&this.props.cartDetails.details.length > 0 ?
                         <><hr /><br>
                         </br><div className="row">
                                 <div className="col">

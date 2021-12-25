@@ -2,7 +2,11 @@ const initialState  = {
     appName : 'PLAN_AND_PLATTER',
     menu: [],
     bestsellers: [],
-    cartDetails: [],
+    cartDetails: {
+        details: [],
+        total_qty: 0,
+        total_bill: 0
+    },
     menu_item_search_results: [],
 }
 
