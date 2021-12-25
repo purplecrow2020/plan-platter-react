@@ -29,7 +29,7 @@ export default class ProfileMainBody extends Component {
                         {
                             this.props.menu[item_category].map((item, index) => {
                                 return (
-                                    <li className="mt-4 "> <a href="#manage-address" className="text-decoration-none ct-heading"><MenuItemCard item_name={item.name} item_img_url={item.img_url} item_price={item.price} /></a> </li>
+                                    <li className="mt-4 "> <a href="#manage-address" className="text-decoration-none ct-heading"><MenuItemCard item_id={item.id} item_name={item.name} item_img_url={item.img_url} item_price={item.price} dietary_flag={item.dietary_flag}  item_qty={item.qty} /></a> </li>
                                 )
                             })
                         }
