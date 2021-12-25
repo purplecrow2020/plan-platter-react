@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import AddItem from '../../Buttons/AddItem';
+import UpdateItem from '../../Buttons/UpdateItem';
 
 
 class MenuItemCard extends Component {
     render() {
+        console.log("ITEMQTYYYYY",this.props.item_qty);
         const dietary_flag_color = this.props.dietary_flag ==='VEG' ? 'green' : 'red';
         return (
             <div className=" mt-2" style={{ maxWidth: '500px'}}>
@@ -19,8 +21,13 @@ class MenuItemCard extends Component {
                         <div className="row" >
                             <img src={this.props.item_img_url} className="img-fluid rounded mt-3" alt="dal-fry-img" />
 
-                            <div className="d-flex justify-content-center" style={{ position: 'relative', top: '-20px' }}>
-                                <AddItem className="ml-3" />
+                            <div className="d-flex justify-content-center" style={{ position: 'relative', top: '-5px' }}>
+                                {
+                                    this.props.item_qty 
+                                    ? <UpdateItem menu_item_id={this.props.item_id}  count={this.props.item_qty} />
+                                    : <AddItem className="ml-3"  menu_item_id={this.props.item_id} />
+                                }
+                                
                             </div>
                         </div>
                     </div>
