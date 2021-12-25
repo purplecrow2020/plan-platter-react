@@ -32,7 +32,7 @@ class Home extends Component {
                         : ''
                 }
                 {/* render MENUS */}
-                {
+                {/* {
                     
                     this.props.menu && Object.keys(this.props.menu).map(item_category => {
                         return (
@@ -52,7 +52,7 @@ class Home extends Component {
                             
                         )
                     })
-                }
+                } */}
 
                  {/* render Menu in accordion */}
                  <Accordion menu={this.props.menu}/>                
