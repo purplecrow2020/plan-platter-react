@@ -74,7 +74,7 @@ const mapDispatchToProps = (dispatch) => {
     return { 
         getMenuApi : () => dispatch(actionCreators.getMenuApi()),
         getBestSellerApi: () => dispatch(actionCreators.getBestSellerApi()),
-        getMenuSearchesApi: (item_search_string) => dispatch(actionCreators.getMenuSearchesApi(item_search_string))
+        getMenuSearchesApi: (item_search_string) => dispatch(actionCreators.getMenuSearchesApi(item_search_string)),
     }
 }
 

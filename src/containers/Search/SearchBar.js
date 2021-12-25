@@ -21,9 +21,9 @@ class SearchBar extends Component {
         if(e.target.value.length > 0) {
             this.props.getMenuSearchesApi(e.target.value);
         }
-        // if (e.length == 0) {
-            
-        // }
+        if (e.target.value.length === 0) {
+            this.props.emptySearchResults([])
+        }
     }
 
     render() {
@@ -126,7 +126,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return { 
-        getMenuSearchesApi: (item_search_string) => dispatch(actionCreators.getMenuSearchesApi(item_search_string))
+        getMenuSearchesApi: (item_search_string) => dispatch(actionCreators.getMenuSearchesApi(item_search_string)),
+        emptySearchResults: (data) => dispatch({type : 'SET_MENU_SEARCH_RESULTS', payload : {response  : {data: { data: data}}}})
     }
 }
 
