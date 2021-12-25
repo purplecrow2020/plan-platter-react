@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 function Footer({cartDetails}) {
     const location = useLocation();
     console.log(location.pathname);
-    const fullLayoutRoutes = ['/login', '/signup', '/register'];
+    const fullLayoutRoutes = ['/login', '/signup', '/register', '/'];
     if (fullLayoutRoutes.includes(location.pathname)) {
         return (<div></div>);
     } else {

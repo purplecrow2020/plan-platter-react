@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 class Login extends Component {
     render() {
         return (
-            <div className='container' style={{ maxWidth: '500px', marginTop: '35%' }}>
+            <div className='container' style={{ maxWidth: '500px', marginTop: '15%' }}>
                 <div className='row mb-5'>
                     <div className='col-9'>
                         <h3>Login</h3>

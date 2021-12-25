@@ -17,11 +17,11 @@ function App() {
     <div style={{ display: 'flex', justifyContent: 'center' }}>
       <BrowserRouter>
       <Routes>
-          <Route exact path="/register" element={<Register />} />
+          <Route exact path="/" element={<Register />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<Signup />} />
 
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/home" element={<Home />} />
           <Route exact path="/cart" element={<Cart />} />
           {/* <Route exact path="/" element={<BestSellerCaraousel />} /> */}
           <Route exact path='/search' element={<SearchBar/>} />

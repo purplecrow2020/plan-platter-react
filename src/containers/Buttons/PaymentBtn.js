@@ -1,17 +1,11 @@
-import React, { Component } from 'react'
-import Signup from '../Signup/index';
-import Login from '../Login';
-import NavBar from '../NavBar';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class Register extends Component {
+export default class PaymentBtn extends Component {
     render() {
         return (
-            
-                
-            <div className='container' style={{maxWidth: '500px', marginBottom:'150px', height: '100vh'}}>
-            <NavBar />
-                <div className="row" style={{marginTop:'0%'}}>
+            <div className='container' style={{maxWidth: '500px'}}>
+                <div className="row">
                     <div className="col" >
                         <section>
                             <div className="pb-4">
@@ -32,10 +26,6 @@ class Register extends Component {
                     </div>
                 </div>
                 </div>
-           
         )
     }
 }
-
-
-export default Register;
