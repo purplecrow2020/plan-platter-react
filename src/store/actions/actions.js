@@ -22,6 +22,12 @@ export const getBestSellerApi = (filters)=>{
     }
 }
 
+export const getCartDetails = ()=>{
+    return async (dispatch) => {
+        let api_resp = await API_CALLS.getCartDetails();
+        dispatch({type : 'SET_CART_DETAILS', payload : {response  :api_resp}});
+    }}
+
 export const getMenuSearchesApi = (item_search_string)=>{
     return async (dispatch) => {
         let api_resp = await API_CALLS.getMenuSearches({item_search_string});
@@ -29,6 +35,3 @@ export const getMenuSearchesApi = (item_search_string)=>{
         dispatch({type : 'SET_MENU_SEARCH_RESULTS', payload : {response  :api_resp}});
     }
 }
-
-
-
