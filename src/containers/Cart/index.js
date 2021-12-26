@@ -5,6 +5,8 @@ import UpdateItem from '../Buttons/UpdateItem';
 import './index.css';
 import defaultCartImg from '../../images/defaultCart.png'
 import PaymentBtn from '../Buttons/PaymentBtn';
+import RestaurantDetails from '../restaurantDetail';
+import BrowserMenu from '../browserMenu';
 
 class Cart extends Component {
 
@@ -16,6 +18,15 @@ class Cart extends Component {
     render() {
         return (
             <div className="container" style={{ maxWidth: '500px', marginBottom: '150px' }}>
+
+               {/* restaurantDetail */}
+              < RestaurantDetails/>
+
+              {/* Browser menu */}
+              <BrowserMenu/>
+
+
+
                 {/* TOTAL ITEMS */}
 
                 {this.props.cartDetails && this.props.cartDetails.details.length > 0 ?
