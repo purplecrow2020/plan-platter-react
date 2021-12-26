@@ -2,8 +2,13 @@ const initialState  = {
     appName : 'PLAN_AND_PLATTER',
     menu: [],
     bestsellers: [],
-    cartDetails: [],
+    cartDetails: {
+        details: [],
+        total_qty: 0,
+        total_bill: 0
+    },
     menu_item_search_results: [],
+    is_authenticated: false,
 }
 
 export const rootReducer = (state=initialState, action) =>{
@@ -30,7 +35,20 @@ export const rootReducer = (state=initialState, action) =>{
                 ...state,
                 menu_item_search_results: action.payload.response.data.data
             }
+        
+        case 'SET_TOKEN':
+            console.log(action.payload.response.data.data);
+            localStorage.setItem('authKey', action.payload.response.data.data.authKey);
+            return {
+                ...state,
+                authKey: action.payload.response.data.data.authKey
+            }
 
+        case 'SET_AUTH_FLAG':
+            return {
+                ...state,
+                authKey: action.payload.response.flag
+            }
         default:
             return state;
     }

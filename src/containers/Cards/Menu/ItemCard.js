@@ -21,7 +21,7 @@ class MenuItemCard extends Component {
                         <div className="row" >
                             <img src={this.props.item_img_url} className="img-fluid rounded mt-3" alt="dal-fry-img" />
 
-                            <div className="d-flex justify-content-center" style={{ position: 'relative', top: '-5px' }}>
+                            <div className="d-flex justify-content-center" style={{ position: 'relative', top: '-10px' }}>
                                 {
                                     this.props.item_qty 
                                     ? <UpdateItem menu_item_id={this.props.item_id}  count={this.props.item_qty} />

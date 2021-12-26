@@ -9,7 +9,8 @@ export const healthCheck = async () =>{
 }
 
 export const getMenu = async (f) =>{
-    return axios.get(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getMenu}`);
+    const authKey = localStorage.getItem('authKey');
+    return axios.get(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getMenu}`, {headers: {'x-auth-token': authKey}});
 }
 
 export const getBestSellers = async () => {
@@ -17,17 +18,26 @@ export const getBestSellers = async () => {
 }
 
 export const getCartDetails = async () => {
-    return axios.get(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getCartDetails}`);
+    const authKey = localStorage.getItem('authKey');
+    return axios.get(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getCartDetails}`, {headers: {'x-auth-token': authKey}});
 }
 
 export const addItemToCart = async (req_data) => {
-    return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.addItemToCart}`, req_data);
+    const authKey = localStorage.getItem('authKey');
+    return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.addItemToCart}`, req_data, {headers: {'x-auth-token': authKey}});
 }
 
 export const deleteItemFromCart = async (req_data) => {
-    return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.deleteItemFromCart}`, req_data);
+    const authKey = localStorage.getItem('authKey');
+    return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.deleteItemFromCart}`, req_data, {headers: {'x-auth-token': authKey}});
 }
 
 export const getMenuSearches = async (req_body) => {
     return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getMenuSearches}`,  {...req_body});
 }
+
+export const signUp = async (req_body) => {
+    return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.signUp}`,  {...req_body});
+}
+
+

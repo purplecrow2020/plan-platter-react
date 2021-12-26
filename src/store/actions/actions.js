@@ -35,3 +35,25 @@ export const getMenuSearchesApi = (item_search_string)=>{
         dispatch({type : 'SET_MENU_SEARCH_RESULTS', payload : {response  :api_resp}});
     }
 }
+
+// export const getMenuSearchesApi = (item_search_string)=>{
+//     return async (dispatch) => {
+//         let api_resp = await API_CALLS.getMenuSearches({item_search_string});
+//         console.log(api_resp);
+//         dispatch({type : 'SET_MENU_SEARCH_RESULTS', payload : {response  :api_resp}});
+//     }
+// }
+
+export const signUp = (req_body) => {
+    return async (dispatch) => {
+        let api_resp = await API_CALLS.signUp({...req_body});
+        dispatch({type : 'SET_TOKEN', payload : {response: api_resp}});
+    }
+}
+
+// export const login = (req_body) => {
+//     return async (dispatch) => {
+//         let api_resp = await API_CALLS.login({...req_body});
+//         dispatch({type : 'SET_TOKEN', payload : {response: api_resp}});
+//     }
+// }
