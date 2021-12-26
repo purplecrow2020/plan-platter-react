@@ -36,7 +36,7 @@ class Signup extends Component {
     
     render() {
         return (
-            this.props.authKey && this.props.authKey.length > 0 
+            this.props.isAuthenticated> 0 
             ? <Navigate to="/home" />
             :
             <div className='container my-5' style={{ maxWidth: '500px' }}>
@@ -85,7 +85,7 @@ class Signup extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        authKey: state.authKey
+        isAuthenticated: state.isAuthenticated
     }
 }
 

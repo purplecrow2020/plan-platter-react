@@ -37,17 +37,22 @@ export const rootReducer = (state=initialState, action) =>{
             }
         
         case 'SET_TOKEN':
-            console.log(action.payload.response.data.data);
             localStorage.setItem('authKey', action.payload.response.data.data.authKey);
             return {
                 ...state,
-                authKey: action.payload.response.data.data.authKey
+                authKey: action.payload.response.data.data.authKey,
+                isAuthenticated: true
             }
 
         case 'SET_AUTH_FLAG':
             return {
                 ...state,
-                authKey: action.payload.response.flag
+                isAuthenticated: action.payload.response.flag
+            }
+        case 'SET_VENDOR_DETAILS':
+            return {
+                ...state, 
+                vendor_details: action.payload.response.data.data
             }
         default:
             return state;

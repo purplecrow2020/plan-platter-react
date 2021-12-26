@@ -2,7 +2,7 @@ import React from 'react';
 // import RestoOfferCouponCarousel from '../RestoOfferCoupon/RestoOfferCouponCarousel';
 import './index.css';
 
-export default function RestaurantDetails() {
+export default function RestaurantDetails(props) {
     return (
         <div className=" container my-4" style={{maxWidth: '500px'}}>
         <div className="row ">
@@ -11,14 +11,11 @@ export default function RestaurantDetails() {
             <a href="#wishlist" className="text-decoration-none col-1 rd-icon-1"><i className="fas fa-heart "></i> </a>
             <a href="#search" className="text-decoration-none col-1 rd-icon-1"><i className="fas fa-search "></i></a>
         </div>
-        <h2 className="rd-heading-1">Burger King</h2>
+        <h2 className="rd-heading-1">{props.details?.name || 'KOOLCHAS'}</h2>
         <div className="rd-text-1">
         <span>American, Fast Food </span>
-        <span> Old Gurgaon (Zone 6) | 5.6 kms <i className="fas fa-sort-down"></i></span>
+        <span> Old Gurgaon (Zone 6) </span>
         </div> 
-        <p className="rd-text-1"><i className="fa fa-info-circle " aria-hidden="true" ></i> Based on distance, an additional delivery fee will apply
-        </p>
-
         <div className="row" style={{borderBottom: '1px dotted rgb(70, 62, 62)'}}></div>
 
         <div className="row mt-2">
@@ -27,11 +24,11 @@ export default function RestaurantDetails() {
                 <p className="rd-text-2 d-flex justify-content-center text-center ">1000<i className="fas fa-plus  rd-icon-3 pt-1 pr-1"></i> ratings</p>
             </div>
             <div className="col-4">
-                <span className="rd-heading-2 d-flex justify-content-center">55 mins</span>
-                <p className="rd-text-2 d-flex justify-content-center text-center"> Delivery Time</p>
+                <span className="rd-heading-2 d-flex justify-content-center">25 mins</span>
+                <p className="rd-text-2 d-flex justify-content-center text-center"> Order Time</p>
             </div>
             <div className="col-4">
-                <span className="rd-heading-2 d-flex justify-content-center">₹350</span>
+                <span className="rd-heading-2 d-flex justify-content-center">₹550</span>
                 <p className="rd-text-2 d-flex justify-content-center">Cost for 2</p>
             </div>
         </div>

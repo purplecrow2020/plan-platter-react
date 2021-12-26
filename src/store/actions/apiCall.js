@@ -39,5 +39,13 @@ export const getMenuSearches = async (req_body) => {
 export const signUp = async (req_body) => {
     return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.signUp}`,  {...req_body});
 }
+export const login = async (req_body) => {
+    return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.login}`,  {...req_body});
+}
+
+export const getVendorDetails = async () => {
+    return axios.get(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getVendorDetails}`);
+}
+
 
 

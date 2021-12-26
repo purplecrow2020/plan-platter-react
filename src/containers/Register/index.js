@@ -3,12 +3,15 @@ import Signup from '../Signup/index';
 import Login from '../Login';
 import NavBar from '../NavBar';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import  { Navigate } from 'react-router-dom';
 
 class Register extends Component {
     render() {
         return (
-            
-                
+            this.props.isAuthenticated> 0 
+            ? <Navigate to="/home" />
+            :
             <div className='container' style={{maxWidth: '500px', marginBottom:'150px', height: '100vh'}}>
             <NavBar />
                 <div className="row" style={{marginTop:'60%'}}>
@@ -37,5 +40,12 @@ class Register extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        isAuthenticated: state.isAuthenticated
+    }
+}
 
-export default Register;
+
+export default connect(mapStateToProps)(Register);
+

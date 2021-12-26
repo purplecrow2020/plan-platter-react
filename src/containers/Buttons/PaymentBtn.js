@@ -12,7 +12,7 @@ export default class PaymentBtn extends Component {
                                 <div className="row my-2">
                                     <div className="col">
                                         <Link to="/login">
-                                            <button className=" sec-btn border-0 py-3" style={{ color: '#000000', background: '#FEF5ED' }}>ABCD</button>
+                                            <button className=" sec-btn border-0 py-3" style={{ color: '#000000', background: '#FEF5ED' }}>ORDER</button>
                                         </Link>
                                     </div>
                                     <div className="col">

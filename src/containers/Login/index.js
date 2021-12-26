@@ -1,11 +1,38 @@
 import React, { Component } from 'react'
 import LoginImg from '../../images/login-img.png';
 import { Link } from 'react-router-dom';
-
+import { connect } from 'react-redux';
+import * as actionCreators from '../../store/actions/actions';
+import  { Navigate } from 'react-router-dom'
 
 class Login extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            'mobile': '',
+            'password': ''
+        }
+    }
+
+    onChangeHandler = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    onSubmitHandler = () => {
+        this.props.login({
+            mobile: this.state.mobile,
+            password: this.state.password,
+        })
+    }
+    
     render() {
         return (
+            this.props.isAuthenticated
+            ? <Navigate to="/home" />
+            :
             <div className='container' style={{ maxWidth: '500px', marginTop: '15%' }}>
                 <div className='row mb-5'>
                     <div className='col-9'>
@@ -20,8 +47,12 @@ class Login extends Component {
                 <div className='row'>
                     <div className='col'>
                         <div class="form-floating mb-2">
-                            <input type="email" class="form-control rounded-0" id="floatingInput" placeholder="name@example.com" />
+                            <input type="email" class="form-control rounded-0" id="floatingInput" placeholder="91*******-" name="mobile" />
                             <label for="floatingInput" className='ct-text'>Phone Number</label>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <input type="email" class="form-control rounded-0" id="floatingInput" placeholder="****" name="password" />
+                            <label for="floatingInput" className='ct-text'>Password</label>
                         </div>
                         <div className='d-grid mt-3 mb-2'>
                         <button className=' btn btn-lg btn-success rounded-0 border-0'  style={{ background: '#fc8019' }}>LOGIN</button>
@@ -35,4 +66,16 @@ class Login extends Component {
 }
 
 
-export default Login;
+const mapStateToProps = (state) => {
+    return {
+        isAuthenticated: state.isAuthenticated
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return { 
+        login: (req_data) => dispatch(actionCreators.login(req_data))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
