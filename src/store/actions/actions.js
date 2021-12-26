@@ -30,10 +30,8 @@ export const getVendorDetailsApi = (filters)=>{
 }
 
 export const getCartDetails = ()=>{
-    console.log('get cart details api cal started');
     return async (dispatch) => {
         let api_resp = await API_CALLS.getCartDetails();
-        console.log('api response of cart detail comes');
         dispatch({type : 'SET_CART_DETAILS', payload : {response  :api_resp}});
     }}
 
