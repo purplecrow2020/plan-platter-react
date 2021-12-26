@@ -13,6 +13,7 @@ import Signup from './containers/Signup';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actionCreators from './store/actions/actions';
+import NavBar from './containers/NavBar';
 
 //import CartBody from './components/cart/CartBody';
 
@@ -36,9 +37,11 @@ class App extends Component {
     return (
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <BrowserRouter>
+        {/* <NavBar/> */}
         <Routes>
+            
             <Route exact path="/" element={<Register />} />
-            <Route exact path="/login" element={<Login />} />
+            {/* <Route exact path="/login" element={<Login />} /> */}
             <Route exact path="/signup" element={<Signup />} />
   
             <Route exact path="/home" element={<Home />} />

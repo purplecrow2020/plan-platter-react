@@ -13,6 +13,21 @@ body{
   font-family: 'Ubuntu', sans-serif;
 }
 
+
+.welcome-screen {
+  color: #fff;
+  /* background-color: #9b69f7; */
+  background: linear-gradient(#565453 50%, #e2b8a3 50%);
+  /* transform: skewY(45deg); */
+  padding: 0px 10px 10px 10px;
+  width: 50%;
+  text-align: center;
+  display: inline-block;
+}
+.re-rotate{
+  /* transform: skewY(-45deg); */
+}
+
 /* navabr css */
 
 /* .navbar{
