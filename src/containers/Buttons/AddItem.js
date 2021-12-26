@@ -10,8 +10,10 @@ class AddItem extends Component {
         addItemToCart({
             menu_id: id
         }).then(()=>{
-            this.props.callCartDetailsApi();
-            this.props.getMenuApi();
+            Promise.all([
+                this.props.callCartDetailsApi(),
+                this.props.getMenuApi()
+            ]);
         }).catch(err=>console.log(err));;
     }
 
