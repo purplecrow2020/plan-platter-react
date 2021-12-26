@@ -8,6 +8,7 @@ const initialState  = {
         total_bill: 0
     },
     menu_item_search_results: [],
+    is_authenticated: false,
 }
 
 export const rootReducer = (state=initialState, action) =>{
@@ -43,6 +44,11 @@ export const rootReducer = (state=initialState, action) =>{
                 authKey: action.payload.response.data.data.authKey
             }
 
+        case 'SET_AUTH_FLAG':
+            return {
+                ...state,
+                authKey: action.payload.response.flag
+            }
         default:
             return state;
     }
