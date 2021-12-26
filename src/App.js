@@ -41,7 +41,7 @@ class App extends Component {
         <Routes>
             
             <Route exact path="/" element={<Register />} />
-            {/* <Route exact path="/login" element={<Login />} /> */}
+            <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
   
             <Route exact path="/home" element={<Home />} />

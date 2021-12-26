@@ -14,13 +14,13 @@ class Register extends Component {
                 ? <Navigate to="/home" />
                 :
                 <div className='container welcome-screen' style={{ maxWidth: '500px', marginBottom: '150px', height: '100vh' }}>
-                    <div className='re-rotate'> <NavBar/>
-                    <div className="row mt-5 " style={{}}>
+                     <NavBar/>
+                    <div className="row mt-5 " >
                    
                         <div className="col text-center" >
-                            <h3>Welcome <br /> To </h3>
-                            <h1 className='mt-4'>Plane-N-Plater</h1>
-                            <img className='mt-3' style={{maxWidth: '150px', height: 'auto'}} src={Logo} />
+                            <h3 style={{fontSize: '25px', fontWeight: '700'}}>Welcome <br /> To </h3>
+                            <h1 className='mt-4' style={{fontSize: '40px', fontWeight: '900'}}>Plane-N-Plater</h1>
+                            <img className='mt-3' style={{maxWidth: '150px', height: 'auto', boxShadow: ' 0px 8px 11px 4px rgba(0, 0, 0, 0.7)'}} src={Logo} />
                             <section className='' style={{ marginTop: '25%' }}>
                                 <div className="pb-4">
                                     <div className="row my-2">
@@ -37,10 +37,12 @@ class Register extends Component {
                                     </div>
                                 </div>
                             </section>
+
+                            <h5 className='mt-3' style={{fontSize: '25px', fontWeight: '600', color: '#fff'}}>Powered by <br/> Plane-N-Plater</h5> 
                         </div>
                     </div>
                 </div>
-                </div>
+                
 
         )
     }
