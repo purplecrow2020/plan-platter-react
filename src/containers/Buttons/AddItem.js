@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 class AddItem extends Component {
 
     addItemHandler = function(id) {
+        console.log("IDS ", id);
         addItemToCart({
             menu_id: id
         }).then(()=>{
@@ -18,9 +19,9 @@ class AddItem extends Component {
         return (
             <div className="container add-btn" style={{ maxWidth: '90px', height: 'auto' }}>
                 <div >
-                    <a href="#minus" className="d-flex text-start">
+                    {/* <a href="#minus" className="d-flex text-start">
                         <i className="fas fa-minus" ></i>
-                    </a>
+                    </a> */}
                 </div>
                 <div className="px-2" >
                     <a onClick={()=> this.addItemHandler(this.props.menu_item_id)}>
@@ -28,9 +29,9 @@ class AddItem extends Component {
                     </a>
                 </div>
                 <div >
-                    <a className="d-flex text-end">
+                    {/* <a className="d-flex text-end">
                         <i className="fas fa-plus" ></i>
-                    </a>
+                    </a> */}
                 </div>
             </div>
         )

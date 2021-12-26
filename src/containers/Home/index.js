@@ -13,6 +13,7 @@ class Home extends Component {
     componentDidMount(){
         this.props.getMenuApi();
         this.props.getBestSellerApi();
+        this.props.callCartDetailsApi();
     }
 
     render() {
@@ -75,6 +76,7 @@ const mapDispatchToProps = (dispatch) => {
         getMenuApi : () => dispatch(actionCreators.getMenuApi()),
         getBestSellerApi: () => dispatch(actionCreators.getBestSellerApi()),
         getMenuSearchesApi: (item_search_string) => dispatch(actionCreators.getMenuSearchesApi(item_search_string)),
+        callCartDetailsApi: () => dispatch(actionCreators.getCartDetails()),
     }
 }
 

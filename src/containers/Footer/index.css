@@ -1,9 +1,9 @@
 .cart-count-icon{
     font-size: 10px;
-    border: 1px solid rgb(238, 156, 0);
+    border: 1px solid #3D2C8D;
     border-radius: 100%;
     padding: 2px 5px;
-    background-color: #ee9c00;
+    background-color: #3D2C8D;
     color: white;
     font-weight: 700;
 }

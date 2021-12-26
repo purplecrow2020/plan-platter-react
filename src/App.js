@@ -12,15 +12,24 @@ import Login from './containers/Login';
 import Signup from './containers/Signup';
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import * as actionCreators from './store/actions/actions';
 
 //import CartBody from './components/cart/CartBody';
 
 class App extends Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+      vendor_id: 1
+    }
+  }
+
   componentDidMount(){
     const authKey = localStorage.getItem('authKey');
+    this.props.getVendorDetailsApi();
     if (authKey && authKey.length > 0) {
-      this.props.setAuth()
+      this.props.setAuth();
     }
   }
   render() {
@@ -52,6 +61,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    getVendorDetailsApi : () => dispatch(actionCreators.getVendorDetailsApi()),
     setAuth: () => dispatch({type: 'SET_AUTH_FLAG', payload: { response: {flag: true}}})
   }
 }

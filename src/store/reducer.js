@@ -49,6 +49,11 @@ export const rootReducer = (state=initialState, action) =>{
                 ...state,
                 isAuthenticated: action.payload.response.flag
             }
+        case 'SET_VENDOR_DETAILS':
+            return {
+                ...state, 
+                vendor_details: action.payload.response.data.data
+            }
         default:
             return state;
     }

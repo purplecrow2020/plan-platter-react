@@ -18,13 +18,21 @@ class Cart extends Component {
     render() {
         return (
             <div className="container" style={{ maxWidth: '500px', marginBottom: '150px' }}>
-
                {/* restaurantDetail */}
-              < RestaurantDetails/>
+              < RestaurantDetails details={this.props.vendorDetails} />
 
               {/* Browser menu */}
-              <BrowserMenu/>
-
+              {/* <BrowserMenu/> */}
+                {/* total BILL */}
+                <div className="row cd-heading-4 pt-2 pb-3 pl-3 my-3" style={{background: '#916BBF', borderRadius:'15px'}}>
+                    <div>
+                        <span className='cd-heading-00'>₹{this.props.cartDetails && this.props.cartDetails.total_bill}</span>
+                        <span className='cd-text-00'>&nbsp; TOTAL</span>
+                    </div>
+                    <div className="lh-1 ">
+                        <a href='#' className='cd-text-1 text-decoration-none' style={{color:'#3D087B'}}>VIEW DETAILED BILL <i class="fas fa-chevron-down text-start pl-1" /></a>
+                    </div>
+                </div>
 
 
                 {/* TOTAL ITEMS */}
@@ -123,16 +131,6 @@ class Cart extends Component {
                         </div>
 
                         <hr />
-
-                        <div className="row cd-heading-4 pt-2 pb-3 pl-3 my-3" style={{background: '#DAD992', borderRadius:'15px'}}>
-                            <div>
-                                <span className='cd-heading-00'>₹150</span>
-                                <span className='cd-text-00'>&nbsp; savings</span>
-                            </div>
-                            <div className="lh-1 ">
-                                <a href='#' className='cd-text-1 text-decoration-none' style={{color:'#3D087B'}}>VIEW DETAILED BILL <i class="fas fa-chevron-down text-start pl-1" /></a>
-                            </div>
-                        </div>
                     </div>
             //     </div>
 
@@ -147,6 +145,7 @@ class Cart extends Component {
 const mapStateToProps = (state) => {
     return {
         cartDetails: state.cartDetails,
+        vendorDetails: state.vendor_details,
     }
 }
 
