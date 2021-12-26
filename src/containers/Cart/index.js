@@ -132,6 +132,8 @@ class Cart extends Component {
                         </div>
 
                         <hr />
+                    <PaymentBtn />
+
                     </div>
             //     </div>
 
