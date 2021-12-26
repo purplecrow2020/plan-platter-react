@@ -19,11 +19,11 @@ class Cart extends Component {
         return (
             <div className="container" style={{ maxWidth: '500px', marginBottom: '150px' }}>
 
-               {/* restaurantDetail */}
-              < RestaurantDetails/>
+                {/* restaurantDetail */}
+                < RestaurantDetails />
 
-              {/* Browser menu */}
-              <BrowserMenu/>
+                {/* Browser menu */}
+                <BrowserMenu />
 
 
 
@@ -34,7 +34,7 @@ class Cart extends Component {
                         return (
                             <><div className="row">
                                 <div className="col-2">
-                                    <img src={item.img_url} className="" style={{ width: '45px', height: '45px' }} alt="cart-img-brand" />
+                                    {/* <img src={item.img_url} className="" style={{ width: '45px', height: '45px' }} alt="cart-img-brand" /> */}
                                 </div>
                                 <div className="col-10 align-middle">
                                     {/* <div className="row">
@@ -46,10 +46,11 @@ class Cart extends Component {
                                 </div>
                             </div>
                                 <div className="row mt-3">
-                                    <div className="col-1 align-middle">
-                                        <i class="far fa-dot-circle cd-icon-5"></i>
+                                    <div className="col-2 " style={{ marginTop:'-15px' }}>
+                                        {/* <i class="far fa-dot-circle cd-icon-5"></i> */}
+                                        <img src={item.img_url} className="" style={{ width: '45px', height: '45px', }} alt="cart-img-brand" />
                                     </div>
-                                    <div className="col-6" style={{ padding: '0px !important', maxWidth: '250px' }}>
+                                    <div className="col-4 col-sm-5" style={{ padding: '0px !important', maxWidth: '250px' }}>
                                         <div className="cd-heading-3">
                                             {item.name}
                                         </div>
@@ -64,7 +65,7 @@ class Cart extends Component {
                                     <div className="col-3 pr-1">
                                         <UpdateItem menu_item_id={item.id} count={item.qty} />
                                     </div>
-                                    <div className="col-2 text-end">₹{item.price * item.qty}</div>
+                                    <div className="col-2 text-end pl-2 pl-sm-0">₹{item.price * item.qty}</div>
                                 </div></>
 
                         );
@@ -124,13 +125,13 @@ class Cart extends Component {
 
                         <hr />
 
-                        <div className="row cd-heading-4 pt-2 pb-3 pl-3 my-3" style={{background: '#DAD992', borderRadius:'15px'}}>
+                        <div className="row cd-heading-4 pt-2 pb-3 pl-3 my-3" style={{ background: '#DAD992', borderRadius: '15px' }}>
                             <div>
                                 <span className='cd-heading-00'>₹150</span>
                                 <span className='cd-text-00'>&nbsp; savings</span>
                             </div>
                             <div className="lh-1 ">
-                                <a href='#' className='cd-text-1 text-decoration-none' style={{color:'#3D087B'}}>VIEW DETAILED BILL <i class="fas fa-chevron-down text-start pl-1" /></a>
+                                <a href='#' className='cd-text-1 text-decoration-none' style={{ color: '#3D087B' }}>VIEW DETAILED BILL <i class="fas fa-chevron-down text-start pl-1" /></a>
                             </div>
                         </div>
                     </div>

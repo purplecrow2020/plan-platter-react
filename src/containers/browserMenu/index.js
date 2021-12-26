@@ -1,16 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './index.css'                                          
 
 export default function BrowserMenu() {
+   
     return (
         <>
-            <div className="box container d-flex justify-content-center" >  
-                <a className="button" href="#popup1"><i className="fas fa-utensils"></i>BROWES MENU</a>
+            <div className="box container d-flex justify-content-center bg-white" >  
+                <a className="button text-decoration-none" href="#popup1"><i className="fas fa-utensils"></i>BROWES MENU</a>
             </div>
-            <div id="popup1" className="overlay">
+            <div id="popup1" className="overlay" style={{zIndex: '99'}}>
                 <div className="popup">
                     <h2>BROWES MENU</h2>
-                    <a className="close" href="#time">&times;</a>
+                    <a className="close" href="#time" >&times;</a>
                     <div className="content">
                         <ul>
                             <li>
