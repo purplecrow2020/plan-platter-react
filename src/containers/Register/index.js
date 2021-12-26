@@ -35,9 +35,9 @@ class Register extends Component {
                                         </Link>
                                     </div>
                                     <div className="col">
-                                        <Link to="/signup">
+                                        {/* <Link to="/signup"> */}
                                             <button className=" sec-btn" style={{ color: '#282c3f', borderColor: '#282c3f' }} onClick={this.onSubmitHandler}>GUEST</button>
-                                        </Link>
+                                        {/* </Link> */}
                                     </div>
                                 </div>
                             </div>
