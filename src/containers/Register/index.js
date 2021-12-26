@@ -11,7 +11,7 @@ class Register extends Component {
                 
             <div className='container' style={{maxWidth: '500px', marginBottom:'150px', height: '100vh'}}>
             <NavBar />
-                <div className="row" style={{marginTop:'0%'}}>
+                <div className="row" style={{marginTop:'60%'}}>
                     <div className="col" >
                         <section>
                             <div className="pb-4">

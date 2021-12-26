@@ -12,3 +12,6 @@ export const getCartDetails = "v1/order/get-cart-details";
 export const addItemToCart = "v1/order/add-to-cart";
 export const deleteItemFromCart = "v1/order/delete-cart-item";
 export const getMenuSearches = "v1/menu/search-menu-items";
+export const signUp = "v1/user/sign-up";
+export const login = "v1/user/login";
+

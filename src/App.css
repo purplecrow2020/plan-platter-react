@@ -852,10 +852,11 @@ cursor: pointer;
 box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2);
 padding-left: 2px !important;
 padding-top: 3px !important;
+padding-right: 1px !important;
 }
 .add-btn-3 span{
 text-decoration: none;
-color: #fff;
+color: #ed5e0e;
 font-size: 10px;
 }
 

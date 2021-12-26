@@ -31,3 +31,9 @@ export const deleteItemFromCart = async (req_data) => {
 export const getMenuSearches = async (req_body) => {
     return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getMenuSearches}`,  {...req_body});
 }
+
+export const signUp = async (req_body) => {
+    return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.signUp}`,  {...req_body});
+}
+
+

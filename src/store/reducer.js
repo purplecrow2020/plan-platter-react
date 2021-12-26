@@ -34,6 +34,14 @@ export const rootReducer = (state=initialState, action) =>{
                 ...state,
                 menu_item_search_results: action.payload.response.data.data
             }
+        
+        case 'SET_TOKEN':
+            console.log(action.payload.response.data.data);
+            localStorage.setItem('authKey', action.payload.response.data.data.authKey);
+            return {
+                ...state,
+                authKey: action.payload.response.data.data.authKey
+            }
 
         default:
             return state;

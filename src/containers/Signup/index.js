@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import LoginImg from '../../images/login-img.png';
 import  { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import  { Navigate } from 'react-router-dom'
+import * as actionCreators from '../../store/actions/actions';
+
 
 class Signup extends Component {
 
@@ -20,9 +24,21 @@ class Signup extends Component {
         })
     }
 
-
+    onSubmitHandler = () => {
+        this.props.signUp({
+            mobile: this.state.mobile,
+            name: this.state.name,
+            email_id: this.state.email_id,
+            password: this.state.password,
+        })
+    }
+    
+    
     render() {
         return (
+            this.props.authKey && this.props.authKey.length > 0 
+            ? <Navigate to="/home" />
+            :
             <div className='container my-5' style={{ maxWidth: '500px' }}>
                 <div className='row mb-5'>
                     <div className='col-9'>
@@ -54,7 +70,7 @@ class Signup extends Component {
                         </div>
                         <a className='pl-0 sec-btn' href='#code'> Have a referral code?</a>
                         <div className='d-grid mt-3 mb-2'>
-                        <button className=' btn btn-lg btn-success rounded-1 border-0'  style={{ background: '#fc8019' }}>CONTINUE</button>
+                        <button className=' btn btn-lg btn-success rounded-1 border-0'  style={{ background: '#fc8019' }} onClick={this.onSubmitHandler}>CONTINUE</button>
                         </div>
                         <p className="ct-text">By creating an account, I accept the <b style={{color:'#151616'}}>Terms & Conditions & Privacy Policy</b></p>
                     </div>
@@ -66,4 +82,17 @@ class Signup extends Component {
 }
 
 
-export default Signup;
+
+const mapStateToProps = (state) => {
+    return {
+        authKey: state.authKey
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return { 
+        signUp: (req_data) => dispatch(actionCreators.signUp(req_data))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);
