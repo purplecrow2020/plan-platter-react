@@ -64,3 +64,11 @@ export const login = (req_body) => {
         dispatch({type : 'SET_TOKEN', payload : {response: api_resp}});
     }
 }
+
+export const loginAsGuest = (req_body) => {
+    return async (dispatch) => {
+        let api_resp = await API_CALLS.loginAsGuest({...req_body});
+        dispatch({type : 'SET_TOKEN', payload : {response: api_resp}});
+    }
+}
+

@@ -20,7 +20,7 @@ class Home extends Component {
         return (
             <div className='container' style={{maxWidth: '500px', marginBottom:'150px'}}>
                 {/* Nav BAR */}
-                <NavBar />
+                <NavBar  vendor_details={this.props.vendor_details} />
                 {/* SEARCH BAR */}
                 <Search />
                 {/* render BestSellers */}
@@ -67,7 +67,9 @@ const mapStateToProps = (state) => {
     return {
         menu : state.menu,
         bestsellers: state.bestsellers,
-        menu_search_results: state.menu_search_results
+        menu_search_results: state.menu_search_results,
+        vendor_details: state.vendor_details,
+
     }
 }
 
