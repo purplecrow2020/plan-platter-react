@@ -78,3 +78,12 @@ export const loginAsGuest = (req_body) => {
     }
 }
 
+export const getUserDetails = () => {
+    return async (dispatch) => {
+        let api_resp = await API_CALLS.getUserDetails();
+        dispatch({type : 'SET_USER_DETAILS', payload : {response: api_resp}});
+    }
+}
+
+
+

@@ -8,7 +8,7 @@ class NavBar extends Component {
                     <div className="address col-10" style={{maxWidth: ''}}>
                         <div className="row mb-1">
                             <span className="headingMainAdd" style={{color: '#3d4152', fontWeight: '700'}}>
-                                Hello Buddy
+                                Hello {this.props.user_details?.name || 'Buddy'}
                                 {/* <i className="fa fa-map-marker mr-2" aria-hidden="true"></i>
                                 <span className="mainAdd" style={{maxWidth: '250px', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap'}}>Rangbari</span> */}
                             </span>

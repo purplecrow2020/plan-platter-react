@@ -14,13 +14,14 @@ class Home extends Component {
         this.props.getMenuApi();
         this.props.getBestSellerApi();
         this.props.callCartDetailsApi();
+        this.props.getUserDetails();
     }
 
     render() {
         return (
             <div className='container' style={{maxWidth: '500px', marginBottom:'150px'}}>
                 {/* Nav BAR */}
-                <NavBar  vendor_details={this.props.vendor_details} />
+                <NavBar  vendor_details={this.props.vendor_details} user_details={this.props.user_details} />
                 {/* SEARCH BAR */}
                 <Search />
                 {/* render BestSellers */}
@@ -69,6 +70,7 @@ const mapStateToProps = (state) => {
         bestsellers: state.bestsellers,
         menu_search_results: state.menu_search_results,
         vendor_details: state.vendor_details,
+        user_details: state.user_details,
 
     }
 }
@@ -79,6 +81,7 @@ const mapDispatchToProps = (dispatch) => {
         getBestSellerApi: () => dispatch(actionCreators.getBestSellerApi()),
         getMenuSearchesApi: (item_search_string) => dispatch(actionCreators.getMenuSearchesApi(item_search_string)),
         callCartDetailsApi: () => dispatch(actionCreators.getCartDetails()),
+        getUserDetails: () =>  dispatch(actionCreators.getUserDetails())
     }
 }
 

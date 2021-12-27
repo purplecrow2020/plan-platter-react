@@ -60,6 +60,11 @@ export const rootReducer = (state=initialState, action) =>{
                 ...state, 
                 order_history: action.payload.response.data.data,
             }
+        case 'SET_USER_DETAILS':
+            return {
+                ...state, 
+                user_details: action.payload.response.data.data,
+            }
         default:
             return state;
     }
