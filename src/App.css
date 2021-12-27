@@ -933,8 +933,8 @@ cursor: pointer;
 }
 
 .accordion-button.collapsed {
-  background: #C996CC;
-  color: #fff;
+  background: rgb(253, 237, 253);
+  color: rgb(0, 0, 0);
  
 }
 
