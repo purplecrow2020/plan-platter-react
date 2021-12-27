@@ -10,8 +10,8 @@ class PaymentBtn extends Component {
     placeOrder = () => {
         apiCall.orderAddItems({}).then((r)=>{
             Swal.fire(
-                'Good job!',
-                'You clicked the button!',
+                'WOOOHOOO!',
+                'ORDER HAS BEEN PLACED!',
                 'success'
             );
             Promise.all([
@@ -26,10 +26,16 @@ class PaymentBtn extends Component {
             // alert 
             // getCartApi
             // get Menu Api
+            Swal.fire(
+                'PAID',
+                'ORDER HAS BEEN PLACED!',
+                'success'
+            );
             Promise.all([
                 this.props.callCartDetailsApi(),
                 this.props.getMenuApi()
             ]);
+            
         });
     }
 
