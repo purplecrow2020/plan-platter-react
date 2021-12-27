@@ -16,5 +16,8 @@ export const signUp = "v1/user/sign-up";
 export const login = "v1/user/login";
 export const loginAsGuest = "v1/user/guest-login";
 export const getVendorDetails = "v1/vendor/get-vendor-details/1";
+export const getUserOrderHistory = "v1/order/past-orders-summary";
+export const orderAddItems = "v1/order/place-order";
+export const completeOrderByPayment = "v1/order/complete-order";
 
 

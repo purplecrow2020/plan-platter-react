@@ -47,7 +47,7 @@ class Login extends Component {
                 <div className='row'>
                     <div className='col'>
                         <div class="form-floating mb-2">
-                            <input type="email" class="form-control rounded-0" id="floatingInput" placeholder="91*******-" name="mobile" />
+                            <input type="email" class="form-control rounded" id="floatingInput" placeholder="91*******-" name="mobile" />
                             <label for="floatingInput" className='ct-text'>Phone Number</label>
                         </div>
                         <div class="form-floating mb-2">

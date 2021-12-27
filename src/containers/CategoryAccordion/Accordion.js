@@ -16,8 +16,8 @@ export default class ProfileMainBody extends Component {
             this.props.menu && Object.keys(this.props.menu).map((item_category, index) => {
               return (
 
-                <div class="accordion-item mb-3">
-                  <h2 class="accordion-header" id={`flush-heading${index}`}>
+                <div class="accordion-item  mb-3">
+                  <h2 class="accordion-header" id={`flush-heading${index}`} >
                     <button class={index == 0 ? "pb-2 acc-btn ct-heading accordion-button" : "pb-2 acc-btn ct-heading accordion-button collapsed"} type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapseOne${index}`} aria-expanded="false" aria-controls={`flush-collapseOne${index}`} style={{ boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)' }}>
                       {item_category} ({this.props.menu[item_category].length})
                     </button>

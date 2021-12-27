@@ -47,10 +47,22 @@ export const getVendorDetails = async () => {
     return axios.get(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getVendorDetails}`);
 }
 
+export const getUserOrderHistory = async () => {
+    const authKey = localStorage.getItem('authKey');
+    return axios.get(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getUserOrderHistory}`, {headers: {'x-auth-token': authKey}});
+}
+
 export const loginAsGuest = async (req_body) => {
     return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.loginAsGuest}`,  {...req_body});
 }
 
+export const orderAddItems = async (req_data) => {
+    const authKey = localStorage.getItem('authKey');
+    return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.orderAddItems}`, req_data, {headers: {'x-auth-token': authKey}});
+}
 
-
+export const completeOrder = async (req_data) => {
+    const authKey = localStorage.getItem('authKey');
+    return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.completeOrderByPayment}`, req_data, {headers: {'x-auth-token': authKey}});
+}
 
