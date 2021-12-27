@@ -11,7 +11,7 @@ export default function RestaurantDetails(props) {
             <a href="#wishlist" className="text-decoration-none col-1 rd-icon-1"><i className="fas fa-heart "></i> </a>
             <a href="#search" className="text-decoration-none col-1 rd-icon-1"><i className="fas fa-search "></i></a>
         </div>
-        <h2 className="rd-heading-1">{props.details?.name || 'KOOLCHAS'}</h2>
+        <h2 className="rd-heading-1">{props.details?.name || 'hariraj'}</h2>
         <div className="rd-text-1">
         <span>American, Fast Food </span>
         <span> Old Gurgaon (Zone 6) </span>
