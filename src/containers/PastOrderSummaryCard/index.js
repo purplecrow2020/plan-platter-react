@@ -29,7 +29,7 @@ import React, { Component } from 'react'
                                     this.props.order_summary_string
                                 }
                             </p>
-                            <span className="ct-text mt-2">Nov 18, 2018 10:30 PM</span>
+                            {/* <span className="ct-text mt-2">Nov 18, 2018 10:30 PM</span> */}
                         </div>
                     </div>
 
