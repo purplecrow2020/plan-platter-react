@@ -44,7 +44,7 @@ class PaymentBtn extends Component {
                         <section>
                             <div className="pb-4">
                                 <div className="row my-2">
-                                    <div className="col">
+                                    <div className=" col">
                                         <Link to="/login">
                                             <button className=" sec-btn border-0 py-3" style={{ color: '#000000', background: '#FEF5ED', border:'1px solid black' }} onClick={this.placeOrder}>PLACE ORDER</button>
                                         </Link>
