@@ -25,7 +25,7 @@ class PaymentBtn extends Component {
         apiCall.completeOrder({}).then((r) => {
             Swal.fire(
                 'PAID',
-                'ORDER HAS BEEN PLACED!',
+                'HOPE YOU ENJOYED THE FOOD!',
                 'success'
             );
             Promise.all([

@@ -64,8 +64,8 @@ class Login extends Component {
                             <label for="floatingInput" className='ct-text'>Phone Number</label>
                         </div>
                         <div class="form-floating mb-2">
-                            <input type="password" class="form-control rounded-0"   id="floatingInput" placeholder="****" name="password" onChange={this.onChangeHandler} />
-                            <label for="floatingInput" className='ct-text'>Password</label>
+                            <input type="password" class="form-control rounded-1"   id="floatingPassword" placeholder="****" name="password" onChange={this.onChangeHandler} />
+                            <label for="floatingPassword" className='ct-text'>Password</label>
                         </div>
                         <div className='d-grid mt-3 mb-2'>
                         <button className=' btn btn-lg btn-success rounded-0 border-0'  style={{ background: '#916BBF' }} onClick={this.onSubmitHandler}>LOGIN</button>
