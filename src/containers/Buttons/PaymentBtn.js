@@ -23,9 +23,6 @@ class PaymentBtn extends Component {
 
     makePayment = () => {
         apiCall.completeOrder({}).then((r) => {
-            // alert 
-            // getCartApi
-            // get Menu Api
             Swal.fire(
                 'PAID',
                 'ORDER HAS BEEN PLACED!',
