@@ -27,16 +27,16 @@ class UpdateItem extends Component {
 
     render() {
         return (
-            <div className="container add-btn-2" style={{width: '100px'}}>
+            <div className="container add-btn-2" style={{width: '80px'}}>
                 <div className="row d-flex"  style={{padding: '0 !important'}}>
                     <a className="col-4 border" style={{ padding: '0' }} onClick={()=> this.deleteItemHandler(this.props.menu_item_id)}>
-                        <i className="fas fa-minus py-2  px-2" ></i>
+                        <span style={{padding:'0px 5px'}}><i className="fas fa-minus py-2" ></i></span>
                     </a>
                     <div className="col-4 border-bottom border-top py-2 px-2" style={{ padding: '0', fontSize: '11px' }}>
                     { this.props.count || 1}
                     </div>
                     <a className="col-4 border" style={{ padding: '0' }} onClick={()=> this.addItemHandler(this.props.menu_item_id)}>
-                        <i className="fas fa-plus py-2  px-2" ></i>
+                    <span style={{padding:'0px 5px'}}><i className="fas fa-plus py-2" ></i></span>
                     </a>
                 </div>
             </div>
