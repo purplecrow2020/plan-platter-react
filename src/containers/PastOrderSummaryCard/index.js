@@ -5,14 +5,14 @@ import React, { Component } from 'react'
         return (
             <div>
                 <div className="pb-4" style={{ background: '#fff' }}>
-                    <div className="row pt-4" >
-                        <div className="col-9">
+                    <div className="row pt-4 " >
+                        <div className="col">
                             <h5 className="ct-heading ">{this.props.vendor_name}</h5>
                             <p className="ct-text mb-0 mt-0">{this.props.vendor_address}</p>
                             <p className="ct-text">₹{this.props.bill_string} <i class="fas fa-greater-than " style={{ color: ' #7e808c' }}></i> </p>
                         </div>
-                        <div className="col-3">
-                            <p className="d-flex">Completed <i class="fas fa-check px-1 py-1 rounded-circle" style={{ background: ' #60b246', color: '#fff', }}></i></p>
+                        <div className="col ">
+                            <p className="text-end">Completed <i class="fas fa-check px-1 py-1 rounded-circle" style={{ background: ' #60b246', color: '#fff', }}></i></p>
                         </div>
                     </div>
 
