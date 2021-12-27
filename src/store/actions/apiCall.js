@@ -47,5 +47,11 @@ export const getVendorDetails = async () => {
     return axios.get(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getVendorDetails}`);
 }
 
+export const getUserOrderHistory = async () => {
+    const authKey = localStorage.getItem('authKey');
+    return axios.get(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getUserOrderHistory}`, {headers: {'x-auth-token': authKey}});
+}
+
+
 
 

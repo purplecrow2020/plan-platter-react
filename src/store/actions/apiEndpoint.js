@@ -15,5 +15,5 @@ export const getMenuSearches = "v1/menu/search-menu-items";
 export const signUp = "v1/user/sign-up";
 export const login = "v1/user/login";
 export const getVendorDetails = "v1/vendor/get-vendor-details/1";
-
+export const getUserOrderHistory = "v1/order/past-orders-summary";
 

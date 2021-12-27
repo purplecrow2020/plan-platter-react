@@ -30,7 +30,7 @@ export const getVendorDetailsApi = (filters)=>{
 }
 
 export const getCartDetails = ()=>{
-    return async (dispatch) => {
+    return async (dispatch) => {    
         let api_resp = await API_CALLS.getCartDetails();
         dispatch({type : 'SET_CART_DETAILS', payload : {response  :api_resp}});
     }}
@@ -64,3 +64,11 @@ export const login = (req_body) => {
         dispatch({type : 'SET_TOKEN', payload : {response: api_resp}});
     }
 }
+
+export const getUserOrderHistory = (req_body) => {
+    return async (dispatch) => {
+        let api_resp = await API_CALLS.getUserOrderHistory();
+        dispatch({type : 'SET_USER_ORDER_HISTORY', payload : {response: api_resp}});
+    }
+}
+

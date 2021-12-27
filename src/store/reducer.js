@@ -9,6 +9,7 @@ const initialState  = {
     },
     menu_item_search_results: [],
     is_authenticated: false,
+    order_history: []
 }
 
 export const rootReducer = (state=initialState, action) =>{
@@ -53,6 +54,11 @@ export const rootReducer = (state=initialState, action) =>{
             return {
                 ...state, 
                 vendor_details: action.payload.response.data.data
+            }
+        case 'SET_USER_ORDER_HISTORY':
+            return {
+                ...state, 
+                order_history: action.payload.response.data.data,
             }
         default:
             return state;
