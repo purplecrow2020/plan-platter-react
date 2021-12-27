@@ -8,6 +8,8 @@ import { Navigate } from 'react-router-dom';
 import Logo from '../../images/logo.jpeg';
 import { v4 as uuidv4 } from 'uuid';
 import * as actionCreators from '../../store/actions/actions';
+import Swal from 'sweetalert2';
+
 
 class Register extends Component {
 
@@ -15,7 +17,19 @@ class Register extends Component {
         let udid = uuidv4();
         this.props.loginAsGuest({
            udid
-        })
+        }).then(r=>{
+            Swal.fire(
+                'LOGGED IN!',
+                'WELCOME!',
+                'success'
+            );
+        }).catch(err=>{
+            Swal.fire(
+                'ERROR',
+                'something went wrong!',
+                'error'
+            );
+        });
     }
 
     render() {
