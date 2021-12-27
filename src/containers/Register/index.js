@@ -28,15 +28,15 @@ class Register extends Component {
                     <div className="row mt-5 " >
                    
                         <div className="col text-center" >
-                            <h3 style={{fontSize: '25px', fontWeight: '700'}}>Welcome <br /> To </h3>
-                            <h1 className='mt-4' style={{fontSize: '40px', fontWeight: '900'}}>Plane-N-Plater</h1>
-                            <img className='mt-3' style={{maxWidth: '150px', height: 'auto', boxShadow: ' 0px 8px 11px 4px rgba(0, 0, 0, 0.7)'}} src={Logo} />
+                            {/* <h3 style={{fontSize: '25px', fontWeight: '700'}}>Welcome <br /> To </h3> */}
+                            <h1 className='mt-4' style={{fontSize: '40px', fontWeight: '900'}}>Plan-N-Plater</h1>
+                            <img className='mt-3' style={{maxWidth: '150px', height: 'auto'}} src={Logo} />
                             <section className='' style={{ marginTop: '25%' }}>
                                 <div className="pb-4">
                                     <div className="row my-2">
                                         <div className="col">
                                             <Link to="/login">
-                                                <button className=" sec-btn" style={{ color: '#fc8019', borderColor: '#fc8019' }}>REGISTER</button>
+                                                <button className=" sec-btn" style={{ color: '#3D2C8D', borderColor: '#1C0C5B' }}>REGISTER</button>
                                             </Link>
                                         </div>
                                         <div className="col">

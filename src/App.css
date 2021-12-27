@@ -17,7 +17,7 @@ body{
 .welcome-screen {
   /* background-color: #9b69f7; */
   /* background: linear-gradient(52deg, #3D2C8D 50%, #ffffff 50%); */
-  background: linear-gradient(#ffffff 30%, #3D2C8D 70%);
+  background: linear-gradient(#ffffff 30%,rgb(200, 170, 245) 95%);
 
   /* transform: skewY(10deg); */
   padding: 0px 10px 10px 10px;
