@@ -68,6 +68,7 @@ export const login = (req_body) => {
 export const getUserOrderHistory = (req_body) => {
     return async (dispatch) => {
         let api_resp = await API_CALLS.getUserOrderHistory();
+        console.log(api_resp);
         dispatch({type : 'SET_USER_ORDER_HISTORY', payload : {response: api_resp}});
     }}
 export const loginAsGuest = (req_body) => {
