@@ -4,6 +4,7 @@ import  { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import  { Navigate } from 'react-router-dom'
 import * as actionCreators from '../../store/actions/actions';
+import Swal from 'sweetalert2';
 
 
 class Signup extends Component {
@@ -30,7 +31,19 @@ class Signup extends Component {
             name: this.state.name,
             email_id: this.state.email_id,
             password: this.state.password,
-        })
+        }).then((r)=>{
+            Swal.fire(
+                'LOGGED IN!',
+                'WELCOME!',
+                'success'
+            );
+        }).catch(err=>{
+            Swal.fire(
+                'ERROR',
+                'something went wrong!',
+                'error'
+            );
+        });
     }
     
     
