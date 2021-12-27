@@ -83,7 +83,7 @@ class Signup extends Component {
                         </div>
                         <a className='pl-0 sec-btn' href='#code'> Have a referral code?</a>
                         <div className='d-grid mt-3 mb-2'>
-                        <button className=' btn btn-lg btn-success rounded-1 border-0'  style={{ background: '#fc8019' }} onClick={this.onSubmitHandler}>CONTINUE</button>
+                        <button className=' btn btn-lg btn-success rounded-1 border-0'  style={{ background: '#916BBF' }} onClick={this.onSubmitHandler}>CONTINUE</button>
                         </div>
                         <p className="ct-text">By creating an account, I accept the <b style={{color:'#151616'}}>Terms & Conditions & Privacy Policy</b></p>
                     </div>

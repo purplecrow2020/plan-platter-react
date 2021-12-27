@@ -98,18 +98,18 @@ class Cart extends Component {
                                 <div className="cd-heading-4">Bill Details</div>
                                 <div className="row cd-text-2">
                                     <div className="col-10 ">Item Total</div>
-                                    <div className="col-2 d-flex justify-content-end">₹410.72</div>
+                                    <div className="col-2 d-flex justify-content-end">₹{this.props.cartDetails && this.props.cartDetails.total_bill}</div>
                                 </div>
                                 <div className="row cd-text-2">
-                                    <div className="col-10 ">Delivery Partner fee for 0.00 kms  &nbsp; <i class="fas fa-info-circle cd-icon-5" style={{ background: '#fff' }}></i> </div>
-                                    <div className="col-2 d-flex justify-content-end">₹22</div>
+                                    {/* <div className="col-10 ">Taxes & Charges  &nbsp; <i class="fas fa-info-circle cd-icon-5" style={{ background: '#fff' }}></i> </div> */}
+                                    {/* <div className="col-2 d-flex justify-content-end">₹22</div> */}
                                 </div>
-                                <div className="cd-text-3">This fee goes towards paying your Delivery Partner fairly</div>
+                                {/* <div className="cd-text-3">This fee goes towards paying your Delivery Partner fairly</div> */}
 
                                 <hr />
 
                                 <div className="row cd-text-2">
-                                    <div className="col-10">Delivery Tip</div>
+                                    <div className="col-10">Service Tip</div>
                                     <div className="col-2">
                                         <a href="#add-tip" className="text-decoration-none d-block" style={{ color: ' #ad684e' }}>
                                             Add tip
@@ -119,7 +119,7 @@ class Cart extends Component {
                                 <div className="row cd-text-2">
                                     <div className="col-10">Texes and Charges &nbsp; <i class="fas fa-info-circle cd-icon-5" style={{ background: '#fff' }}></i></div>
                                     <div className="col-2 d-flex justify-content-end">
-                                        ₹38.24
+                                        ₹50
                                     </div>
                                 </div>
 
@@ -127,7 +127,7 @@ class Cart extends Component {
 
                                 <div className="row cd-heading-4">
                                     <div className="col-10">To Pay</div>
-                                    <div className="col-2 d-flex justify-content-end">₹471</div>
+                                    <div className="col-2 d-flex justify-content-end">₹{this.props.cartDetails && this.props.cartDetails.total_bill + 50}</div>
                                 </div>
                             </div>
                         </div><hr /><PaymentBtn /></>:''

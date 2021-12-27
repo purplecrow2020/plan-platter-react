@@ -68,7 +68,7 @@ class Login extends Component {
                             <label for="floatingInput" className='ct-text'>Password</label>
                         </div>
                         <div className='d-grid mt-3 mb-2'>
-                        <button className=' btn btn-lg btn-success rounded-0 border-0'  style={{ background: '#fc8019' }} onClick={this.onSubmitHandler}>LOGIN</button>
+                        <button className=' btn btn-lg btn-success rounded-0 border-0'  style={{ background: '#916BBF' }} onClick={this.onSubmitHandler}>LOGIN</button>
                         </div>
                         <p className="ct-text">By click on login, I accept the <b style={{color:'#151616'}}>Terms & Conditions & Privacy Policy</b></p>
                     </div>
