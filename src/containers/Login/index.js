@@ -60,11 +60,11 @@ class Login extends Component {
                 <div className='row'>
                     <div className='col'>
                         <div class="form-floating mb-2">
-                            <input type="email" class="form-control rounded" id="floatingInput" placeholder="91*******-" name="mobile" />
+                            <input type="email" class="form-control rounded" id="floatingInput" placeholder="91*******-" name="mobile" onChange={this.onChangeHandler} />
                             <label for="floatingInput" className='ct-text'>Phone Number</label>
                         </div>
                         <div class="form-floating mb-2">
-                            <input type="email" class="form-control rounded-0"   id="floatingInput" placeholder="****" name="password" />
+                            <input type="password" class="form-control rounded-0"   id="floatingInput" placeholder="****" name="password" onChange={this.onChangeHandler} />
                             <label for="floatingInput" className='ct-text'>Password</label>
                         </div>
                         <div className='d-grid mt-3 mb-2'>
