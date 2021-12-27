@@ -10,7 +10,7 @@ class Account extends Component {
 
     render() {
         return (
-                    <div className="container" style={{ maxWidth: '500px', marginBottom: '150px' }}>
+                    <div className="container" style={{ maxWidth: '500px', marginBottom: '75px' }}>
                         <div className="row mt-5">
                             <div className="col-10 " >
                                 <h4 className="d-flex justify-content-start">{this.props.userDetails?.name || ''}</h4>
@@ -33,7 +33,7 @@ class Account extends Component {
                                 )
                             })
                         }
-                         <div style={{ background: '#f4f4f5' }}>
+                         <div className='mt-5' style={{ background: '#f4f4f5' }}>
                             <div className="row" >
                                 <div className="col" >
                                     <section className="my-4 py-3 d-flex justify-content-center">
