@@ -1,4 +1,4 @@
-// export const baseUrl = "https://api.doubtnut.com/";
+// export const baseUrl = "https://plan-platter-backend.herokuapp.com/";
 export const baseUrl = "http://localhost:9000/";
 
 
@@ -14,6 +14,7 @@ export const deleteItemFromCart = "v1/order/delete-cart-item";
 export const getMenuSearches = "v1/menu/search-menu-items";
 export const signUp = "v1/user/sign-up";
 export const login = "v1/user/login";
+export const loginAsGuest = "v1/user/guest-login";
 export const getVendorDetails = "v1/vendor/get-vendor-details/1";
 export const getUserOrderHistory = "v1/order/past-orders-summary";
 

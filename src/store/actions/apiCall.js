@@ -52,6 +52,10 @@ export const getUserOrderHistory = async () => {
     return axios.get(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getUserOrderHistory}`, {headers: {'x-auth-token': authKey}});
 }
 
+export const loginAsGuest = async (req_body) => {
+    return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.loginAsGuest}`,  {...req_body});
+}
+
 
 
 

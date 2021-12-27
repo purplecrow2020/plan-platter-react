@@ -13,6 +13,7 @@ function Footer({cartDetails}) {
     if (fullLayoutRoutes.includes(location.pathname)) {
         return (<div></div>);
     } else {
+        const cartIconDisplay = cartDetails.total_qty && cartDetails.total_qty > 0 ? true : false;
         return (
             <nav className="container fixed-bottom py-3 bg-white" style={{maxWidth: '500px', margin: '0px auto', boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)'}} >
                 
@@ -36,7 +37,7 @@ function Footer({cartDetails}) {
                     style={{color: '#3d4152', position:'relative'}}
                     >
                         <i className="fa fa-shopping-bag d-block" aria-hidden="true" style={{position:'relative'}}>
-                            <span className='cart-count-icon' style={{position: 'absolute', top: '-10px'}}>{cartDetails.total_qty}</span>
+                        { cartIconDisplay ? <span className='cart-count-icon' style={{position: 'absolute', top: '-10px'}}>{cartDetails.total_qty}</span>: ''}
                         </i>
                         <span className="d-block  mt-1">CART</span>
                         

@@ -19,20 +19,19 @@ class Cart extends Component {
         return (
             <div className="container" style={{ maxWidth: '500px', marginBottom: '150px' }}>
                {/* restaurantDetail */}
-              < RestaurantDetails details={this.props.vendorDetails} />
-
-              {/* Browser menu */}
-              {/* <BrowserMenu/> */}
-                {/* total BILL */}
-                <div className="row cd-heading-4 pt-2 pb-3 pl-3 my-3" style={{background: '#916BBF', borderRadius:'15px'}}>
-                    <div>
-                        <span className='cd-heading-00'>₹{this.props.cartDetails && this.props.cartDetails.total_bill}</span>
-                        <span className='cd-text-00'>&nbsp; TOTAL</span>
-                    </div>
-                    <div className="lh-1 ">
-                        <a href='#' className='cd-text-1 text-decoration-none' style={{color:'#3D087B'}}>VIEW DETAILED BILL <i class="fas fa-chevron-down text-start pl-1" /></a>
-                    </div>
-                </div>
+               {
+                 this.props.cartDetails && this.props.cartDetails.details.length > 0 ?
+                    <><RestaurantDetails details={this.props.vendorDetails} /><div className="row cd-heading-4 pt-2 pb-3 pl-3 my-3" style={{ background: '#916BBF', borderRadius: '15px' }}>
+                            <div>
+                                <span className='cd-heading-00'>₹{this.props.cartDetails && this.props.cartDetails.total_bill}</span>
+                                <span className='cd-text-00'>&nbsp; TOTAL</span>
+                            </div>
+                            <div className="lh-1 ">
+                                <a href='#' className='cd-text-1 text-decoration-none' style={{ color: '#3D087B' }}>VIEW DETAILED BILL <i class="fas fa-chevron-down text-start pl-1" /></a>
+                            </div>
+                        </div></> : ''
+               }
+             
 
 
                 {/* TOTAL ITEMS */}
@@ -89,56 +88,53 @@ class Cart extends Component {
 
 
                 {/* TOTAL BILL */}
-                <hr />
-                <br>
-                </br>
+                {
+                     this.props.cartDetails && this.props.cartDetails.details.length > 0 ?
+                    
+                <>
+                <hr></hr>
                 <div className="row">
-                    <div className="col">
-                        <div className="cd-heading-4">Bill Details</div>
-                        <div className="row cd-text-2">
-                            <div className="col-10 ">Item Total</div>
-                            <div className="col-2 d-flex justify-content-end">₹410.72</div>
-                        </div>
-                        <div className="row cd-text-2">
-                            <div className="col-10 ">Delivery Partner fee for 0.00 kms  &nbsp; <i class="fas fa-info-circle cd-icon-5" style={{ background: '#fff' }}></i> </div>
-                            <div className="col-2 d-flex justify-content-end">₹22</div>
-                        </div>
-                        <div className="cd-text-3">This fee goes towards paying your Delivery Partner fairly</div>
+                            <div className="col">
+                                <div className="cd-heading-4">Bill Details</div>
+                                <div className="row cd-text-2">
+                                    <div className="col-10 ">Item Total</div>
+                                    <div className="col-2 d-flex justify-content-end">₹410.72</div>
+                                </div>
+                                <div className="row cd-text-2">
+                                    <div className="col-10 ">Delivery Partner fee for 0.00 kms  &nbsp; <i class="fas fa-info-circle cd-icon-5" style={{ background: '#fff' }}></i> </div>
+                                    <div className="col-2 d-flex justify-content-end">₹22</div>
+                                </div>
+                                <div className="cd-text-3">This fee goes towards paying your Delivery Partner fairly</div>
 
-                        <hr />
+                                <hr />
 
-                        <div className="row cd-text-2">
-                            <div className="col-10">Delivery Tip</div>
-                            <div className="col-2">
-                                <a href="#add-tip" className="text-decoration-none d-block" style={{ color: ' #ad684e' }}>
-                                    Add tip
-                                </a>
-                            </div>
-                        </div>
-                        <div className="row cd-text-2">
-                            <div className="col-10">Texes and Charges &nbsp; <i class="fas fa-info-circle cd-icon-5" style={{ background: '#fff' }}></i></div>
-                            <div className="col-2 d-flex justify-content-end">
-                                ₹38.24
-                            </div>
-                        </div>
+                                <div className="row cd-text-2">
+                                    <div className="col-10">Delivery Tip</div>
+                                    <div className="col-2">
+                                        <a href="#add-tip" className="text-decoration-none d-block" style={{ color: ' #ad684e' }}>
+                                            Add tip
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="row cd-text-2">
+                                    <div className="col-10">Texes and Charges &nbsp; <i class="fas fa-info-circle cd-icon-5" style={{ background: '#fff' }}></i></div>
+                                    <div className="col-2 d-flex justify-content-end">
+                                        ₹38.24
+                                    </div>
+                                </div>
 
-                        <hr />
+                                <hr />
 
                                 <div className="row cd-heading-4">
                                     <div className="col-10">To Pay</div>
                                     <div className="col-2 d-flex justify-content-end">₹471</div>
                                 </div>
                             </div>
-                        </div>
+                        </div><hr /><PaymentBtn /></>:''
 
-                        <hr />
-                    <PaymentBtn />
-
-                    </div>
-            //     </div>
-
-            //     <PaymentBtn />
-            // </div>
+                }
+                </div>
+          
         )
     }
 }
