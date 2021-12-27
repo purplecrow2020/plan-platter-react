@@ -11,6 +11,20 @@ class Account extends Component {
     render() {
         return (
                     <div className="container" style={{ maxWidth: '500px', marginBottom: '150px' }}>
+                        <div className="row mt-5">
+                            <div className="col-10 " >
+                                <h4 className="d-flex justify-content-start">ANIL</h4>
+                                <p className="d-flex justify-content-start ct-text">9632587410 	&nbsp; &#8226; 	&nbsp; codejuggler.xy@gmail.com</p>
+                            </div>
+                            <div className="col-2 ">
+                                <a href="#edit" style={{ textDecoration: 'none', color: '#ff8702', fontSize: '18px', fontWeight: '400' }}>EDIT</a>
+                            </div>
+                        </div>
+                        <div className="row ">
+                            <div className="col">
+                                <div className="u-line" style={{ borderColor: '3px solid black' }}></div>
+                            </div>
+                        </div>
                         <h5 className="ct-heading pt-4 pb-3" style={{ background: '#f4f4f5',paddingLeft: '10px' }}>PAST ORDERS</h5>
                         {
                             this.props.pastUserOrders && this.props.pastUserOrders.map(order=>{
@@ -19,7 +33,17 @@ class Account extends Component {
                                 )
                             })
                         }
+                         <div style={{ background: '#f4f4f5' }}>
+                            <div className="row" >
+                                <div className="col" >
+                                    <section className="my-4 py-3 d-flex justify-content-center">
+                                        <p className="ct-text">&#64;Copyright 2022, PLAN N PLATTER Version 1.0.0</p>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    
             )   
     }
 }
