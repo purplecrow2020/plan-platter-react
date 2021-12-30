@@ -15,6 +15,7 @@ import { connect } from 'react-redux';
 import * as actionCreators from './store/actions/actions';
 import NavBar from './containers/NavBar';
 import Account from './containers/Account';
+import './containers/CategoryAccordion/accordion.css'
 
 //import CartBody from './components/cart/CartBody';
 

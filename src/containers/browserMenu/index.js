@@ -5,55 +5,52 @@ export default function BrowserMenu() {
     return (
         <>
             <div className="box container d-flex justify-content-center" >  
-                <a className="button" href="#popup1"><i className="fas fa-utensils"></i>BROWES MENU</a>
+                <a className="button text-decoration-none" href="#popup1">
+                    {/* <i className="fas fa-utensils"></i> */}
+                    <i class="far fa-bell"></i>
+                    Call Services </a>
             </div>
             <div id="popup1" className="overlay">
                 <div className="popup">
-                    <h2>BROWES MENU</h2>
-                    <a className="close" href="#time">&times;</a>
+                    <h2>Services</h2>
+                    <a className="close text-decoration-none" href="#time">&times;</a>
                     <div className="content">
-                        <ul>
+                        <ul style={{}}>
                             <li>
-                                <div className="popup-row">
-                                    <div className="col-cat">Recommended</div>
-                                    <div className="col-number">14</div>
-                                </div>
+                                <a href='#clean-table' className="popup-row text-decoration-none">
+                                    <div className="col-cat">Clean up table</div>
+                                    <div className="col-number"><i class="fas fa-broom"></i></div>
+                                </a>
                             </li>
                             <li>
-                                <div className="popup-row">
-                                    <div className="col-cat">Navratri Special</div>
-                                    <div className="col-number">13</div>
-                                </div>
+                                <a href='#refill-water' className="popup-row text-decoration-none">
+                                    <div className="col-cat">Refill water</div>
+                                    <div className="col-number"><i class="fas fa-wine-glass-alt"></i></div>
+                                </a>
                             </li>
                             <li>
-                                <div className="popup-row">
-                                    <div className="col-cat">All Day Breakfast</div>
-                                    <div className="col-number">2</div>
-                                </div>
+                                <a href='#refreshment' className="popup-row text-decoration-none">
+                                    <div className="col-cat">Refreshment</div>
+                                    <div className="col-number"><i class="fab fa-react"></i></div>
+                                </a>
                             </li>
                             <li>
-                                <div className="popup-row">
-                                    <div className="col-cat">Handmade Chocolates</div>
-                                    <div className="col-number">1</div>
-                                </div>
+                                <a href='#finger-bowl' className="popup-row text-decoration-none">
+                                    <div className="col-cat">Finger Bowl</div>
+                                    <div className="col-number"><i class="fas fa-hands-wash"></i></div>
+                                </a>
                             </li>
                             <li>
-                                <div className="popup-row">
-                                    <div className="col-cat">Breakfast Special</div>
-                                    <div className="col-number">1</div>
-                                </div>
+                                <a href='#bill' className="popup-row text-decoration-none">
+                                    <div className="col-cat">Bill</div>
+                                    <div className="col-number"><i class="fas fa-file-invoice"></i></div>
+                                </a>
                             </li>
                             <li>
-                                <div className="popup-row">
-                                    <div className="col-cat">Summer Coolers</div>
-                                    <div className="col-number">10</div>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="popup-row">
-                                    <div className="col-cat">Pickel Mania</div>
-                                    <div className="col-number">4</div>
-                                </div>
+                                <a href='#call-waiter' className="popup-row text-decoration-none ">
+                                    <div className="col-cat">Call a Waiter</div>
+                                    <div className="col-number"><i class="fas fa-male"></i></div>
+                                </a>
                             </li>
                         </ul>
                     </div>
