@@ -19,6 +19,7 @@ import './containers/CategoryAccordion/accordion.css'
 
 //import CartBody from './components/cart/CartBody';
 
+
 class App extends Component {
 
   constructor(props){
