@@ -83,9 +83,9 @@ export default function App0() {
         <h1 className="font-weight-normal mb-3">{t('welcome_message')}</h1>
         <p>{t('days_since_release', { number_of_days })}</p>
       </div>
+      </div>
+        <App/>
     </div>
-            {/* <App/> */}
-        </div>
     );
 
 }

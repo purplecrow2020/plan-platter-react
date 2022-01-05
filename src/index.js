@@ -55,7 +55,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <App0/>
-      <App />
+      {/* <App /> */}
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
