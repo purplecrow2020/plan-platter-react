@@ -7,6 +7,7 @@ import Accordion from '../CategoryAccordion/Accordion';
 import '../CategoryAccordion/accordion.css';
 import Search from '../Search/SearchBar';
 import NavBar from '../NavBar';
+import SingleProductDetail from '../SingleProductDetails/SingleProductDetail';
 class Home extends Component {
 
 
@@ -57,7 +58,8 @@ class Home extends Component {
                 } */}
 
                  {/* render Menu in accordion */}
-                 <Accordion menu={this.props.menu}/>                
+                 <Accordion menu={this.props.menu}/> 
+                 <SingleProductDetail/>               
             </div>
         )
     }

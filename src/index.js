@@ -18,6 +18,7 @@ import HttpApi from 'i18next-http-backend';
 import App0 from './App0';
 
 
+// multi language added
 i18n
 .use(initReactI18next) 
 .use(LanguageDetector)
@@ -37,8 +38,7 @@ i18n
   },
   react: {useSuspense: false}
 });
-
-
+// multi language added
 
 const logger = store =>{
   return next =>{
