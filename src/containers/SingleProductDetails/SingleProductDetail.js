@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import AddItem from './../Buttons/AddItem';
 import './index.css'
 
 export default class SingleProductDetail extends Component {
@@ -61,6 +62,12 @@ export default class SingleProductDetail extends Component {
                     <div className='col'>
                         <h4 className='rd-heading-2' style={{ letterSpacing: '1px' }}>Details</h4>
                         <p className='rd-text-2'>A biscuit is a flour-based baked food product. In most countries biscuits are typically hard, flat and unleavened. </p>
+                    </div>
+                </div>
+
+                <div className='row mt-3'>
+                    <div className='col d-flex justify-content-center'>
+                      <AddItem/>
                     </div>
                 </div>
 
