@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/actions';
 import BrowserMenu from '../browserMenu';
+import OrderInfo from '../OrderInfo/OrderInfo';
 import PastOrderSummaryCard from '../PastOrderSummaryCard';
 import Features from './../Features';
 
@@ -51,6 +52,12 @@ class Account extends Component {
                                 <BrowserMenu/>
                             </div>
                         </div>
+
+                        <div className='row'>
+                            <OrderInfo/>
+                        </div>
+
+                        
                          <div style={{ background: '#f4f4f5' }}>
                             <div className="row" >
                                 <div className="col" >
@@ -60,6 +67,8 @@ class Account extends Component {
                                 </div>
                             </div>
                         </div>
+
+                       
                     </div>
                     
             )   
