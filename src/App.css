@@ -907,10 +907,27 @@ border: none;
 cursor: pointer;
 }
 
+/* feature button  */
+
+.fet-btn{
+  /* position: absolute; */
+  display: flex;
+  height: 35px;
+  background-color: #fff;
+  color: #ed5e0e;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #686b78;
+  /* box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2); */
+  padding: 2px 0px;
+}
+
+
+
 
 
 /* TagLine css */
-
 
 .tag-heading-1{
   display: flex;

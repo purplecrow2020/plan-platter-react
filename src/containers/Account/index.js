@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/actions';
+import BrowserMenu from '../browserMenu';
 import PastOrderSummaryCard from '../PastOrderSummaryCard';
+import Features from './../Features';
+
+
+
 class Account extends Component {
 
     componentDidMount(){
@@ -33,6 +38,19 @@ class Account extends Component {
                                 )
                             })
                         }
+
+                        <div className='row '>
+                            <div className='col'>
+                                <Features/>
+                                
+                            </div>
+                        </div>
+                        <div className='row my-3'>
+                            <div className='col'>
+                               
+                                <BrowserMenu/>
+                            </div>
+                        </div>
                          <div style={{ background: '#f4f4f5' }}>
                             <div className="row" >
                                 <div className="col" >

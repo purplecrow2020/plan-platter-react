@@ -44,12 +44,12 @@ class PaymentBtn extends Component {
                         <section>
                             <div className="pb-4">
                                 <div className="row my-2">
-                                    <div className="col">
+                                    <div className="col-md-6 mb-3">
                                         <Link to="/login">
                                             <button className=" sec-btn border-0 py-3" style={{ color: '#000000', background: '#FEF5ED', border:'1px solid black' }} onClick={this.placeOrder}>PLACE ORDER</button>
                                         </Link>
                                     </div>
-                                    <div className="col">
+                                    <div className="col-md-6">
                                         <Link to="/signup">
                                             <button className=" sec-btn border-0 py-3" style={{ color: '#ffffff', background: '#916BBF', border:'1px solid white' }} onClick={this.makePayment}>MAKE PAYMENT</button>
                                         </Link>
