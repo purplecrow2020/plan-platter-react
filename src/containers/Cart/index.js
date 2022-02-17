@@ -6,7 +6,7 @@ import './index.css';
 import defaultCartImg from '../../images/defaultCart.png'
 import PaymentBtn from '../Buttons/PaymentBtn';
 import RestaurantDetails from '../restaurantDetail';
-import BrowserMenu from '../browserMenu';
+// import BrowserMenu from '../browserMenu';
 
 class Cart extends Component {
 
@@ -111,7 +111,7 @@ class Cart extends Component {
                                 <div className="row cd-text-2">
                                     <div className="col-10">Service Tip</div>
                                     <div className="col-2">
-                                        <a href="#add-tip" className="text-decoration-none d-block" style={{ color: ' #ad684e' }}>
+                                        <a href="#add-tip" className="text-decoration-none d-block  text-end" style={{ color: ' #ad684e' }}>
                                             Add tip
                                         </a>
                                     </div>
