@@ -15,6 +15,7 @@ import { connect } from 'react-redux';
 import * as actionCreators from './store/actions/actions';
 import NavBar from './containers/NavBar';
 import Account from './containers/Account';
+import Onboarding from './components/Onboarding';
 
 //import CartBody from './components/cart/CartBody';
 
@@ -41,7 +42,8 @@ class App extends Component {
         {/* <NavBar/> */}
         <Routes>
             
-            <Route exact path="/" element={<Register />} />
+            <Route exact path={"/"} element={ <Register/>} />
+            <Route exact path={"/:vendor_id/:table_id"} element={ <Onboarding />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
   

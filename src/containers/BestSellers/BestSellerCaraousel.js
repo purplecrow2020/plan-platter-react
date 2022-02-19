@@ -10,10 +10,10 @@ class BestSellerCaraousel extends Component {
     settings = {
         dots: false,
         infinite: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 1000,
         autoplay: true,
-        slidesToShow: 2.9,
-        slidesToScroll: 2,
+        slidesToShow: 2,
+        slidesToScroll: 1,
     };
 
     render() {

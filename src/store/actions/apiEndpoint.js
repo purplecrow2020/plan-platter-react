@@ -1,5 +1,5 @@
-export const baseUrl = "https://plan-platter-backend.herokuapp.com/";
-// export const baseUrl = "http://localhost:9000/";
+// export const baseUrl = "https://plan-platter-backend.herokuapp.com/";
+export const baseUrl = "http://localhost:9000/";
 
 
 
@@ -20,5 +20,5 @@ export const getUserOrderHistory = "v1/order/past-orders-summary";
 export const orderAddItems = "v1/order/place-order";
 export const completeOrderByPayment = "v1/order/complete-order";
 export const getUserDetails = "v1/user/get-user-details";
-
+export const addQuickRequest = "v1/order/quick-request";
 

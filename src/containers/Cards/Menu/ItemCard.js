@@ -5,7 +5,6 @@ import UpdateItem from '../../Buttons/UpdateItem';
 
 class MenuItemCard extends Component {
     render() {
-        console.log("ITEMQTYYYYY",this.props.item_qty);
         const dietary_flag_color = this.props.dietary_flag ==='VEG' ? 'green' : 'red';
         return (
             <div className=" mt-2" style={{ maxWidth: '500px'}}>

@@ -38,18 +38,10 @@ export const getCartDetails = ()=>{
 export const getMenuSearchesApi = (item_search_string)=>{
     return async (dispatch) => {
         let api_resp = await API_CALLS.getMenuSearches({item_search_string});
-        console.log(api_resp);
         dispatch({type : 'SET_MENU_SEARCH_RESULTS', payload : {response  :api_resp}});
     }
 }
 
-// export const getMenuSearchesApi = (item_search_string)=>{
-//     return async (dispatch) => {
-//         let api_resp = await API_CALLS.getMenuSearches({item_search_string});
-//         console.log(api_resp);
-//         dispatch({type : 'SET_MENU_SEARCH_RESULTS', payload : {response  :api_resp}});
-//     }
-// }
 
 export const signUp = (req_body) => {
     return async (dispatch) => {
@@ -68,7 +60,6 @@ export const login = (req_body) => {
 export const getUserOrderHistory = (req_body) => {
     return async (dispatch) => {
         let api_resp = await API_CALLS.getUserOrderHistory();
-        console.log(api_resp);
         dispatch({type : 'SET_USER_ORDER_HISTORY', payload : {response: api_resp}});
     }}
 export const loginAsGuest = (req_body) => {

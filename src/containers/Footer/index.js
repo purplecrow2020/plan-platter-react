@@ -16,7 +16,6 @@ function Footer({cartDetails}) {
         const cartIconDisplay = cartDetails.total_qty && cartDetails.total_qty > 0 ? true : false;
         return (
             <nav className="container fixed-bottom py-3 bg-white" style={{maxWidth: '500px', margin: '0px auto', boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)'}} >
-                
                 <div className="row " style={{ margin: 'auto', cursor: 'pointer'}} >
                     <div className="col-3">
                         <NavLink exact to='/' className="text-decoration-none text-center">

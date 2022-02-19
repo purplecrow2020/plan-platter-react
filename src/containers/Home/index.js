@@ -7,6 +7,8 @@ import Accordion from '../CategoryAccordion/Accordion';
 import '../CategoryAccordion/accordion.css';
 import Search from '../Search/SearchBar';
 import NavBar from '../NavBar';
+import BrowserMenu from '../browserMenu';
+import Toast from '../../components/Toast/Toast';
 class Home extends Component {
 
 
@@ -20,8 +22,9 @@ class Home extends Component {
     render() {
         return (
             <div className='container' style={{maxWidth: '500px', marginBottom:'150px'}}>
+
                 {/* Nav BAR */}
-                <NavBar  vendor_details={this.props.vendor_details} user_details={this.props.user_details} />
+                <NavBar  vendor_details={this.props.vendor_details} user_details={this.props.user_details}  enable_bell_icon={true}/>
                 {/* SEARCH BAR */}
                 <Search />
                 {/* render BestSellers */}

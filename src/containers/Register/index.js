@@ -11,7 +11,15 @@ import * as actionCreators from '../../store/actions/actions';
 import Swal from 'sweetalert2';
 
 
+
 class Register extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+
+        }
+    }
 
     onSubmitHandler = () => {
         let udid = uuidv4();
@@ -38,7 +46,7 @@ class Register extends Component {
                 ? <Navigate to="/home" />
                 :
                 <div className='container welcome-screen' style={{ maxWidth: '500px', marginBottom: '150px', height: '100vh' }}>
-                     <NavBar/>
+                     <NavBar />
                     <div className="row mt-5 " >
                    
                         <div className="col text-center" >

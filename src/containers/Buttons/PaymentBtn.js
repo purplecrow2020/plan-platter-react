@@ -44,16 +44,37 @@ class PaymentBtn extends Component {
                         <section>
                             <div className="pb-4">
                                 <div className="row my-2">
-                                    <div className="col">
-                                        <Link to="/login">
-                                            <button className=" sec-btn border-0 py-3" style={{ color: '#000000', background: '#FEF5ED', border:'1px solid black' }} onClick={this.placeOrder}>PLACE ORDER</button>
-                                        </Link>
-                                    </div>
-                                    <div className="col">
-                                        <Link to="/signup">
-                                            <button className=" sec-btn border-0 py-3" style={{ color: '#ffffff', background: '#916BBF', border:'1px solid white' }} onClick={this.makePayment}>MAKE PAYMENT</button>
-                                        </Link>
-                                    </div>
+                                    {
+                                        this.props.to_order && (this.props.order_in_progress || this.props.order_delivered) && this.props.disable_payment 
+                                        ? 
+                                        <div className="col" >
+                                            <Link to="/login">
+                                                <button className=" sec-btn border-0 py-3" style={{ color: '#000000', background: '#FEF5ED', border:'10px solid black' }} onClick={this.placeOrder}>PLACE ORDER</button>
+                                            </Link>
+                                        </div>
+                                        : ''
+                                    }
+                                    {
+                                        this.props.to_order && !(this.props.order_in_progress || this.props.order_delivered) && !this.props.disable_payment 
+                                        ?  
+                                        <div className="col" >
+                                            <Link to="/login">
+                                                <button className=" sec-btn border-0 py-3" style={{ color: '#000000', background: '#FEF5ED', border:'10px solid black' }} onClick={this.placeOrder}>PLACE ORDER</button>
+                                            </Link>
+                                        </div>
+                                        : ''
+                                    }
+                                    {
+                                        !this.props.disable_payment 
+                                        ?
+                                        <div className="col">
+                                            <Link to="/signup">
+                                                <button className=" sec-btn border-0 py-3" style={{ color: '#ffffff', background: '#916BBF', border:'1px solid white' }} onClick={this.makePayment}>MAKE PAYMENT</button>
+                                            </Link>
+                                        </div>
+                                        : ''
+                                    }
+                                   
                                 </div>
                             </div>
                         </section>

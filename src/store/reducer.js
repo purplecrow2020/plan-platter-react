@@ -3,7 +3,7 @@ const initialState  = {
     menu: [],
     bestsellers: [],
     cartDetails: {
-        details: [],
+        details: null,
         total_qty: 0,
         total_bill: 0
     },

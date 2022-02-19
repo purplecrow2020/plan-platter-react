@@ -10,26 +10,72 @@ export const healthCheck = async () =>{
 
 export const getMenu = async (f) =>{
     const authKey = localStorage.getItem('authKey');
-    return axios.get(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getMenu}`, {headers: {'x-auth-token': authKey}});
+    const vendor_id = localStorage.getItem('vendor_id');
+    const table_id = localStorage.getItem('table_id');
+    return axios.get(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getMenu}`, {
+        headers: {
+            'x-auth-token': authKey,
+            vendor_id, 
+            table_id,
+        }});
 }
 
 export const getBestSellers = async () => {
-    return axios.get(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getBestSellers}`);
+    const authKey = localStorage.getItem('authKey');
+    const vendor_id = localStorage.getItem('vendor_id');
+    const table_id = localStorage.getItem('table_id');
+
+    return axios.get(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getBestSellers}`, {
+        headers: {
+            'x-auth-token': authKey,
+            vendor_id, 
+            table_id,
+        }
+    });
 }
 
 export const getCartDetails = async () => {
     const authKey = localStorage.getItem('authKey');
-    return axios.get(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getCartDetails}`, {headers: {'x-auth-token': authKey}});
+    const vendor_id = localStorage.getItem('vendor_id');
+    const table_id = localStorage.getItem('table_id');
+    return axios.get(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getCartDetails}`, {headers: {
+        'x-auth-token': authKey,
+        vendor_id, 
+        table_id,
+    }});
 }
 
 export const addItemToCart = async (req_data) => {
     const authKey = localStorage.getItem('authKey');
-    return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.addItemToCart}`, req_data, {headers: {'x-auth-token': authKey}});
+    const vendor_id = localStorage.getItem('vendor_id');
+    const table_id = localStorage.getItem('table_id');
+    return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.addItemToCart}`, req_data, {headers: {
+        'x-auth-token': authKey,
+        vendor_id, 
+        table_id,
+    }});
 }
 
 export const deleteItemFromCart = async (req_data) => {
     const authKey = localStorage.getItem('authKey');
-    return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.deleteItemFromCart}`, req_data, {headers: {'x-auth-token': authKey}});
+    const vendor_id = localStorage.getItem('vendor_id');
+    const table_id = localStorage.getItem('table_id');
+    return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.deleteItemFromCart}`, req_data, {headers: {
+        'x-auth-token': authKey,
+        vendor_id, 
+        table_id,
+    }});
+}
+
+export const addQuickRequest = async (req_data) => {
+    const authKey = localStorage.getItem('authKey');
+    const vendor_id = localStorage.getItem('vendor_id');
+    const table_id = localStorage.getItem('table_id');
+    return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.addQuickRequest}`, req_data, {headers: {
+        'x-auth-token': authKey,
+        vendor_id, 
+        table_id,
+    }});
 }
 
 export const getMenuSearches = async (req_body) => {
