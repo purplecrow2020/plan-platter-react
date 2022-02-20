@@ -205,7 +205,7 @@ class Cart extends Component {
                 
 
                 {
-                    (!this.props.cartDetails || !this.props.cartDetails.details || (this.props.cartDetails.details.to_order.length ==0 &&  this.props.cartDetails.details.in_progress.length ==0  && this.props.cartDetails.details.to_order.length ==0)) ? 
+                    (!this.props.cartDetails || !this.props.cartDetails.details || (this.props.cartDetails.details.to_order.length ==0 &&  this.props.cartDetails.details.in_progress.length ==0  && this.props.cartDetails.details.completed.length ==0)) ? 
                     <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }}><img src={defaultCartImg} alt="default-cart-img" className="d-flex justify-content-center img-fluid" style={{ maxWidth: '250px', height: 'auto' }} />
                         <div className="row mt-4">
                             <div className="col text-center">

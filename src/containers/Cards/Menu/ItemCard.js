@@ -13,7 +13,7 @@ class MenuItemCard extends Component {
                     <div className="col-8 ">
                         <span style={{ color: ' #ee9c00', fontSize: '12px' }}><i className="far fa-stop-circle dot " style={{color: dietary_flag_color, fontSize: '15px' }}></i> &nbsp; <i className="fas fa-star rating-stat" ></i> Bestseller</span>
                         <h6 className="pt-2" style={{ color: ' #282c3f', fontWeight: '500' }}>{this.props.item_name}</h6>
-                        <span className="mt-n-2" style={{ fontSize: '12px' }}>{this.props.item_price}</span>
+                        <span className="mt-n-2" style={{ fontSize: '12px' }}>&#8377;{this.props.item_price}</span>
                     </div>
 
                     <div className="col-4 " >

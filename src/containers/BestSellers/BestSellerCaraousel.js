@@ -23,7 +23,6 @@ class BestSellerCaraousel extends Component {
             <Slider {...this.settings}>
             {
                     this.props.items && this.props.items.map((item, index) => {
-                        console.log(item, index);
                         return (
                             <div style={{border: '1px solid red'}}>
                                 
