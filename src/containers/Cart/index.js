@@ -23,7 +23,8 @@ class Cart extends Component {
             <div className="container" style={{ maxWidth: '500px', marginBottom: '150px' }}>
                {/* restaurantDetail */}
                {
-                 this.props.cartDetails && this.props.cartDetails.details  ?
+                //  this.props.cartDetails && this.props.cartDetails.details  ?
+                this.props.cartDetails && this.props.cartDetails.details && ((this.props.cartDetails.details.to_order && this.props.cartDetails.details.to_order.length > 0) || (this.props.cartDetails.details.in_progress && this.props.cartDetails.details.in_progress.length > 0) || (this.props.cartDetails.details.completed && this.props.cartDetails.details.completed.length > 0) ) ?
                     <><RestaurantDetails details={this.props.vendorDetails} /><div className="row cd-heading-4 pt-2 pb-3 pl-3 my-3" style={{ background: '#916BBF', borderRadius: '15px' }}>
                             <div>
                                 <span className='cd-heading-00'>₹{this.props.cartDetails && this.props.cartDetails.total_bill}</span>
@@ -220,7 +221,7 @@ class Cart extends Component {
 
                 {/* TOTAL BILL */}
                 {
-                     this.props.cartDetails && this.props.cartDetails.details ?
+                     this.props.cartDetails && this.props.cartDetails.details && ((this.props.cartDetails.details.to_order && this.props.cartDetails.details.to_order.length > 0) || (this.props.cartDetails.details.in_progress && this.props.cartDetails.details.in_progress.length > 0) || (this.props.cartDetails.details.completed && this.props.cartDetails.details.completed.length > 0) ) ?
                     
                 <>
                 <hr></hr>
