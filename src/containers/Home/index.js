@@ -7,10 +7,16 @@ import Accordion from '../CategoryAccordion/Accordion';
 import '../CategoryAccordion/accordion.css';
 import Search from '../Search/SearchBar';
 import NavBar from '../NavBar';
-import BrowserMenu from '../browserMenu';
-import Toast from '../../components/Toast/Toast';
+import BrowserMenu from '../BrowseMenuItems';
 class Home extends Component {
 
+    constructor(props){
+        super(props);
+        this.state = {
+            accordionRefs: [],
+            menu_cats_selected_index: 0,
+        }
+    }
 
     componentDidMount(){
         this.props.getMenuApi();
@@ -18,6 +24,19 @@ class Home extends Component {
         this.props.callCartDetailsApi();
         this.props.getUserDetails();
     }
+
+    setAccordionRefs = (refrences) => {
+        console.log("REFRENCE", refrences);
+        this.setState({
+            accordionRefs: refrences
+        });
+    }
+
+    setCustomMenuCategory = (index) => {
+        this.setState({
+            menu_cats_selected_index: index,
+        })
+    } 
 
     render() {
         return (
@@ -60,7 +79,10 @@ class Home extends Component {
                 } */}
 
                  {/* render Menu in accordion */}
-                 <Accordion menu={this.props.menu}/>                
+                <Accordion menu={this.props.menu} setMenuAccordionRefs={this.setAccordionRefs} custom_selected_index={this.state.menu_cats_selected_index}/>    
+                <div style={{position: 'fixed', top: window.innerHeight-130, left: (window.innerWidth-200)/2}}>
+                <BrowserMenu menuItems={this.props.menu} menuCategoryRefs={this.state.accordionRefs} customMenuCatSelectionHandler={this.setCustomMenuCategory}/>            
+                </div>
             </div>
         )
     }

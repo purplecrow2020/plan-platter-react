@@ -5,6 +5,7 @@ import MenuItemCard from './containers/Cards/Menu/ItemCard';
 import Home from './containers/Home';
 import BestSellerCaraousel from './containers/BestSellers/BestSellerCaraousel';
 import Cart from './containers/Cart';
+// import Cart  from './components/Cart';
 // import ProfileMainBody from './components/profile/ProfileMainBody';
 import SearchBar from './containers/Search/SearchBar';
 import Register from './containers/Register';
@@ -16,7 +17,8 @@ import * as actionCreators from './store/actions/actions';
 import NavBar from './containers/NavBar';
 import Account from './containers/Account';
 import Onboarding from './components/Onboarding';
-
+import Screenshot from './components/Screenshot';
+import GuestLoginComplete from './containers/guestLoginComplete';
 //import CartBody from './components/cart/CartBody';
 
 class App extends Component {
@@ -52,9 +54,15 @@ class App extends Component {
             {/* <Route exact path="/" element={<BestSellerCaraousel />} /> */}
             <Route exact path='/search' element={<SearchBar/>} />
             <Route exact path='/profile' element={<Account />} />
+            <Route exact path='/screenshot' element={<Screenshot />} />
+            <Route exact path='/guest-login-complete' element={<GuestLoginComplete />} />
+
+
+            
             {/* <Route exact path='/cart' element={<CartBody/>} /> */}
             {/* <Route exact path='/profile' component={ProfileMainBody} /> */}
           </Routes>
+          
           <Footer />
         </BrowserRouter>
       </div>

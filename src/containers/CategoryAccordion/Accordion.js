@@ -8,6 +8,48 @@ import './accordion.css';
 
 
 export default class ProfileMainBody extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      catsRefs: [],
+    }
+  }
+
+  getRef = (index) => {
+    return this.state.catsRefs[index];
+  }
+
+  componentDidMount() {
+    if (this.props.menu) {
+      const categories = Object.keys(this.props.menu);
+      const refs = [];
+      for (let i=0; i < categories.length; i++) {
+        let x = React.createRef();
+        refs.push(x);
+      } 
+      this.setState({
+        catsRefs: refs
+      });
+      this.props.setMenuAccordionRefs(refs);
+    } 
+  }
+
+  componentDidUpdate() {
+    console.log('updating', this.state.catRefs);
+    if (this.props.menu && ( (this.state.catRefs && this.state.catRefs.length == 0 ) || !(this.state.catsRefs))) {
+      const categories = Object.keys(this.props.menu);
+      const refs = [];
+      for (let i=0; i < categories.length; i++) {
+        let x = React.createRef();
+        refs.push(x);
+      } 
+      this.setState({
+        catsRefs: refs
+      });
+      this.props.setMenuAccordionRefs(refs);
+    } 
+  }
+
   render() {
     return (
       <><div className=" mt-2" style={{ maxWidth: '500px', background: '' }}>
@@ -16,13 +58,13 @@ export default class ProfileMainBody extends Component {
             this.props.menu && Object.keys(this.props.menu).map((item_category, index) => {
               return (
 
-                <div class="accordion-item  mb-3">
+                <div class="accordion-item  mb-3" id={`ACCORDION_${index}`} ref={this.getRef(index)}>
                   <h2 class="accordion-header" id={`flush-heading${index}`} >
                     <button class={index == 0 ? "pb-2 acc-btn ct-heading accordion-button" : "pb-2 acc-btn ct-heading accordion-button collapsed"} type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapseOne${index}`} aria-expanded="false" aria-controls={`flush-collapseOne${index}`} style={{ boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)' }}>
                       {item_category} ({this.props.menu[item_category].length})
                     </button>
                   </h2>
-                  <div id={`flush-collapseOne${index}`} class={index == 0 ? "accordion-collapse collapse show" : "accordion-collapse collapse"} aria-labelledby={`flush-heading${index}`} data-bs-parent="#accordionFlushExample">
+                  <div id={`flush-collapseOne${index}`} class={index == (this.props.custom_selected_index || 0) ? "accordion-collapse collapse show" : "accordion-collapse collapse"} aria-labelledby={`flush-heading${index}`} data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
                       <div className="mt-n-2 u-d-line"></div>
                       <ul className="body-ul">

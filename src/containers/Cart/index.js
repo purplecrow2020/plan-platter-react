@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import socket from '../../common/socket';
+import html2canvas from 'html2canvas';
 import * as actionCreators from '../../store/actions/actions';
 import { connect } from 'react-redux';
 import UpdateItem from '../Buttons/UpdateItem';
@@ -10,17 +12,67 @@ import OrderFoodImg from  '../../images/order_food.png'
 import PaymentBtn from '../Buttons/PaymentBtn';
 import RestaurantDetails from '../restaurantDetail';
 import BrowserMenu from '../browserMenu';
-
+import SaveBillImg from '../../images/save.png';
+import withCartHook from '../../components/Cart';
+const { saveAs } = require('file-saver');
 class Cart extends Component {
 
 
-    componentDidMount() {
-        this.props.callCartDetailsApi()
+
+    constructor(props) {
+        super(props);
+        this.myRef = React.createRef();
+        this.cartRef = React.createRef();
+
+        this.state = {
+            image: null,
+        }
     }
+
+    componentDidMount() {
+        this.props.callCartDetailsApi();
+        console.log("PROPS< IMAGE",this.props.image);
+
+
+        socket.on(`ORDER_COMPLETED_BY_VENDOR`, () => {
+            // console.log('new order is placed')
+            this.props.callCartDetailsApi();
+            // this.props.getVendorActiveOrderDetails();
+            // this.state.audio_file.play();
+            // Swal.fire(`TABLE NO: ${data.table_id}  has a new order`);
+        })
+    }
+
+
+    convertBase64ToFile = (base64String, fileName) => {
+        let arr = base64String.split(',');
+        let mime = arr[0].match(/:(.*?);/)[1];
+        let bstr = atob(arr[1]);
+        let n = bstr.length;
+        let uint8Array = new Uint8Array(n);
+        while (n--) {
+           uint8Array[n] = bstr.charCodeAt(n);
+        }
+        let file = new File([uint8Array], fileName, { type: mime });
+        return file;
+    }
+
+    download = (image, { name = "BILL_DETAILS", extension = "png" } = {}) => {
+        const a = document.createElement("a");
+        a.href = this.props.imageSave;
+        a.download = this.props.createFileName(extension, name);
+        a.click();
+      };
+
+    handleDownloadBill = (screenCapture) => {
+        console.log('hello bill is saved');
+        this.props.takeScreenshot(this.cartRef.current).then(this.download);
+    }
+
 
     render() {
         return (
-            <div className="container" style={{ maxWidth: '500px', marginBottom: '150px' }}>
+            <div className="container" style={{ maxWidth: '500px', marginBottom: '150px' }} ref={this.cartRef}>
                {/* restaurantDetail */}
                {
                 //  this.props.cartDetails && this.props.cartDetails.details  ?
@@ -154,7 +206,7 @@ class Cart extends Component {
                 {   
                     this.props.cartDetails &&  this.props.cartDetails.details && this.props.cartDetails.details.completed && this.props.cartDetails.details.completed.length > 0 
                     ? 
-                    <React.Fragment>
+                    <React.Fragment ref={this.myRef}>
                         <div style={{backgroundColor: 'rgb(252,249,251)', border: '1px solid black', borderRadius: '10px', padding: '10px'}}><span style={{lineHeight:"100%"}}><b>Delivered ...</b></span><img src={FoodDeliveredImg} style={{width: '50px'}}></img>
                         <hr/>
                         {
@@ -227,7 +279,11 @@ class Cart extends Component {
                 <hr></hr>
                 <div className="row">
                             <div className="col">
-                                <div className="cd-heading-4">Bill Details</div>
+                                <div className="cd-heading-4">
+                                    <p>Bill Details  <img src ={SaveBillImg} style={{width: '30px', height: '30px', float: 'right'}} onClick={this.handleDownloadBill}/></p>
+                                   
+                                </div>
+                                
                                 <div className="row cd-text-2">
                                     <div className="col-10 ">Item Total</div>
                                     <div className="col-2 d-flex justify-content-end">₹{this.props.cartDetails && this.props.cartDetails.total_bill}</div>
@@ -241,12 +297,12 @@ class Cart extends Component {
                                 <hr />
 
                                 <div className="row cd-text-2">
-                                    <div className="col-10">Service Tip</div>
+                                    {/* <div className="col-10">Service Tip</div>
                                     <div className="col-2">
                                         <a href="#add-tip" className="text-decoration-none d-block" style={{ color: ' #ad684e' }}>
                                             Add tip
                                         </a>
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div className="row cd-text-2">
                                     <div className="col-10">Texes and Charges &nbsp; <i class="fas fa-info-circle cd-icon-5" style={{ background: '#fff' }}></i></div>
@@ -290,4 +346,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Cart);
+export default connect(mapStateToProps, mapDispatchToProps)(withCartHook(Cart));

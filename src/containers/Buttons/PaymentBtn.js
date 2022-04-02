@@ -1,14 +1,22 @@
+import socket from '../../common/socket';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import * as apiCall from '../../store/actions/apiCall';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/actions';
 import Swal from 'sweetalert2';
-
+// import  { Navigate } from 'react-router-dom';
+import { withRouter } from '../../components/RouterWrapper';
 class PaymentBtn extends Component {
 
     placeOrder = () => {
         apiCall.orderAddItems({}).then((r)=>{
+        socket.emit('ORDER_FOOD', {
+            authKey: localStorage.getItem('authKey'),
+            vendor_id: localStorage.getItem('vendor_id'),
+            table_id: localStorage.getItem('table_id'),
+        });
+
             Swal.fire(
                 'WOOOHOOO!',
                 'ORDER HAS BEEN PLACED!',
@@ -22,17 +30,35 @@ class PaymentBtn extends Component {
     }
 
     makePayment = () => {
-        apiCall.completeOrder({}).then((r) => {
-            Swal.fire(
-                'PAID',
-                'HOPE YOU ENJOYED THE FOOD!',
-                'success'
-            );
-            Promise.all([
-                this.props.callCartDetailsApi(),
-                this.props.getMenuApi()
-            ]);
-            
+        apiCall.getUserDetails().then((res)=>{
+            const details = res.data.data;
+            console.log(res);
+            if(typeof details.mobile !== 'undefined' && typeof details.mobile !== null && details.mobile.length > 0) {
+                console.log('mobile nnumber exists');
+                apiCall.completeOrder({}).then((r) => {
+                    Swal.fire(
+                        'PAID',
+                        'HOPE YOU ENJOYED THE FOOD!',
+                        'success'
+                    );
+                    Promise.all([
+                        this.props.callCartDetailsApi(),
+                        this.props.getMenuApi()
+                    ]);
+                    
+                });
+            } else {
+                // take to sign up page
+                console.log('guest login complete');
+                // <navigate to="/cart" />
+                this.props.navigate("/guest-login-complete");
+                // this.props.history.push('/cart');
+                // return <Navigate to="/dashboard" replace={true} />
+
+            }   
+           
+        }).catch(e=>{ 
+            console.log(e);
         });
     }
 
@@ -98,4 +124,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PaymentBtn);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PaymentBtn));

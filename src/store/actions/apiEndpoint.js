@@ -1,6 +1,6 @@
 // export const baseUrl = "https://plan-platter-backend.herokuapp.com/";
-// export const baseUrl = "http://localhost:9000/";
-export const baseUrl = "http://18.212.14.229:3000/";
+export const baseUrl = "http://localhost:9000/";
+// export const baseUrl = "http://18.212.14.229:3000/";
 
 
 
@@ -21,4 +21,5 @@ export const orderAddItems = "v1/order/place-order";
 export const completeOrderByPayment = "v1/order/complete-order";
 export const getUserDetails = "v1/user/get-user-details";
 export const addQuickRequest = "v1/order/quick-request";
+export const guestLoginUpdate = "v1/user/guest-login-update";
 

@@ -12,14 +12,38 @@ class Login extends Component {
         super(props);
         this.state = {
             'mobile': '',
-            'password': ''
+            'password': '',
+            isSubmitButtonEnabled: false
         }
     }
+
+
+
+    handleSubmitButtonEnabler = () =>  {
+        if (this.state.mobile.length > 0 && this.state.password.length > 0) {
+            this.setState({
+                isSubmitButtonEnabled: true
+            })
+        }  else {
+            this.setState({
+                isSubmitButtonEnabled: false
+            })
+        }
+    }
+
+    // onChangeHandler = (e) => {
+    //     this.setState({
+    //         [e.target.name]: e.target.value
+    //     })
+    // }
 
     onChangeHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value
-        })
+        },() => {
+            
+            this.handleSubmitButtonEnabler();
+        });
     }
 
     onSubmitHandler = () => {
@@ -68,7 +92,12 @@ class Login extends Component {
                             <label for="floatingPassword" className='ct-text'>Password</label>
                         </div>
                         <div className='d-grid mt-3 mb-2'>
-                        <button className=' btn btn-lg btn-success rounded-0 border-0'  style={{ background: '#916BBF' }} onClick={this.onSubmitHandler}>LOGIN</button>
+                        {/* <button className=' btn btn-lg btn-success rounded-0 border-0'  style={{ background: '#916BBF' }} onClick={this.onSubmitHandler}>LOGIN</button> */}
+                        {
+                                this.state.isSubmitButtonEnabled 
+                                ? <button className=' btn btn-lg btn-success rounded-1 border-0'  style={{ background: '#916BBF' }} onClick={this.onSubmitHandler}>CONTINUE</button>
+                                : <button className=' btn btn-lg btn-success rounded-1 border-0'  style={{ background: 'rgb(221,221,221)' }} onClick={this.onSubmitHandler} disabled={true}>CONTINUE</button>
+                        }
                         </div>
                         <p className="ct-text">By click on login, I accept the <b style={{color:'#151616'}}>Terms & Conditions & Privacy Policy</b></p>
                     </div>
