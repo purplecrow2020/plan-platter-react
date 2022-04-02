@@ -24,13 +24,7 @@ export default function BrowserMenu(props) {
     const registerQuickRequest = (index) => {
         // addQuickRequest({request})
         toggleDisplay();
-        console.log('asadsa');
-        console.log(props.menuCategoryRefs);
-        console.log('asadsa');
         if (props.menuCategoryRefs.length >= 1) {
-            console.log('asadsa');
-            console.log(props.menuCategoryRefs);
-            console.log('asadsa');
             props.menuCategoryRefs[index].current.scrollIntoView({ behavior: 'smooth', block: 'start' });
         } 
         props.customMenuCatSelectionHandler(index);

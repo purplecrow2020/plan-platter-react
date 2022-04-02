@@ -26,7 +26,6 @@ class Home extends Component {
     }
 
     setAccordionRefs = (refrences) => {
-        console.log("REFRENCE", refrences);
         this.setState({
             accordionRefs: refrences
         });
