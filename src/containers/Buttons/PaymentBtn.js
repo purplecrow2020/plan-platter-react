@@ -33,7 +33,7 @@ class PaymentBtn extends Component {
         apiCall.getUserDetails().then((res)=>{
             const details = res.data.data;
             console.log(res);
-            if(typeof details.mobile !== 'undefined' && typeof details.mobile !== null && details.mobile.length > 0) {
+            if(typeof details.mobile !== 'undefined' && details.mobile != null && details.mobile.length > 0) {
                 console.log('mobile nnumber exists');
                 apiCall.completeOrder({}).then((r) => {
                     Swal.fire(
