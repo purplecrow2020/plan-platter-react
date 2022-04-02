@@ -1,3 +1,4 @@
+import socket from '../../common/socket';
 import React,  { useState } from 'react';
 import './index.css'  
 import Swal from 'sweetalert2';  
@@ -21,6 +22,13 @@ export default function BrowserMenu() {
     }
     
     const registerQuickRequest = (request) => {
+
+        socket.emit('QUICK_REQUEST', {
+            authKey: localStorage.getItem('authKey'),
+            vendor_id: localStorage.getItem('vendor_id'),
+            table_id: localStorage.getItem('table_id'),
+        });
+
         addQuickRequest({request})
         toggleDisplay();
         Swal.fire({
