@@ -26,7 +26,7 @@ class BestSellerCaraousel extends Component {
                         return (
                             <div style={{border: '1px solid red'}}>
                                 
-                                <BestSellerCard item_name={item.name} item_rating={item.rating} item_img={item.img_url} item_price={item.price}/>
+                                <BestSellerCard item_name={item.name} item_rating={item.rating} item_img={item.img_url} item_price={item.price} menu_id={item.menu_id} />
                                 
                             </div>
                         )
