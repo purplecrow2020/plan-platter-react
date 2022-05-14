@@ -31,11 +31,21 @@ class Home extends Component {
         });
     }
 
+    setMenuItemRefs = (refrences) => {
+        this.setState({
+            menuItemRefs: refrences
+        })
+    }
+
     setCustomMenuCategory = (index) => {
         this.setState({
             menu_cats_selected_index: index,
         })
     } 
+
+    componentDidUpdate() {
+        
+    }
 
     render() {
         return (
@@ -44,7 +54,7 @@ class Home extends Component {
                 {/* Nav BAR */}
                 <NavBar  vendor_details={this.props.vendor_details} user_details={this.props.user_details}  enable_bell_icon={true}/>
                 {/* SEARCH BAR */}
-                <Search />
+                <Search menuCategoryRefs={this.state.menuItemRefs}/>
                 {/* render BestSellers */}
                 {
                     this.props.bestsellers 
@@ -78,7 +88,7 @@ class Home extends Component {
                 } */}
 
                  {/* render Menu in accordion */}
-                <Accordion menu={this.props.menu} setMenuAccordionRefs={this.setAccordionRefs} custom_selected_index={this.state.menu_cats_selected_index}/>    
+                <Accordion menu={this.props.menu} setMenuAccordionRefs={this.setAccordionRefs} custom_selected_index={this.state.menu_cats_selected_index} setMenuItemRefs={this.setMenuItemRefs}/>    
                 <div style={{position: 'fixed', top: window.innerHeight-130, left: (window.innerWidth-200)/2}}>
                 <BrowserMenu menuItems={this.props.menu} menuCategoryRefs={this.state.accordionRefs} customMenuCatSelectionHandler={this.setCustomMenuCategory}/>            
                 </div>

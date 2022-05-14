@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/actions';
-
+import MenuItemCard from '../Cards/Menu/ItemCard';
 // import CurationCard from '../cards/PopularCurations/CurationCard';
 
 class SearchBar extends Component {
@@ -32,9 +32,20 @@ class SearchBar extends Component {
         }
     }
 
+    moveIntoItem = (item_id) => {
+        console.log('move me to this item', item_id);
+        console.log(this.props.menuCategoryRefs);
+        console.log('menu refs');
+        console.log(this.props.menuCategoryRefs[item_id]);
+        console.log('menu refs');
+
+        this.props.menuCategoryRefs[item_id].current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    }
+
     render() {
         return (
-            <div className="container" style={{ maxWidth: '500px' }}>
+            <div className="container" style={{ maxWidth: '500px', border: '0px solid black', maxHeight: '500px', overflow: 'scroll' }}>
                 <div className="row">
                     <div className="col">
                         <div className="py-3 ">
@@ -52,13 +63,22 @@ class SearchBar extends Component {
                 </div>
 
 
-                <ul style={{ width: '100%', paddingLeft: '0px', }}>
+                <ul style={{ width: '100%', paddingLeft: '0px', listStyleType: "none", border: '0px solid red', boxShadow: "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px"}}>
                 {
                     this.props.menu_item_search_results && this.props.menu_item_search_results.map((item)=>{
                         return (
-                            <li class="list-group-item"><a href='#'  className='text-decoration-none' style={{ color: '#686b78' }}>{item.name}</a></li>
+                            <li class="list-group-item" style={{verticalAlign: 'center'}}><p  style={{padding:'5px'}} className='text-decoration-none' style={{ color: '#686b78' }} onClick={() => { this.moveIntoItem(item.id)}}>{item.name}</p></li>
                         )
                     })
+                        // this.props.menu_item_search_results && this.props.menu_item_search_results.map((item, index) => {
+                        //     return (
+                        //         <li className="mt-4 ">
+                        //             <a className="text-decoration-none ct-heading">
+                        //                 <MenuItemCard item_id={item.id} item_name={item.name} item_img_url={item.img_url} item_price={item.price} dietary_flag={item.dietary_flag} item_qty={item.qty}  item_discount={item.discount}/>
+                        //             </a>
+                        //         </li>
+                        //     )
+                        // })
                 }
                 </ul> 
     

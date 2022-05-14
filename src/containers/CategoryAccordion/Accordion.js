@@ -12,6 +12,8 @@ export default class ProfileMainBody extends Component {
     super(props);
     this.state = {
       catsRefs: [],
+      menuItemRefs: {},
+      updatedOnce: false
     }
   }
 
@@ -19,35 +21,72 @@ export default class ProfileMainBody extends Component {
     return this.state.catsRefs[index];
   }
 
+  getMenuItemRef = (item_id) => {
+    return this.state.menuItemRefs[item_id];
+  }
+
   componentDidMount() {
     if (this.props.menu) {
       const categories = Object.keys(this.props.menu);
       const refs = [];
+      const menu_item_refs = {};
       for (let i=0; i < categories.length; i++) {
         let x = React.createRef();
+        console.log("CAT REF", x)
+
         refs.push(x);
+        let menu_items = this.props.menu[categories[i]];
+        for (let i=0; i < menu_items.length; i++) {
+          console.log("MENU ITEM REF", menu_items[i]['id']);
+          let y = React.createRef();
+          menu_item_refs[menu_items[i]['id']] = y;
+        }
       } 
       this.setState({
-        catsRefs: refs
+        catsRefs: refs,
+        menuItemRefs: menu_item_refs,
       });
       this.props.setMenuAccordionRefs(refs);
-    } 
+      this.props.setMenuItemRefs(menu_item_refs);
+    }  else {
+      console.log("yes else mount confition");
+      console.log(this.props.menu);
+    }
   }
 
-  componentDidUpdate() {
-    console.log('updating', this.state.catRefs);
-    if (this.props.menu && ( (this.state.catRefs && this.state.catRefs.length == 0 ) || !(this.state.catsRefs))) {
-      const categories = Object.keys(this.props.menu);
-      const refs = [];
-      for (let i=0; i < categories.length; i++) {
-        let x = React.createRef();
-        refs.push(x);
-      } 
-      this.setState({
-        catsRefs: refs
-      });
-      this.props.setMenuAccordionRefs(refs);
-    } 
+  componentDidUpdate(prevProps) {
+    if (prevProps.menu != this.props.menu) {
+      console.log('updating', this.state.catsRefs);
+      if (this.props.menu && ( (this.state.catsRefs && this.state.catsRefs.length == 0 ) || !(this.state.catsRefs))) {
+        this.setState({
+          updatedOnce: true,
+        })
+        const categories = Object.keys(this.props.menu);
+        const refs = [];
+        const menu_item_refs = {};
+        for (let i=0; i < categories.length; i++) {
+          let x = React.createRef();
+          refs.push(x);
+          console.log("CAT REF", x)
+          let menu_items = this.props.menu[categories[i]];
+          for (let i=0; i < menu_items.length; i++) {
+            console.log("MENU ITEM REF", menu_items[i]['id']);
+            let y = React.createRef();
+            menu_item_refs[menu_items[i]['id']] = y;
+          }
+        } 
+        this.setState({
+          catsRefs: refs,
+          menuItemRefs: menu_item_refs,
+        });
+        this.props.setMenuAccordionRefs(refs);
+        this.props.setMenuItemRefs(menu_item_refs);
+      }  else {
+        console.log("yes else update confition");
+        // console.log(this.state.catsRefs[17].current);
+        console.log(this.props.menu, Boolean(this.props.menu), Boolean((this.state.catsRefs && this.state.catsRefs.length == 0 )), Boolean((this.state.catsRefs)));
+      }
+    }
   }
 
   render() {
@@ -71,8 +110,8 @@ export default class ProfileMainBody extends Component {
                         {
                           this.props.menu[item_category].map((item, index) => {
                             return (
-                              <li className="mt-4 ">
-                                <a className="text-decoration-none ct-heading">
+                              <li className="mt-4 " >
+                                <a className="text-decoration-none ct-heading" ref={this.getMenuItemRef(item.id)}>
                                   <MenuItemCard item_id={item.id} item_name={item.name} item_img_url={item.img_url} item_price={item.price} dietary_flag={item.dietary_flag} item_qty={item.qty}  item_discount={item.discount}/>
                                 </a>
                               </li>
