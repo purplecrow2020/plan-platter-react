@@ -78,7 +78,7 @@ export default function BrowserMenu() {
                             <li>
                                 <div  className="popup-row text-decoration-none" onClick={() => registerQuickRequest('request tissue')}>
                                     <div className="col-cat" >Tissue</div>
-                                    <div className="col-number"><i class="fas fa-file-invoice"></i></div>
+                                    <div className="col-number"><i class="fas fa-box-tissue"></i></div>
                                 </div>
                             </li>
                             <li>
