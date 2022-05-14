@@ -33,13 +33,21 @@ class SearchBar extends Component {
     }
 
     moveIntoItem = (item_id) => {
-        console.log('move me to this item', item_id);
-        console.log(this.props.menuCategoryRefs);
-        console.log('menu refs');
-        console.log(this.props.menuCategoryRefs[item_id]);
-        console.log('menu refs');
-
-        this.props.menuCategoryRefs[item_id].current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        let category_index = 0;
+        const categories = Object.keys(this.props.menu);
+        for (let i=0; i < categories.length; i++) {
+            let menu_items = this.props.menu[categories[i]];
+            for (let j=0; j <menu_items.length; j++) {
+                if (menu_items[j]['id'] == item_id) {
+                    category_index = i;
+                    break;
+                }
+            }
+        }
+        this.props.setCustomMenuCategoryIndex(category_index, item_id);
+        // this.props.menuCategoryRefs[item_id].current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // })
+       
 
     }
 
@@ -151,7 +159,8 @@ class SearchBar extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        menu_item_search_results: state.menu_item_search_results
+        menu_item_search_results: state.menu_item_search_results,
+        menu : state.menu,
     }
 }
 

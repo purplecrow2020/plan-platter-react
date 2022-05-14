@@ -15,6 +15,7 @@ class Home extends Component {
         this.state = {
             accordionRefs: [],
             menu_cats_selected_index: 0,
+            menuItemRefs: {}
         }
     }
 
@@ -37,15 +38,14 @@ class Home extends Component {
         })
     }
 
-    setCustomMenuCategory = (index) => {
+    setCustomMenuCategory = (index, item_id) => {
         this.setState({
             menu_cats_selected_index: index,
+        }, () => {
+            this.state.menuItemRefs[item_id].current.scrollIntoView({ behavior: 'smooth', block: 'center' });
         })
     } 
 
-    componentDidUpdate() {
-        
-    }
 
     render() {
         return (
@@ -54,7 +54,7 @@ class Home extends Component {
                 {/* Nav BAR */}
                 <NavBar  vendor_details={this.props.vendor_details} user_details={this.props.user_details}  enable_bell_icon={true}/>
                 {/* SEARCH BAR */}
-                <Search menuCategoryRefs={this.state.menuItemRefs}/>
+                <Search menuCategoryRefs={this.state.menuItemRefs} setCustomMenuCategoryIndex={this.setCustomMenuCategory}/>
                 {/* render BestSellers */}
                 {
                     this.props.bestsellers 
