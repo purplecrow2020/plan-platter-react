@@ -288,6 +288,10 @@ class Cart extends Component {
                                     <div className="col-10 ">Item Total</div>
                                     <div className="col-2 d-flex justify-content-end">₹{this.props.cartDetails && this.props.cartDetails.total_bill}</div>
                                 </div>
+                                <div className="row cd-text-2" style={{marginTop: '3px'}}>
+                                    <div className="col-10 ">Discount</div>
+                                    <div className="col-2 d-flex justify-content-end">₹{this.props.cartDetails && this.props.cartDetails.total_discount}</div>
+                                </div>
                                 <div className="row cd-text-2">
                                     {/* <div className="col-10 ">Taxes & Charges  &nbsp; <i class="fas fa-info-circle cd-icon-5" style={{ background: '#fff' }}></i> </div> */}
                                     {/* <div className="col-2 d-flex justify-content-end">₹22</div> */}
@@ -315,7 +319,7 @@ class Cart extends Component {
 
                                 <div className="row cd-heading-4">
                                     <div className="col-10">To Pay</div>
-                                    <div className="col-2 d-flex justify-content-end">₹{this.props.cartDetails && this.props.cartDetails.total_bill + 50}</div>
+                                    <div className="col-2 d-flex justify-content-end">₹{this.props.cartDetails && this.props.cartDetails.total_bill - this.props.cartDetails.total_discount + 50}</div>
                                 </div>
                             </div>
                         </div><hr /><PaymentBtn

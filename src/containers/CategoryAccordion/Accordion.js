@@ -73,7 +73,7 @@ export default class ProfileMainBody extends Component {
                             return (
                               <li className="mt-4 ">
                                 <a className="text-decoration-none ct-heading">
-                                  <MenuItemCard item_id={item.id} item_name={item.name} item_img_url={item.img_url} item_price={item.price} dietary_flag={item.dietary_flag} item_qty={item.qty} />
+                                  <MenuItemCard item_id={item.id} item_name={item.name} item_img_url={item.img_url} item_price={item.price} dietary_flag={item.dietary_flag} item_qty={item.qty}  item_discount={item.discount}/>
                                 </a>
                               </li>
                             )

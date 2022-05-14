@@ -143,7 +143,7 @@ class Signup extends Component {
                             <input type="email" class="form-control rounded-1" id="floatingInput" placeholder="name@example.com"  name="mobile" onChange={this.onChangeHandler} />
                             <button id="clear" style={{position:'absolute', top: '0px', right: '1px', height: '95%', background: this.state.mobile_number_verified ? 'green' : 'rgb(200,200,200)' , border: 'none', margin:'1px', borderLeft: '0px solid red', width: '40px'}} onClick={this.verifyMobileNumber}><i className="fa fa-check" aria-hidden="true"></i></button>
                             <label for="floatingInput" className='ct-text'>Phone Number</label>
-                            {/* <button  class="btn btn-primary mobile_confirmation_button" onClick={this.verifyMobileNumber} disabled={this.state.verification_button_disable} >{'Verify my mobile number'}</button> */}
+                            {/* <button  class="btn btn-primary mobile_confirmation_button" onClick={this.verifyMobileNumber} disa  bled={this.state.verification_button_disable} >{'Verify my mobile number'}</button> */}
                         </div>
                         <div id="recaptcha" style={{display: this.state.mobile_number_verified ? 'none' : 'black'}}></div>
                         {/* <div class="form-floating mb-2">
