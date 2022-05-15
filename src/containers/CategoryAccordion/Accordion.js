@@ -54,7 +54,7 @@ export default class ProfileMainBody extends Component {
     }
   }
 
-  componentDidUpdate(prevProps) {
+componentDidUpdate(prevProps) {
     if (prevProps.menu != this.props.menu) {
       console.log('updating', this.state.catsRefs);
       if (this.props.menu && ( (this.state.catsRefs && this.state.catsRefs.length == 0 ) || !(this.state.catsRefs))) {
