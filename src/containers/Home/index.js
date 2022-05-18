@@ -42,7 +42,19 @@ class Home extends Component {
         this.setState({
             menu_cats_selected_index: index,
         }, () => {
-            this.state.menuItemRefs[item_id].current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            console.log("HERERE", item_id, index);
+            console.log(this.state);
+            this.state.accordionRefs && this.state.accordionRefs[item_id] && this.state.accordionRefs[item_id].current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        })
+    } 
+
+    setCustomMenuItem = (index, item_id) => {
+        this.setState({
+            menu_cats_selected_index: index,
+        }, () => {
+            console.log("HERERE", item_id, index);
+            console.log(this.state);
+            this.state.menuItemRefs && this.state.menuItemRefs[item_id] && this.state.menuItemRefs[item_id].current.scrollIntoView({ behavior: 'smooth', block: 'center' });
         })
     } 
 
@@ -54,7 +66,7 @@ class Home extends Component {
                 {/* Nav BAR */}
                 <NavBar  vendor_details={this.props.vendor_details} user_details={this.props.user_details}  enable_bell_icon={true}/>
                 {/* SEARCH BAR */}
-                <Search menuCategoryRefs={this.state.menuItemRefs} setCustomMenuCategoryIndex={this.setCustomMenuCategory}/>
+                <Search menuCategoryRefs={this.state.menuItemRefs} setCustomMenuCategoryIndex={this.setCustomMenuItem}/>
                 {/* render BestSellers */}
                 {
                     this.props.bestsellers 

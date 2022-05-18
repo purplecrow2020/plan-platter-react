@@ -64,11 +64,11 @@ componentDidUpdate(prevProps) {
         const categories = Object.keys(this.props.menu);
         const refs = [];
         const menu_item_refs = {};
-        for (let i=0; i < categories.length; i++) {
+        for (let j=0; j < categories.length; j++) {
           let x = React.createRef();
           refs.push(x);
           console.log("CAT REF", x)
-          let menu_items = this.props.menu[categories[i]];
+          let menu_items = this.props.menu[categories[j]];
           for (let i=0; i < menu_items.length; i++) {
             console.log("MENU ITEM REF", menu_items[i]['id']);
             let y = React.createRef();

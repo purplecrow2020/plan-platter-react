@@ -11,16 +11,14 @@ import firebase from 'firebase';
 //   };
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDmbqQHgAmO9Dhwsgdja-4QJswVaxZdmHk",
-  authDomain: "blockchain-b8176.firebaseapp.com",
-  databaseURL: "https://blockchain-b8176.firebaseio.com",
-  projectId: "blockchain-b8176",
-  storageBucket: "blockchain-b8176.appspot.com",
-  messagingSenderId: "299953838131",
-  appId: "1:299953838131:web:929745237fe56b5a55eb46",
-  measurementId: "G-ZZSYZK9G28"
+  apiKey: "AIzaSyBxAlDLX8TzIYch_GR7Jsmjtd195d7z8Vw",
+  authDomain: "plan-platter.firebaseapp.com",
+  projectId: "plan-platter",
+  storageBucket: "plan-platter.appspot.com",
+  messagingSenderId: "44319218709",
+  appId: "1:44319218709:web:eb84d82cc5d4d7d78c821c",
+  measurementId: "G-V6DVHND11J"
 };
-
 
 
 firebase.initializeApp(firebaseConfig);
