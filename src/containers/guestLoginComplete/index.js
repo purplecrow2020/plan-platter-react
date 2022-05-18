@@ -156,7 +156,7 @@ class Signup extends Component {
                         </div> */}
                         <div class="form-floating mb-4">
                             <input type="password" class="form-control rounded-1" id="floatingPassword" placeholder="Password" name="password" onChange={this.onChangeHandler}  />
-                            <label for="floatingPassword"  className='ct-text'>OTP - (One Time Password)</label>
+                            <label for="floatingPassword"  className='ct-text'>Password</label>
                         </div>
                         {/* <a className='pl-0 sec-btn' href='#code'> Have a referral code?</a> */}
                         <div className='d-grid mt-3 mb-2'>
