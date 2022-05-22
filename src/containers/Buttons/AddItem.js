@@ -2,19 +2,25 @@ import React, { Component } from 'react'
 import {addItemToCart} from '../../store/actions/apiCall';
 import * as actionCreators from '../../store/actions/actions';
 import { connect } from 'react-redux';
+import Swal from 'sweetalert2';
 
 class AddItem extends Component {
 
-    addItemHandler = function(id) {
+    addItemHandler = (id) => {
         console.log("IDS ", id);
-        addItemToCart({
-            menu_id: id
-        }).then(()=>{
-            Promise.all([
-                this.props.callCartDetailsApi(),
-                this.props.getMenuApi()
-            ]);
-        }).catch(err=>console.log(err));;
+        if (!this.props.is_order_active_by_peer) {
+            addItemToCart({
+                menu_id: id
+            }).then(()=>{
+                Promise.all([
+                    this.props.callCartDetailsApi(),
+                    this.props.getMenuApi()
+                ]);
+            }).catch(err=>console.log(err));
+        } else {
+            Swal.fire("ORDER IS ALREADY ACTIVE ON TABLE");
+        }
+        
     }
 
     render() {
@@ -46,7 +52,9 @@ class AddItem extends Component {
 
 const mapStateToProps = (state) => {
     return {
+        is_order_active_by_peer: state.is_order_active_by_peer,
     }
+
 }
 
 const mapDispatchToProps = (dispatch) => {

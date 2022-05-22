@@ -14,7 +14,9 @@ import RestaurantDetails from '../restaurantDetail';
 import BrowserMenu from '../browserMenu';
 import SaveBillImg from '../../images/save.png';
 import withCartHook from '../../components/Cart';
-const { saveAs } = require('file-saver');
+import Swal from 'sweetalert2';
+const { saveAs } = require('file-saver');  
+
 class Cart extends Component {
 
 
@@ -141,7 +143,9 @@ class Cart extends Component {
                     <PaymentBtn
                             to_order={this.props.cartDetails && this.props.cartDetails.details && this.props.cartDetails.details.to_order && this.props.cartDetails.details.to_order.length} 
                             order_in_progress={this.props.cartDetails &&  this.props.cartDetails.details && this.props.cartDetails.details.in_progress && this.props.cartDetails.details.in_progress.length} 
-                            order_delivered={this.props.cartDetails &&  this.props.cartDetails.details && this.props.cartDetails.details.completed && this.props.cartDetails.details.completed.length}  disable_payment={true}/>
+                            order_delivered={this.props.cartDetails &&  this.props.cartDetails.details && this.props.cartDetails.details.completed && this.props.cartDetails.details.completed.length}  
+                            is_order_active_by_peer= {this.props.is_order_active_by_peer}
+                            disable_payment={true}/>
                     </div> <br></br></React.Fragment>:''
                     
                 }
@@ -325,7 +329,9 @@ class Cart extends Component {
                         </div><hr /><PaymentBtn
                             to_order={this.props.cartDetails && this.props.cartDetails.details && this.props.cartDetails.details.to_order && this.props.cartDetails.details.to_order.length} 
                             order_in_progress={this.props.cartDetails &&  this.props.cartDetails.details && this.props.cartDetails.details.in_progress && this.props.cartDetails.details.in_progress.length} 
-                            order_delivered={this.props.cartDetails &&  this.props.cartDetails.details && this.props.cartDetails.details.completed && this.props.cartDetails.details.completed.length} /></>:''
+                            order_delivered={this.props.cartDetails &&  this.props.cartDetails.details && this.props.cartDetails.details.completed && this.props.cartDetails.details.completed.length} 
+                            is_order_active_by_peer= {this.props.is_order_active_by_peer}
+                            /></>:''
 
                 }
                 </div>
@@ -340,12 +346,14 @@ const mapStateToProps = (state) => {
     return {
         cartDetails: state.cartDetails,
         vendorDetails: state.vendor_details,
+        is_order_active_by_peer: state.is_order_active_by_peer,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         callCartDetailsApi: () => dispatch(actionCreators.getCartDetails()),
+        setOrderActiveByPeer: () => dispatch(actionCreators.initiateOrderByPeerOnTable())
     }
 }
 
