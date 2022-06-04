@@ -12,6 +12,18 @@ export default function BrowserMenu() {
         setOverlayDisplayStyle(!overlayDisplayStyle);
     }
     const [overlayDisplayStyle, setOverlayDisplayStyle] = useState(false);
+
+
+    const onClickBackground = (ev) => {
+        console.log(ev.target.className);
+        if (ev.target.className === 'overlay') {
+            toggleDisplay();
+        }
+        ev.preventDefault()
+        ev.stopPropagation();
+        ev.nativeEvent.stopImmediatePropagation();
+    }
+    
     const visibleStyle = {
         visibility: 'visible',
         opacity: 1,
@@ -20,7 +32,8 @@ export default function BrowserMenu() {
         visibility: 'hidden',
         opacity: 0,
     }
-    
+
+   
     const registerQuickRequest = (request) => {
 
         socket.emit('QUICK_REQUEST', {
@@ -40,13 +53,15 @@ export default function BrowserMenu() {
         timer: 1000,
         })
     }
+
+    
     // box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
     return (
         <>
             <div className="box container d-flex justify-content-center" >  
                     <i class="far fa-bell" onClick={toggleDisplay}  style={{fontSize:'22px',border: '0px solid black', borderRadius: '50%', padding: '10px', boxShadow: 'rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px'}}></i>
             </div>
-            <div id="popup1" className="overlay" style={overlayDisplayStyle ? visibleStyle: invisibleStyle}>
+            <div id="popup1" className="overlay" style={overlayDisplayStyle ? visibleStyle: invisibleStyle} onClick={onClickBackground}>
                 <div className="popup">
                     <h2>Services</h2>
                     <span className="close text-decoration-none" onClick={toggleDisplay}>&times;</span>
