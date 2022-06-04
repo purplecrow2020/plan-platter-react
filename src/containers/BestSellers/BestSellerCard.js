@@ -32,7 +32,7 @@ export default function BestSellerCard(props) {
                         <span> {props.item_rating} <span style={{position: 'relative', top:'-5px'}} ><i class="fas fa-star"/> </span> </span>
                     </a>
                 </div>
-                <div className="" style={{ position: 'absolute', top: '0px', left: '35px', width: '50px', height:'50px', borderRadius:'50%', border:'0px solid red', background: 'white', textAlign: 'center', lineHeight: '50px', boxShadow: "0 0 0 2px black", overflow:'hidden' }}>
+                <div className="" style={{ position: 'absolute', top: '0px', left: '35px', width: '45px', height:'45px', borderRadius:'50%', border:'0px solid red', background: 'white', textAlign: 'center', lineHeight: '45px', boxShadow: "0 0 0 2px black", overflow:'hidden' }}>
                     {/* <a href="#ad-link" className="add-btn-3 text-decoration-none">
                         <span>hello <span style={{position: 'relative', top:'-5px'}} ><i class="fas fa-star"/> </span> </span>
                     </a> */}
