@@ -40,10 +40,11 @@ export default function BrowserMenu() {
         timer: 1000,
         })
     }
+    // box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
     return (
         <>
             <div className="box container d-flex justify-content-center" >  
-                    <i class="far fa-bell" onClick={toggleDisplay} ></i>
+                    <i class="far fa-bell" onClick={toggleDisplay}  style={{fontSize:'22px',border: '0px solid black', borderRadius: '50%', padding: '10px', boxShadow: 'rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px'}}></i>
             </div>
             <div id="popup1" className="overlay" style={overlayDisplayStyle ? visibleStyle: invisibleStyle}>
                 <div className="popup">
