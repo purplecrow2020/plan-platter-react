@@ -11,6 +11,7 @@ const initialState  = {
     is_authenticated: false,
     order_history: [],
     is_order_active_by_peer: false,
+    socket_connection: null,
 }
 
 export const rootReducer = (state=initialState, action) =>{
@@ -70,6 +71,11 @@ export const rootReducer = (state=initialState, action) =>{
             return {
                 ...state, 
                 is_order_active_by_peer: true,
+            }
+        case 'SOCKET_CONNECTION':
+            return {
+                ...state, 
+                socket_connection: action.payload.socket,
             }
         default:
             return state;

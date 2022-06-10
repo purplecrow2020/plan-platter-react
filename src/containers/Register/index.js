@@ -9,6 +9,8 @@ import Logo from '../../images/logo.jpeg';
 import { v4 as uuidv4 } from 'uuid';
 import * as actionCreators from '../../store/actions/actions';
 import Swal from 'sweetalert2';
+import socketEndpoint from '../../common/socket';
+import socketIOClient from 'socket.io-client';
 
 
 
@@ -26,6 +28,10 @@ class Register extends Component {
         this.props.loginAsGuest({
            udid
         }).then(r=>{
+            const socket_connection = socketIOClient(socketEndpoint, {
+                query: `connected_user_type=user&vendor_id=${localStorage.getItem('vendor_id')}&auth=${localStorage.getItem('authKey')}&table_id=${localStorage.getItem('table_id')}`
+            });
+            this.props.setSocketConnection(socket_connection);
             Swal.fire(
                 'LOGGED IN!',
                 'WELCOME!',
@@ -89,7 +95,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return { 
-        loginAsGuest: (req_data) => dispatch(actionCreators.loginAsGuest(req_data))
+        loginAsGuest: (req_data) => dispatch(actionCreators.loginAsGuest(req_data)),
+        setSocketConnection: (s) =>  dispatch(actionCreators.setSocketConnection(s)),
     }
 }
 

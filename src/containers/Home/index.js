@@ -26,19 +26,42 @@ class Home extends Component {
         this.props.getBestSellerApi();
         this.props.callCartDetailsApi();
         this.props.getUserDetails();
-        socket.emit("WELCOME_BY_USER");
-        socket.on("WELCOME", () => {
-            console.log("aaaaaasaksdasdasdasdnasndasndasndnasdnsadnandasdansdansdnasndasndasndansknsnadas");
-            // console.log('asasdasdasdasdasdas-das-d-asd-asd-asd-as-das-das-da-sd-asd-as-das-das-das-da-sda-sda-s');
-            Swal.fire(`TABLE NO:  has a new order`);
-      
-            // console.log('new order is placed')
-            // this.props.callCartDetailsApi();
-            // this.props.getVendorActiveOrderDetails();
-            // this.state.audio_file.play();
-            // Swal.fire(`TABLE NO: ${data.table_id}  has a new order`);
-          });
+        if (this.props.socket_connection !== null ){
+            this.props.socket_connection.emit("WELCOME_BY_USER");
+            this.props.socket_connection.on("WELCOME", () => {
+                console.log("aaaaaasaksdasdasdasdnasndasndasndnasdnsadnandasdansdansdnasndasndasndansknsnadas");
+                // console.log('asasdasdasdasdasdas-das-d-asd-asd-asd-as-das-das-da-sd-asd-as-das-das-das-da-sda-sda-s');
+                Swal.fire(`TABLE NO:  has a new order`);
+          
+                // console.log('new order is placed')
+                // this.props.callCartDetailsApi();
+                // this.props.getVendorActiveOrderDetails();
+                // this.state.audio_file.play();
+                // Swal.fire(`TABLE NO: ${data.table_id}  has a new order`);
+              });
+        }
+
+
+        // this.props.socket_connection && this.props.socket_connection.on('*', (event, data) => {
+        //     console.log(event);
+        //     console.log(data);
+        //     console.log("SOMEONE HAS ORDERED THE FOOOOOOOOD .....")
+        //     Swal.fire(`TABLE NO has a new order`);
+        //     this.props.setOrderActiveByPeer()
+        //   })
+       
     }
+
+
+    // componentDidUpdate() {
+    //     if (this.props.socket_connection !== null ){
+    //         this.props.socket_connection && this.props.socket_connection.on('ACTIVE_ORDER_ON_TABLE_BY_PEER', () => {
+    //             console.log("SOMEONE HAS ORDERED THE FOOOOOOOOD .....")
+    //             Swal.fire(`TABLE NO has a new order`);
+    //             this.props.setOrderActiveByPeer()
+    //           })
+    //     }
+    // }
 
     setAccordionRefs = (refrences) => {
         this.setState({
@@ -131,6 +154,7 @@ const mapStateToProps = (state) => {
         menu_search_results: state.menu_search_results,
         vendor_details: state.vendor_details,
         user_details: state.user_details,
+        socket_connection: state.socket_connection,
 
     }
 }

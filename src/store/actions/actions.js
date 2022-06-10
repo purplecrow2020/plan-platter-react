@@ -1,3 +1,4 @@
+import socket from '../../common/socket.js';
 import * as API_CALLS from './apiCall.js';
 
 
@@ -90,5 +91,11 @@ export const initiateOrderByPeerOnTable = () => {
     }
 }
 
+
+export const setSocketConnection = (socket) => {
+    return async (dispatch) => {
+        dispatch({type : 'SOCKET_CONNECTION', payload : {socket: socket,}});
+    }
+}
 
 

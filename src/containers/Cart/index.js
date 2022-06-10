@@ -35,14 +35,16 @@ class Cart extends Component {
         this.props.callCartDetailsApi();
         console.log("PROPS< IMAGE",this.props.image);
 
-
-        socket.on(`ORDER_COMPLETED_BY_VENDOR`, () => {
-            // console.log('new order is placed')
-            this.props.callCartDetailsApi();
-            // this.props.getVendorActiveOrderDetails();
-            // this.state.audio_file.play();
-            // Swal.fire(`TABLE NO: ${data.table_id}  has a new order`);
-        })
+        if (this.props.socket_connection !== null) {
+            this.props.socket_connection.on(`ORDER_COMPLETED_BY_VENDOR`, () => {
+                // console.log('new order is placed')
+                this.props.callCartDetailsApi();
+                // this.props.getVendorActiveOrderDetails();
+                // this.state.audio_file.play();
+                // Swal.fire(`TABLE NO: ${data.table_id}  has a new order`);
+            })
+        }
+        
     }
 
 
@@ -347,6 +349,7 @@ const mapStateToProps = (state) => {
         cartDetails: state.cartDetails,
         vendorDetails: state.vendor_details,
         is_order_active_by_peer: state.is_order_active_by_peer,
+        socket_connection: state.socket_connection,
     }
 }
 
