@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import BrowserMenu from '../browserMenu';
+import { connect } from 'react-redux';
 
 class NavBar extends Component {
 
@@ -10,7 +11,7 @@ class NavBar extends Component {
                 {
                     this.props.enable_bell_icon ? 
                     <p style={{position: 'absolute', right: '10px'}}>
-                        <BrowserMenu />
+                        <BrowserMenu socket_connection={this.props.socket_connection} />
                     </p> :''
                 }
                 
@@ -45,4 +46,22 @@ class NavBar extends Component {
     }
 }
 
-export default NavBar;
+
+
+
+const mapStateToProps = (state) => {
+    return {
+        socket_connection: state.socket_connection,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+
+

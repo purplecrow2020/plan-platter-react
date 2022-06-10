@@ -1,4 +1,4 @@
-import socket from '../../common/socket';
+// import socket from '../../common/socket';
 import React,  { useState } from 'react';
 import './index.css'  
 import Swal from 'sweetalert2';  
@@ -6,7 +6,7 @@ import {
     addQuickRequest
 }   from '../../store/actions/apiCall';                                 
 
-export default function BrowserMenu() {
+export default function BrowserMenu(props) {
 
     const  toggleDisplay = () => {
         setOverlayDisplayStyle(!overlayDisplayStyle);
@@ -33,14 +33,20 @@ export default function BrowserMenu() {
         opacity: 0,
     }
 
+
    
     const registerQuickRequest = (request) => {
-
-        socket.emit('QUICK_REQUEST', {
-            authKey: localStorage.getItem('authKey'),
-            vendor_id: localStorage.getItem('vendor_id'),
-            table_id: localStorage.getItem('table_id'),
-        });
+        if (props.socket_connection !== null) {
+            console.log('yes socket connection is not null');
+            props.socket_connection.emit('QUICK_REQUEST', {
+                authKey: localStorage.getItem('authKey'),
+                vendor_id: localStorage.getItem('vendor_id'),
+                table_id: localStorage.getItem('table_id'),
+            });
+        } else {
+            console.log('socket connection is nul .....');
+        }
+       
 
         addQuickRequest({request})
         toggleDisplay();

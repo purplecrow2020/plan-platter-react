@@ -113,7 +113,7 @@ export const loginAsGuest = async (req_body) => {
     return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.loginAsGuest}`,  {...req_body});
 }
 
-export const orderAddItems = async (req_data) => {
+export const -orderAddItems = async (req_data) => {
     const authKey = localStorage.getItem('authKey');
     return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.orderAddItems}`, req_data, {headers: {'x-auth-token': authKey}});
 }

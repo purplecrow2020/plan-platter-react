@@ -1,4 +1,4 @@
-import socket from '../../common/socket';
+// import socket from '../../common/socket';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import * as apiCall from '../../store/actions/apiCall';
@@ -11,11 +11,15 @@ class PaymentBtn extends Component {
 
     placeOrder = () => {
         apiCall.orderAddItems({}).then((r)=>{
-        socket.emit('ORDER_FOOD', {
-            authKey: localStorage.getItem('authKey'),
-            vendor_id: localStorage.getItem('vendor_id'),
-            table_id: localStorage.getItem('table_id'),
-        });
+
+        if (this.props.socket_connection !== null) {
+            this.props.socket_connection.emit('ORDER_FOOD', {
+                authKey: localStorage.getItem('authKey'),
+                vendor_id: localStorage.getItem('vendor_id'),
+                table_id: localStorage.getItem('table_id'),
+            });
+        }
+       
 
             Swal.fire(
                 'WOOOHOOO!',
@@ -35,11 +39,14 @@ class PaymentBtn extends Component {
             console.log(res);
             if(typeof details.mobile !== 'undefined' && details.mobile != null && details.mobile.length > 0) {
                 console.log('mobile nnumber exists');
-                socket.emit("CLEAR_TABLE", {
-                    authKey: localStorage.getItem('authKey'),
-                    vendor_id: localStorage.getItem('vendor_id'),
-                    table_id: localStorage.getItem('table_id'),
-                });
+                if (this.props.socket_connection !== null) {
+                    this.props.socket_connection.emit("CLEAR_TABLE", {
+                        authKey: localStorage.getItem('authKey'),
+                        vendor_id: localStorage.getItem('vendor_id'),
+                        table_id: localStorage.getItem('table_id'),
+                    });
+                }
+               
                 apiCall.completeOrder({}).then((r) => {
                     Swal.fire(
                         'PAID',
@@ -124,6 +131,7 @@ class PaymentBtn extends Component {
 const mapStateToProps = (state) => {
     return {
         is_order_active_by_peer: state.is_order_active_by_peer,
+        socket_connection: state.socket_connection,
     }
 }
 

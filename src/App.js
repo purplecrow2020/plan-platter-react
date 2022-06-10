@@ -19,7 +19,7 @@ import Account from './containers/Account';
 import Onboarding from './components/Onboarding';
 import Screenshot from './components/Screenshot';
 import GuestLoginComplete from './containers/guestLoginComplete';
-import socket from './common/socket';
+// import socket from './common/socket';
 import Swal from 'sweetalert2';  
 
 
@@ -40,11 +40,24 @@ class App extends Component {
     if (authKey && authKey.length > 0) {
       this.props.setAuth();
     }
+    // if (this.props.socket_connection !== null) {
+      this.props.socket_connection && this.props.socket_connection.on('ACTIVE_ORDER_ON_TABLE_BY_PEER', (event, data) => {
+        console.log("SOMEONE HAS ORDERED THE FOOOOOOOOD .....")
+        Swal.fire(`TABLE NO has a new order`);
+        this.props.setOrderActiveByPeer()
+      })
+    // }
+    
+  }
 
-    socket.on(`ACTIVE_ORDER_ON_TABLE_BY_PEER`, () => {
-      Swal.fire(`TABLE NO has a new order`);
-      this.props.setOrderActiveByPeer()
-    })
+  componentDidUpdate() {
+    if (this.props.socket_connection !== null) {
+      this.props.socket_connection.on('ACTIVE_ORDER_ON_TABLE_BY_PEER', (event, data) => {
+        console.log("SOMEONE HAS ORDERED THE FOOOOOOOOD .....")
+        Swal.fire(`TABLE NO has a new order`);
+        this.props.setOrderActiveByPeer()
+      })
+    }
   }
   render() {
     return (
@@ -82,6 +95,7 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return  {
     is_order_active_by_peer: state.is_order_active_by_peer,
+    socket_connection: state.socket_connection,
   }
 }
 
