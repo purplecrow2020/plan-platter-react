@@ -37,37 +37,44 @@ class PaymentBtn extends Component {
         apiCall.getUserDetails().then((res)=>{
             const details = res.data.data;
             console.log(res);
-            if(typeof details.mobile !== 'undefined' && details.mobile != null && details.mobile.length > 0) {
-                console.log('mobile nnumber exists');
-                if (this.props.socket_connection !== null) {
-                    this.props.socket_connection.emit("CLEAR_TABLE", {
-                        authKey: localStorage.getItem('authKey'),
-                        vendor_id: localStorage.getItem('vendor_id'),
-                        table_id: localStorage.getItem('table_id'),
-                    });
-                }
-               
-                apiCall.completeOrder({}).then((r) => {
-                    Swal.fire(
-                        'PAID',
-                        'HOPE YOU ENJOYED THE FOOD!',
-                        'success'
-                    );
-                    Promise.all([
-                        this.props.callCartDetailsApi(),
-                        this.props.getMenuApi()
-                    ]);
-                    
+            // if(typeof details.mobile !== 'undefined' && details.mobile != null && details.mobile.length > 0) {
+            console.log('mobile nnumber exists');
+            if (this.props.socket_connection !== null) {
+                // this.props.socket_connection.emit("CLEAR_TABLE", {
+                //     authKey: localStorage.getItem('authKey'),
+                //     vendor_id: localStorage.getItem('vendor_id'),
+                //     table_id: localStorage.getItem('table_id'),
+                // });
+
+                this.props.socket_connection.emit("PAYMENT_REQUEST", {
+                    authKey: localStorage.getItem('authKey'),
+                    vendor_id: localStorage.getItem('vendor_id'),
+                    table_id: localStorage.getItem('table_id'),
                 });
-            } else {
+            }
+            
+            apiCall.initiatePaymentRequest({}).then((r) => {
+                Swal.fire(
+                    'REQUESTING PAYMENT ..',
+                    'HOPE YOU ENJOYED THE FOOD!',
+                    'success'
+                );
+                Promise.all([
+                    this.props.callCartDetailsApi(),
+                    this.props.getMenuApi()
+                ]);
+                
+            });
+            // } 
+            // else {
                 // take to sign up page
-                console.log('guest login complete');
+                // console.log('guest login complete');
                 // <navigate to="/cart" />
-                this.props.navigate("/guest-login-complete");
+                // this.props.navigate("/guest-login-complete");
                 // this.props.history.push('/cart');
                 // return <Navigate to="/dashboard" replace={true} />
 
-            }   
+            // }   
            
         }).catch(e=>{ 
             console.log(e);
@@ -106,7 +113,7 @@ class PaymentBtn extends Component {
                                                     : ''
                                                 }
                                                 {
-                                                    !this.props.disable_payment 
+                                                    !this.props.disable_payment  && ((this.props.order_in_progress > 0 )|| (this.props.order_delivered > 0))
                                                     ?
                                                     <div className="col">
                                                         <Link to="/signup">

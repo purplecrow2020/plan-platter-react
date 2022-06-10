@@ -22,4 +22,4 @@ export const completeOrderByPayment = "v1/order/complete-order";
 export const getUserDetails = "v1/user/get-user-details";
 export const addQuickRequest = "v1/order/quick-request";
 export const guestLoginUpdate = "v1/user/guest-login-update";
-
+export const initiatePaymentRequest = "v1/order/initiate-payment-request";
