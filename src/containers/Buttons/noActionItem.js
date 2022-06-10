@@ -8,10 +8,10 @@ class NoActionItem extends Component {
 
     render() {
         return (
-            <div className="container add-btn-2" style={{width: '100px', border: '0.5px solid black'}}>
-                <div className="row d-flex"  style={{padding: '0 !important'}}>
+            <div className="container add-btn-2" style={{width: '70px', border: '0.5px solid black' }}>
+                <div className="row d-flex"  style={{padding: '0 !important', border: '0px solid red'}}>
                     <div className="col border-bottom border-top py-2 px-2" style={{ padding: '0', fontSize: '11px' }}>
-                    <span>QTY: <b>{ this.props.count || 1}</b></span>
+                    <span style={{fontSize: '8px'}}>QTY: <b>{ this.props.count || 1}</b></span>
                     </div>
                 </div>
             </div>

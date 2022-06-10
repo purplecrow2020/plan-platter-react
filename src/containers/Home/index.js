@@ -8,6 +8,8 @@ import '../CategoryAccordion/accordion.css';
 import Search from '../Search/SearchBar';
 import NavBar from '../NavBar';
 import BrowserMenu from '../BrowseMenuItems';
+import socket from '../../common/socket';
+import Swal from 'sweetalert2';  
 class Home extends Component {
 
     constructor(props){
@@ -24,6 +26,18 @@ class Home extends Component {
         this.props.getBestSellerApi();
         this.props.callCartDetailsApi();
         this.props.getUserDetails();
+        socket.emit("WELCOME_BY_USER");
+        socket.on("WELCOME", () => {
+            console.log("aaaaaasaksdasdasdasdnasndasndasndnasdnsadnandasdansdansdnasndasndasndansknsnadas");
+            // console.log('asasdasdasdasdasdas-das-d-asd-asd-asd-as-das-das-da-sd-asd-as-das-das-das-da-sda-sda-s');
+            Swal.fire(`TABLE NO:  has a new order`);
+      
+            // console.log('new order is placed')
+            // this.props.callCartDetailsApi();
+            // this.props.getVendorActiveOrderDetails();
+            // this.state.audio_file.play();
+            // Swal.fire(`TABLE NO: ${data.table_id}  has a new order`);
+          });
     }
 
     setAccordionRefs = (refrences) => {

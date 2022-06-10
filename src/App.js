@@ -19,6 +19,10 @@ import Account from './containers/Account';
 import Onboarding from './components/Onboarding';
 import Screenshot from './components/Screenshot';
 import GuestLoginComplete from './containers/guestLoginComplete';
+import socket from './common/socket';
+import Swal from 'sweetalert2';  
+
+
 //import CartBody from './components/cart/CartBody';
 
 class App extends Component {
@@ -36,6 +40,11 @@ class App extends Component {
     if (authKey && authKey.length > 0) {
       this.props.setAuth();
     }
+
+    socket.on(`ACTIVE_ORDER_ON_TABLE_BY_PEER`, () => {
+      Swal.fire(`TABLE NO has a new order`);
+      this.props.setOrderActiveByPeer()
+    })
   }
   render() {
     return (
@@ -71,13 +80,16 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  
+  return  {
+    is_order_active_by_peer: state.is_order_active_by_peer,
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     getVendorDetailsApi : () => dispatch(actionCreators.getVendorDetailsApi()),
-    setAuth: () => dispatch({type: 'SET_AUTH_FLAG', payload: { response: {flag: true}}})
+    setAuth: () => dispatch({type: 'SET_AUTH_FLAG', payload: { response: {flag: true}}}),
+    setOrderActiveByPeer: () => dispatch(actionCreators.initiateOrderByPeerOnTable())
   }
 }
 

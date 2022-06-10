@@ -852,6 +852,11 @@ font-size: 10px;
 
 /* AddBtn2 */
 
+
+.add-btn-2 {
+  background-color: #fff;
+}
+
 .add-btn-2 a{
 text-decoration: none;
 color: #60b246;

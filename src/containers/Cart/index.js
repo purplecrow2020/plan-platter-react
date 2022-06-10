@@ -14,7 +14,9 @@ import RestaurantDetails from '../restaurantDetail';
 import BrowserMenu from '../browserMenu';
 import SaveBillImg from '../../images/save.png';
 import withCartHook from '../../components/Cart';
-const { saveAs } = require('file-saver');
+import Swal from 'sweetalert2';
+const { saveAs } = require('file-saver');  
+
 class Cart extends Component {
 
 
@@ -78,12 +80,12 @@ class Cart extends Component {
                 //  this.props.cartDetails && this.props.cartDetails.details  ?
                 this.props.cartDetails && this.props.cartDetails.details && ((this.props.cartDetails.details.to_order && this.props.cartDetails.details.to_order.length > 0) || (this.props.cartDetails.details.in_progress && this.props.cartDetails.details.in_progress.length > 0) || (this.props.cartDetails.details.completed && this.props.cartDetails.details.completed.length > 0) ) ?
                     <><RestaurantDetails details={this.props.vendorDetails} /><div className="row cd-heading-4 pt-2 pb-3 pl-3 my-3" style={{ background: '#916BBF', borderRadius: '15px' }}>
-                            <div>
+                            <div style={{paddingBottom: '10px'}}>
                                 <span className='cd-heading-00'>₹{this.props.cartDetails && this.props.cartDetails.total_bill}</span>
                                 <span className='cd-text-00'>&nbsp; TOTAL</span>
                             </div>
                             <div className="lh-1 ">
-                                <a href='#' className='cd-text-1 text-decoration-none' style={{ color: '#3D087B' }}>VIEW DETAILED BILL <i class="fas fa-chevron-down text-start pl-1" /></a>
+                             
                             </div>
                         </div></> : ''
                }
@@ -141,7 +143,9 @@ class Cart extends Component {
                     <PaymentBtn
                             to_order={this.props.cartDetails && this.props.cartDetails.details && this.props.cartDetails.details.to_order && this.props.cartDetails.details.to_order.length} 
                             order_in_progress={this.props.cartDetails &&  this.props.cartDetails.details && this.props.cartDetails.details.in_progress && this.props.cartDetails.details.in_progress.length} 
-                            order_delivered={this.props.cartDetails &&  this.props.cartDetails.details && this.props.cartDetails.details.completed && this.props.cartDetails.details.completed.length}  disable_payment={true}/>
+                            order_delivered={this.props.cartDetails &&  this.props.cartDetails.details && this.props.cartDetails.details.completed && this.props.cartDetails.details.completed.length}  
+                            is_order_active_by_peer= {this.props.is_order_active_by_peer}
+                            disable_payment={true}/>
                     </div> <br></br></React.Fragment>:''
                     
                 }
@@ -309,9 +313,9 @@ class Cart extends Component {
                                     </div> */}
                                 </div>
                                 <div className="row cd-text-2">
-                                    <div className="col-10">Texes and Charges &nbsp; <i class="fas fa-info-circle cd-icon-5" style={{ background: '#fff' }}></i></div>
+                                    <div className="col-10">Additional Charges &nbsp; <i class="fas fa-info-circle cd-icon-5" style={{ background: '#fff' }}></i></div>
                                     <div className="col-2 d-flex justify-content-end">
-                                        ₹50
+                                        ₹0
                                     </div>
                                 </div>
 
@@ -319,13 +323,15 @@ class Cart extends Component {
 
                                 <div className="row cd-heading-4">
                                     <div className="col-10">To Pay</div>
-                                    <div className="col-2 d-flex justify-content-end">₹{this.props.cartDetails && this.props.cartDetails.total_bill - this.props.cartDetails.total_discount + 50}</div>
+                                    <div className="col-2 d-flex justify-content-end">₹{this.props.cartDetails && this.props.cartDetails.total_bill - this.props.cartDetails.total_discount + 0}</div>
                                 </div>
                             </div>
                         </div><hr /><PaymentBtn
                             to_order={this.props.cartDetails && this.props.cartDetails.details && this.props.cartDetails.details.to_order && this.props.cartDetails.details.to_order.length} 
                             order_in_progress={this.props.cartDetails &&  this.props.cartDetails.details && this.props.cartDetails.details.in_progress && this.props.cartDetails.details.in_progress.length} 
-                            order_delivered={this.props.cartDetails &&  this.props.cartDetails.details && this.props.cartDetails.details.completed && this.props.cartDetails.details.completed.length} /></>:''
+                            order_delivered={this.props.cartDetails &&  this.props.cartDetails.details && this.props.cartDetails.details.completed && this.props.cartDetails.details.completed.length} 
+                            is_order_active_by_peer= {this.props.is_order_active_by_peer}
+                            /></>:''
 
                 }
                 </div>
@@ -340,12 +346,14 @@ const mapStateToProps = (state) => {
     return {
         cartDetails: state.cartDetails,
         vendorDetails: state.vendor_details,
+        is_order_active_by_peer: state.is_order_active_by_peer,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         callCartDetailsApi: () => dispatch(actionCreators.getCartDetails()),
+        setOrderActiveByPeer: () => dispatch(actionCreators.initiateOrderByPeerOnTable())
     }
 }
 

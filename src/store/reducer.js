@@ -9,7 +9,8 @@ const initialState  = {
     },
     menu_item_search_results: [],
     is_authenticated: false,
-    order_history: []
+    order_history: [],
+    is_order_active_by_peer: false,
 }
 
 export const rootReducer = (state=initialState, action) =>{
@@ -64,6 +65,11 @@ export const rootReducer = (state=initialState, action) =>{
             return {
                 ...state, 
                 user_details: action.payload.response.data.data,
+            }
+        case 'INITIATE_ACTIVE_ORDER_ON_TABLE_BY_PEER':
+            return {
+                ...state, 
+                is_order_active_by_peer: true,
             }
         default:
             return state;

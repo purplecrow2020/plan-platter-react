@@ -35,6 +35,11 @@ class PaymentBtn extends Component {
             console.log(res);
             if(typeof details.mobile !== 'undefined' && details.mobile != null && details.mobile.length > 0) {
                 console.log('mobile nnumber exists');
+                socket.emit("CLEAR_TABLE", {
+                    authKey: localStorage.getItem('authKey'),
+                    vendor_id: localStorage.getItem('vendor_id'),
+                    table_id: localStorage.getItem('table_id'),
+                });
                 apiCall.completeOrder({}).then((r) => {
                     Swal.fire(
                         'PAID',
@@ -64,56 +69,61 @@ class PaymentBtn extends Component {
 
     render() {
         return (
-            <div className='container' style={{maxWidth: '500px'}}>
-                <div className="row">
-                    <div className="col" >
-                        <section>
-                            <div className="pb-4">
-                                <div className="row my-2">
-                                    {
-                                        this.props.to_order && (this.props.order_in_progress || this.props.order_delivered) && this.props.disable_payment 
-                                        ? 
-                                        <div className="col" >
-                                            <Link to="/login">
-                                                <button className=" sec-btn border-0 py-3" style={{ color: '#000000', background: '#FEF5ED', border:'10px solid black' }} onClick={this.placeOrder}>PLACE ORDER</button>
-                                            </Link>
+            <React.Fragment>
+                {
+                    !this.props.is_order_active_by_peer ? 
+                    <div className='container' style={{maxWidth: '500px'}}>
+                        <div className="row">
+                                <div className="col" >
+                                    <section>
+                                        <div className="pb-4">
+                                            <div className="row my-2">
+                                                {
+                                                    this.props.to_order && (this.props.order_in_progress || this.props.order_delivered) && this.props.disable_payment 
+                                                    ? 
+                                                    <div className="col" >
+                                                        <Link to="/login">
+                                                            <button className=" sec-btn border-0 py-3" style={{ color: '#000000', background: '#FEF5ED', border:'10px solid black' }} onClick={this.placeOrder}>PLACE ORDER</button>
+                                                        </Link>
+                                                    </div>
+                                                    : ''
+                                                }
+                                                {
+                                                    this.props.to_order && !(this.props.order_in_progress || this.props.order_delivered) && !this.props.disable_payment 
+                                                    ?  
+                                                    <div className="col" >
+                                                        <Link to="/login">
+                                                            <button className=" sec-btn border-0 py-3" style={{ color: '#000000', background: '#FEF5ED', border:'10px solid black' }} onClick={this.placeOrder}>PLACE ORDER</button>
+                                                        </Link>
+                                                    </div>
+                                                    : ''
+                                                }
+                                                {
+                                                    !this.props.disable_payment 
+                                                    ?
+                                                    <div className="col">
+                                                        <Link to="/signup">
+                                                            <button className=" sec-btn border-0 py-3" style={{ color: '#ffffff', background: '#916BBF', border:'1px solid white' }} onClick={this.makePayment}>MAKE PAYMENT</button>
+                                                        </Link>
+                                                    </div>
+                                                    : ''
+                                                }
+                                            
+                                            </div>
                                         </div>
-                                        : ''
-                                    }
-                                    {
-                                        this.props.to_order && !(this.props.order_in_progress || this.props.order_delivered) && !this.props.disable_payment 
-                                        ?  
-                                        <div className="col" >
-                                            <Link to="/login">
-                                                <button className=" sec-btn border-0 py-3" style={{ color: '#000000', background: '#FEF5ED', border:'10px solid black' }} onClick={this.placeOrder}>PLACE ORDER</button>
-                                            </Link>
-                                        </div>
-                                        : ''
-                                    }
-                                    {
-                                        !this.props.disable_payment 
-                                        ?
-                                        <div className="col">
-                                            <Link to="/signup">
-                                                <button className=" sec-btn border-0 py-3" style={{ color: '#ffffff', background: '#916BBF', border:'1px solid white' }} onClick={this.makePayment}>MAKE PAYMENT</button>
-                                            </Link>
-                                        </div>
-                                        : ''
-                                    }
-                                   
+                                    </section>
                                 </div>
                             </div>
-                        </section>
-                    </div>
-                </div>
-                </div>
+                        </div>:<></>
+                }
+            </React.Fragment>
         )
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-
+        is_order_active_by_peer: state.is_order_active_by_peer,
     }
 }
 

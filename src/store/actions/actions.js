@@ -83,5 +83,12 @@ export const getUserDetails = () => {
     }
 }
 
+export const initiateOrderByPeerOnTable = () => {
+    console.log("YES INITIATED THE ORDER BY PEER");
+    return async (dispatch) => {
+        dispatch({type : 'INITIATE_ACTIVE_ORDER_ON_TABLE_BY_PEER', payload : {}});
+    }
+}
+
 
 
