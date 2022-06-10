@@ -123,6 +123,11 @@ export const completeOrder = async (req_data) => {
     return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.completeOrderByPayment}`, req_data, {headers: {'x-auth-token': authKey}});
 }
 
+export const initiatePaymentRequest = async (req_data) => {
+    const authKey = localStorage.getItem('authKey');
+    return axios.post(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.initiatePaymentRequest}`, req_data, {headers: {'x-auth-token': authKey}});
+}
+
 export const getUserDetails = async () => {
     const authKey = localStorage.getItem('authKey');
     return axios.get(`${API_ENPOINTS.baseUrl}${API_ENPOINTS.getUserDetails}`, {headers: {'x-auth-token': authKey}});
