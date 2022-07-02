@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/actions';
 import Swal from 'sweetalert2';
 // import  { Navigate } from 'react-router-dom';
+import socketIOClient from 'socket.io-client';
+import socketEndpoint from '../../common/socket';
 import { withRouter } from '../../components/RouterWrapper';
 class PaymentBtn extends Component {
 
@@ -18,7 +20,23 @@ class PaymentBtn extends Component {
                 vendor_id: localStorage.getItem('vendor_id'),
                 table_id: localStorage.getItem('table_id'),
             });
+        } else {
+            const socket_connection = socketIOClient(socketEndpoint, {
+                query: `connected_user_type=user&vendor_id=${localStorage.getItem('vendor_id')}&auth=${localStorage.getItem('authKey')}&table_id=${localStorage.getItem('table_id')}`
+            });
+            this.props.setSocketConnection(socket_connection);
+            socket_connection.emit('ORDER_FOOD', {
+                authKey: localStorage.getItem('authKey'),
+                vendor_id: localStorage.getItem('vendor_id'),
+                table_id: localStorage.getItem('table_id'),
+            });
         }
+
+        // socketEndpoint.emit('ORDER_FOOD', {
+        //             authKey: localStorage.getItem('authKey'),
+        //             vendor_id: localStorage.getItem('vendor_id'),
+        //             table_id: localStorage.getItem('table_id'),
+        //         });
        
 
             Swal.fire(
@@ -146,6 +164,8 @@ const mapDispatchToProps = (dispatch) => {
     return {
         callCartDetailsApi: () => dispatch(actionCreators.getCartDetails()),
         getMenuApi : () => dispatch(actionCreators.getMenuApi()),
+        setSocketConnection: (s) =>  dispatch(actionCreators.setSocketConnection(s)),
+
     }
 }
 

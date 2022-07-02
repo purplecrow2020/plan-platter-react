@@ -1,6 +1,6 @@
 // export const baseUrl = "https://plan-platter-backend.herokuapp.com/";
-// export const baseUrl = "http://localhost:9000/";
-export const baseUrl = "http://54.211.138.255:9000/";
+export const baseUrl = "http://localhost:9000/";
+// export const baseUrl = "http://54.211.138.255:9000/";
 
 
 

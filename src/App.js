@@ -40,13 +40,18 @@ class App extends Component {
     if (authKey && authKey.length > 0) {
       this.props.setAuth();
     }
-    // if (this.props.socket_connection !== null) {
+
+    // if app is reloaded socket connection might go null
+    // 1. check if the local storage keys of auth are there stored in the local storage
+    // 2. make a connection and set in the reducer there.
+
+    if (this.props.socket_connection !== null) {
       this.props.socket_connection && this.props.socket_connection.on('ACTIVE_ORDER_ON_TABLE_BY_PEER', (event, data) => {
         console.log("SOMEONE HAS ORDERED THE FOOOOOOOOD .....")
         Swal.fire(`TABLE NO has a new order`);
-        this.props.setOrderActiveByPeer()
+        this.props.setOrderActiveByPeer();
       })
-    // }
+    }
     
   }
 
@@ -54,7 +59,7 @@ class App extends Component {
     if (this.props.socket_connection !== null) {
       this.props.socket_connection.on('ACTIVE_ORDER_ON_TABLE_BY_PEER', (event, data) => {
         console.log("SOMEONE HAS ORDERED THE FOOOOOOOOD .....")
-        Swal.fire(`TABLE NO has a new order`);
+        // Swal.fire(`TABLE NO has a new order`);
         this.props.setOrderActiveByPeer()
       })
     }

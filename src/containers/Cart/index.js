@@ -44,7 +44,7 @@ class Cart extends Component {
                 // Swal.fire(`TABLE NO: ${data.table_id}  has a new order`);
             })
         }
-        
+        console.log(' yes i am there in the  cart page ');
     }
 
 
@@ -78,6 +78,7 @@ class Cart extends Component {
         return (
             <div className="container" style={{ maxWidth: '500px', marginBottom: '150px' }} ref={this.cartRef}>
                {/* restaurantDetail */}
+               <PaymentBtn />
                {
                 //  this.props.cartDetails && this.props.cartDetails.details  ?
                 this.props.cartDetails && this.props.cartDetails.details && ((this.props.cartDetails.details.to_order && this.props.cartDetails.details.to_order.length > 0) || (this.props.cartDetails.details.in_progress && this.props.cartDetails.details.in_progress.length > 0) || (this.props.cartDetails.details.completed && this.props.cartDetails.details.completed.length > 0) ) ?
