@@ -62,9 +62,18 @@ class PaymentBtn extends Component {
                 //     authKey: localStorage.getItem('authKey'),
                 //     vendor_id: localStorage.getItem('vendor_id'),
                 //     table_id: localStorage.getItem('table_id'),
-                // });
-
-                this.props.socket_connection.emit("PAYMENT_REQUEST", {
+                // })
+                this.props.socket_connection.emit("PAYMENT_COLLECTION_REQUEST", {
+                    authKey: localStorage.getItem('authKey'),
+                    vendor_id: localStorage.getItem('vendor_id'),
+                    table_id: localStorage.getItem('table_id'),
+                });
+            } else  {
+                const socket_connection = socketIOClient(socketEndpoint, {
+                    query: `connected_user_type=user&vendor_id=${localStorage.getItem('vendor_id')}&auth=${localStorage.getItem('authKey')}&table_id=${localStorage.getItem('table_id')}`
+                });
+                this.props.setSocketConnection(socket_connection);
+                socket_connection.emit('PAYMENT_COLLECTION_REQUEST', {
                     authKey: localStorage.getItem('authKey'),
                     vendor_id: localStorage.getItem('vendor_id'),
                     table_id: localStorage.getItem('table_id'),
