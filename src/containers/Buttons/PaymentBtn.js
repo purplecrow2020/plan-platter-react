@@ -12,43 +12,55 @@ import { withRouter } from '../../components/RouterWrapper';
 class PaymentBtn extends Component {
 
     placeOrder = () => {
-        apiCall.orderAddItems({}).then((r)=>{
-
-        if (this.props.socket_connection !== null) {
-            this.props.socket_connection.emit('ORDER_FOOD', {
-                authKey: localStorage.getItem('authKey'),
-                vendor_id: localStorage.getItem('vendor_id'),
-                table_id: localStorage.getItem('table_id'),
-            });
-        } else {
-            const socket_connection = socketIOClient(socketEndpoint, {
-                query: `connected_user_type=user&vendor_id=${localStorage.getItem('vendor_id')}&auth=${localStorage.getItem('authKey')}&table_id=${localStorage.getItem('table_id')}`
-            });
-            this.props.setSocketConnection(socket_connection);
-            socket_connection.emit('ORDER_FOOD', {
-                authKey: localStorage.getItem('authKey'),
-                vendor_id: localStorage.getItem('vendor_id'),
-                table_id: localStorage.getItem('table_id'),
-            });
-        }
-
-        // socketEndpoint.emit('ORDER_FOOD', {
-        //             authKey: localStorage.getItem('authKey'),
-        //             vendor_id: localStorage.getItem('vendor_id'),
-        //             table_id: localStorage.getItem('table_id'),
-        //         });
-       
-
-            Swal.fire(
-                'WOOOHOOO!',
-                'ORDER HAS BEEN PLACED!',
-                'success'
-            );
-            Promise.all([
-                this.props.callCartDetailsApi(),
-                this.props.getMenuApi()
-            ]);
-        });
+        apiCall.getUserDetails().then((res)=>{
+            const details = res.data.data;
+            if(typeof details.mobile !== 'undefined' && details.mobile != null && details.mobile.length > 0) {
+                apiCall.orderAddItems({}).then((r)=>{
+                    if (this.props.socket_connection !== null) {
+                        this.props.socket_connection.emit('ORDER_FOOD', {
+                            authKey: localStorage.getItem('authKey'),
+                            vendor_id: localStorage.getItem('vendor_id'),
+                            table_id: localStorage.getItem('table_id'),
+                        });
+                    } else {
+                        const socket_connection = socketIOClient(socketEndpoint, {
+                            query: `connected_user_type=user&vendor_id=${localStorage.getItem('vendor_id')}&auth=${localStorage.getItem('authKey')}&table_id=${localStorage.getItem('table_id')}`
+                        });
+                        this.props.setSocketConnection(socket_connection);
+                        socket_connection.emit('ORDER_FOOD', {
+                            authKey: localStorage.getItem('authKey'),
+                            vendor_id: localStorage.getItem('vendor_id'),
+                            table_id: localStorage.getItem('table_id'),
+                        });
+                    }
+            
+                    // socketEndpoint.emit('ORDER_FOOD', {
+                    //             authKey: localStorage.getItem('authKey'),
+                    //             vendor_id: localStorage.getItem('vendor_id'),
+                    //             table_id: localStorage.getItem('table_id'),
+                    //         });
+                   
+            
+                        Swal.fire(
+                            'WOOOHOOO!',
+                            'ORDER HAS BEEN PLACED!',
+                            'success'
+                        );
+                        Promise.all([
+                            this.props.callCartDetailsApi(),
+                            this.props.getMenuApi()
+                        ]);
+                    });
+            } else {
+                this.props.navigate("/guest-login-complete");
+            }
+        }).catch(e=>{
+            console.log(e);
+        })
+         // / <navigate to="/cart" />
+                // this.props.navigate("/guest-login-complete");
+                // this.props.history.push('/cart');
+                // return <Navigate to="/dashboard" replace={true} />
     }
 
     makePayment = () => {

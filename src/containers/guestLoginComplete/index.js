@@ -6,6 +6,10 @@ import  { Navigate } from 'react-router-dom'
 import * as actionCreators from '../../store/actions/actions';
 import Swal from 'sweetalert2';
 import firebase from '../Signup/firebaseConfig';
+import socketIOClient from 'socket.io-client';
+import socketEndpoint from '../../common/socket';
+import * as apiCall from '../../store/actions/apiCall';
+import { withRouter } from '../../components/RouterWrapper';
 
 
 class Signup extends Component {
@@ -43,18 +47,57 @@ class Signup extends Component {
     }
 
     onSubmitHandler = () => {
+        // this.props.navigate("/home");
         this.props.guestLogin({
             mobile: this.state.mobile,
             password: this.state.password,
         }).then((r)=>{
-            this.setState({
-                paymentDone: true,
-            })
-            Swal.fire(
-                'PAYMENT DOLNE!',
-                'SUCCESS!',
-                'success'
-            )
+        apiCall.orderAddItems({}).then((r)=>{
+            if (this.props.socket_connection !== null) {
+                this.props.socket_connection.emit('ORDER_FOOD', {
+                    authKey: localStorage.getItem('authKey'),
+                    vendor_id: localStorage.getItem('vendor_id'),
+                    table_id: localStorage.getItem('table_id'),
+                });
+            } else {
+                const socket_connection = socketIOClient(socketEndpoint, {
+                    query: `connected_user_type=user&vendor_id=${localStorage.getItem('vendor_id')}&auth=${localStorage.getItem('authKey')}&table_id=${localStorage.getItem('table_id')}`
+                });
+                this.props.setSocketConnection(socket_connection);
+                socket_connection.emit('ORDER_FOOD', {
+                    authKey: localStorage.getItem('authKey'),
+                    vendor_id: localStorage.getItem('vendor_id'),
+                    table_id: localStorage.getItem('table_id'),
+                });
+            }
+
+    
+            // socketEndpoint.emit('ORDER_FOOD', {
+            //             authKey: localStorage.getItem('authKey'),
+            //             vendor_id: localStorage.getItem('vendor_id'),
+            //             table_id: localStorage.getItem('table_id'),
+            //         });
+            
+                this.props.navigate("/home");
+                Swal.fire(
+                    'WOOOHOOO!',
+                    'ORDER HAS BEEN PLACED!',
+                    'success'
+                );
+                
+                Promise.all([
+                    this.props.callCartDetailsApi(),
+                    this.props.getMenuApi()
+                ]);
+            });
+            // this.setState({
+            //     paymentDone: true,
+            // })
+            // Swal.fire(
+            //     'PAYMENT DOLNE!',
+            //     'SUCCESS!',
+            //     'success'
+            // )
 
         }).catch(err=>{
             Swal.fire(
@@ -141,7 +184,7 @@ class Signup extends Component {
                     <div className='col'>
                         <div class="form-floating mb-2">
                             <input type="email" class="form-control rounded-1" id="floatingInput" placeholder="name@example.com"  name="mobile" onChange={this.onChangeHandler} />
-                            <button id="clear" style={{position:'absolute', top: '0px', right: '1px', height: '95%', background: this.state.mobile_number_verified ? 'green' : 'rgb(200,200,200)' , border: 'none', margin:'1px', borderLeft: '0px solid red', width: '40px'}} onClick={this.verifyMobileNumber}><i className="fa fa-check" aria-hidden="true"></i></button>
+                            <button id="clear" style={{position:'absolute', top: '0px', right: '1px', height: '95%', background: this.state.mobile_number_verified ? 'green' : 'rgb(200,200,200)' , border: 'none', margin:'1px', borderLeft: '0px solid red', width: '40px'}} onClick={this.verifyMobileNumber}><i className="fa fa-check" aria-hidden="true"></i> <b>OTP</b> </button>
                             <label for="floatingInput" className='ct-text'>Phone Number</label>
                             {/* <button  class="btn btn-primary mobile_confirmation_button" onClick={this.verifyMobileNumber} disa  bled={this.state.verification_button_disable} >{'Verify my mobile number'}</button> */}
                         </div>
@@ -163,7 +206,7 @@ class Signup extends Component {
                             {
                                 this.state.isSubmitButtonEnabled 
                                 ? <button className=' btn btn-lg btn-success rounded-1 border-0'  style={{ background: '#916BBF' }} onClick={this.onSubmitHandler}>CONTINUE</button>
-                                : <button className=' btn btn-lg btn-success rounded-1 border-0'  style={{ background: 'rgb(221,221,221)' }} onClick={this.onSubmitHandler}  disabled={true}>CONTINUE</button>
+                                : <button className=' btn btn-lg btn-success rounded-1 border-0'  style={{ background: 'rgb(221,221,221)' }} onClick={this.onSubmitHandler}  disabled={false}>CONTINUE</button>
                             }
                        
                         
@@ -181,14 +224,19 @@ class Signup extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        isAuthenticated: state.isAuthenticated
+        isAuthenticated: state.isAuthenticated,
+        socket_connection: state.socket_connection,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return { 
-        guestLogin: (req_data) => dispatch(actionCreators.guestLogin(req_data))
+    return {
+        callCartDetailsApi: () => dispatch(actionCreators.getCartDetails()),
+        getMenuApi : () => dispatch(actionCreators.getMenuApi()), 
+        guestLogin: (req_data) => dispatch(actionCreators.guestLogin(req_data)),
+        setSocketConnection: (s) =>  dispatch(actionCreators.setSocketConnection(s)),
+
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Signup);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Signup));
