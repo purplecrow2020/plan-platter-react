@@ -73,6 +73,18 @@ class Cart extends Component {
         this.props.takeScreenshot(this.cartRef.current).then(this.download);
     }
 
+    getTotalAmountToDisplay = (details) => {
+        console.log('dddd- -  - - - - - - - -- - -- - - degsilll ----', details.total_discount, details.total_bill);
+        if (details) {
+            if (details.total_bill && !Number.isNaN(parseFloat(details.total_discount))) {
+                return parseFloat(details.total_bill) - parseFloat(details.total_discount);
+            } else {
+                return details.total_bill;
+            }
+        }
+        return details.total_bill;
+    }
+
 
     render() {
         return (
@@ -84,7 +96,27 @@ class Cart extends Component {
                 this.props.cartDetails && this.props.cartDetails.details && ((this.props.cartDetails.details.to_order && this.props.cartDetails.details.to_order.length > 0) || (this.props.cartDetails.details.in_progress && this.props.cartDetails.details.in_progress.length > 0) || (this.props.cartDetails.details.completed && this.props.cartDetails.details.completed.length > 0) ) ?
                     <><RestaurantDetails details={this.props.vendorDetails} /><div className="row cd-heading-4 pt-2 pb-3 pl-3 my-3" style={{ background: '#916BBF', borderRadius: '15px' }}>
                             <div style={{paddingBottom: '10px'}}>
-                                <span className='cd-heading-00'>₹{this.props.cartDetails && this.props.cartDetails.total_bill}</span>
+                                
+
+
+                            {/* <div className="row cd-text-2">
+                                    <div className="col-10 ">Item Total</div>
+                                    <div className="col-2 d-flex justify-content-end">₹{this.props.cartDetails && this.props.cartDetails.total_bill}</div>
+                                </div>
+                                <div className="row cd-text-2" style={{marginTop: '3px'}}>
+                                    <div className="col-10 ">Discount</div>
+                                    <div className="col-2 d-flex justify-content-end">₹{this.props.cartDetails && this.props.cartDetails.total_discount}</div>
+
+                                     */}
+
+
+
+
+
+                                {/* <span className='cd-heading-00'>₹{this.props.cartDetails && this.props.cartDetails.total_bill}</span> */}
+                                {/* this.props.cartDetails && this.props.cartDetails.total_bill && this.props.cartDetails.total_discount  */}
+                                <span className='cd-heading-00'>₹{this.getTotalAmountToDisplay(this.props.cartDetails)}</span>
+
                                 <span className='cd-text-00'>&nbsp; TOTAL</span>
                             </div>
                             <div className="lh-1 ">
