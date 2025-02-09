@@ -1,13 +1,13 @@
 import firebase from 'firebase';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBxAlDLX8TzIYch_GR7Jsmjtd195d7z8Vw",
-  authDomain: "plan-platter.firebaseapp.com",
-  projectId: "plan-platter",
-  storageBucket: "plan-platter.appspot.com",
-  messagingSenderId: "44319218709",
-  appId: "1:44319218709:web:eb84d82cc5d4d7d78c821c",
-  measurementId: "G-V6DVHND11J"
+  apiKey: "AIzaSyD7Bwpki9wZSuky0hW5e3PmhLuWR1hT1LI",
+  authDomain: "plan-n-platter.firebaseapp.com",
+  projectId: "plan-n-platter",
+  storageBucket: "plan-n-platter.firebasestorage.app",
+  messagingSenderId: "807690369273",
+  appId: "1:807690369273:web:6fbe4c8cd30e33392c0a28",
+  measurementId: "G-LK5RE0LNF5"
 };
 
 
